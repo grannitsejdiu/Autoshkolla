@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.admin.autoshkolla">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LigjerataActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TestetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Testet.TestFormActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Testet.TestResultsFormActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SinjalizimiHorizontal.SinjalizimiHorizontalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ShenjatPolicit.Shenjat_Policit_Activity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Nocionet.Nocionet_Activity" />
+        <activity android:name=".Ligjeratat.Ligjeratat_Activity" />
+        <activity android:name=".SinjalizimiVertikal.Sinjalizimi_Vertikal_Activity"></activity>
+    </application>
+
+</manifest>

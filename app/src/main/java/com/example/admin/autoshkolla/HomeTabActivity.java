@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.admin.autoshkolla.Ligjeratat.Ligjeratat_Activity;
 import com.example.admin.autoshkolla.Testet.TestFormActivity;
 import com.example.admin.autoshkolla.Testet.TestResultsFormActivity;
 
@@ -35,7 +36,7 @@ public class HomeTabActivity extends android.support.v4.app.Fragment{
         cardViewLiteratura.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), LigjerataActivity.class);
+                Intent intent = new Intent(getActivity(), Ligjeratat_Activity.class);
                 startActivity(intent);
             }
         });
@@ -57,7 +58,6 @@ public class HomeTabActivity extends android.support.v4.app.Fragment{
                 startActivity(intent);
             }
         });
-
 
     }
 }

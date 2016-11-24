@@ -2,11 +2,13 @@ package com.example.admin.autoshkolla.Testet;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -65,6 +67,7 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
                 Picasso.with(context).load(q.image.getUrl()).into(holder.questionImage);
             }
         }
+
 
         holder.questionFirstAlternative.setOnCheckedChangeListener(null);
         holder.questionSecondAlternative.setOnCheckedChangeListener(null);
@@ -129,8 +132,6 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
             questionFirstAlternative = (CheckBox) itemView.findViewById(R.id.questionFirstAlternative);
             questionSecondAlternative = (CheckBox) itemView.findViewById(R.id.questionSecondAlternative);
             questionThirdAlternative = (CheckBox) itemView.findViewById(R.id.questionThirdAlternative);
-
-
 
         }
     }

@@ -81,6 +81,14 @@ public class TestFormActivity extends AppCompatActivity {
                 else{
                     testFormPreviousQuestion.setVisibility(View.VISIBLE);
                 }
+
+                if ((position == layoutManager.getItemCount()-2) || (position==layoutManager.getItemCount()-1)){
+                    testFormNextQuestion.setText("Shiko Rezultati");
+                }
+                else {
+                    testFormNextQuestion.setText("Para");
+                }
+
                 return targetPosition;
             }
         };
@@ -118,6 +126,14 @@ public class TestFormActivity extends AppCompatActivity {
                     testFormPreviousQuestion.setVisibility(View.VISIBLE);
                 }
 
+
+                if ((position == layoutManager.getItemCount()-2) || (position==layoutManager.getItemCount()-1)){
+                    testFormNextQuestion.setText("Shiko Rezultati");
+                }
+                else {
+                    testFormNextQuestion.setText("Para");
+                }
+
             }
         });
 
@@ -141,6 +157,13 @@ public class TestFormActivity extends AppCompatActivity {
                 }
                 else{
                     testFormPreviousQuestion.setVisibility(View.VISIBLE);
+                }
+
+                if ((position == layoutManager.getItemCount()-2) || (position==layoutManager.getItemCount()-1)){
+                    testFormNextQuestion.setText("Shiko Rezultati");
+                }
+                else {
+                    testFormNextQuestion.setText("Para");
                 }
 
             }

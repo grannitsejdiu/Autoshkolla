@@ -4,10 +4,12 @@ package com.example.admin.autoshkolla;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.example.admin.autoshkolla.Models.Exam;
 import com.example.admin.autoshkolla.Models.Question;
@@ -28,16 +30,21 @@ public class ExamsRecyclerAdapter extends RecyclerView.Adapter<ExamsRecyclerAdap
      class ViewHolder extends RecyclerView.ViewHolder {
 
          public int currentItem;
-         public ImageView cardviewItemImage;
+         public TextView cardviewItemImage;
          public TextView cardviewItemTitle;
          public TextView getCardviewItemDescription;
 
          public ViewHolder(final View itemView) {
              super(itemView);
 
-             cardviewItemImage = (ImageView) itemView.findViewById(R.id.cardviewItemImage);
+
+
+             cardviewItemImage = (TextView) itemView.findViewById(R.id.cardviewItemImage);
              cardviewItemTitle = (TextView) itemView.findViewById(R.id.cardviewTitle);
              getCardviewItemDescription = (TextView) itemView.findViewById(R.id.cardviewDescription);
+
+
+
 
              itemView.setOnClickListener(new View.OnClickListener() {
                  @Override
@@ -81,7 +88,8 @@ public class ExamsRecyclerAdapter extends RecyclerView.Adapter<ExamsRecyclerAdap
 
         holder.cardviewItemTitle.setText(e.name);
         holder.getCardviewItemDescription.setText(q.name);
-        holder.cardviewItemImage.setImageResource(R.drawable.questions);
+        holder.cardviewItemImage.setText("#");
+
     }
 
 

@@ -1,6 +1,7 @@
 package com.example.admin.autoshkolla.Testet;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,11 +24,20 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
 
     private Context context;
     private List<Question> questions = new ArrayList<Question>();
+//    private PackageManager pm;
+//    ArrayList<Boolean> positionArray;
 
 
     public TestFormRecyclerAdapter(List<Question> qs, Context cx){
         questions = qs;
         context = cx;
+
+//        pm = context.getPackageManager();
+//
+//        positionArray = new ArrayList<Boolean>(questions.size());
+//        for(int i =0;i<questions.size();i++) {
+//            positionArray.add(false);
+//        }
     }
 
     @Override
@@ -40,6 +50,8 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
+        final int pos = position;
+
         final Question q = questions.get(position);
 
         holder.questionText.setText(q.name);
@@ -49,12 +61,39 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
         holder.questionImage.setImageResource(R.drawable.imageplaceholder);
 
         if (q.image != null) {
-            if (q.image.link != "") {
+            if (!q.image.link.equals("")) {
                 Picasso.with(context).load(q.image.getUrl()).into(holder.questionImage);
             }
         }
 
-        q.alternatives.get(0).userAnswer = holder.questionFirstAlternative.isChecked();
+        holder.questionFirstAlternative.setOnCheckedChangeListener(null);
+        holder.questionSecondAlternative.setOnCheckedChangeListener(null);
+        holder.questionThirdAlternative.setOnClickListener(null);
+        holder.questionFirstAlternative.setChecked(q.alternatives.get(0).userAnswer);
+        holder.questionSecondAlternative.setChecked(q.alternatives.get(1).userAnswer);
+        holder.questionThirdAlternative.setChecked(q.alternatives.get(2).userAnswer);
+
+        holder.questionFirstAlternative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                q.alternatives.get(0).userAnswer = true;
+            }
+        });
+        holder.questionSecondAlternative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                q.alternatives.get(1).userAnswer = true;
+            }
+        });
+        holder.questionThirdAlternative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                q.alternatives.get(2).userAnswer = true;
+            }
+        });
+
+
+//        q.alternatives.get(0).userAnswer = holder.questionFirstAlternative.isChecked();
         Log.e("Alt 0 User Answer: ", q.alternatives.get(0).userAnswer.toString());
 
 //        holder.questionFirstAlternative.setOnCheckedChangeListener(null);
@@ -67,7 +106,6 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
 //                q.alternatives.get(0).userAnswer = isChecked;
 //            }
 //        });
-
 
 
     }
@@ -91,6 +129,8 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
             questionFirstAlternative = (CheckBox) itemView.findViewById(R.id.questionFirstAlternative);
             questionSecondAlternative = (CheckBox) itemView.findViewById(R.id.questionSecondAlternative);
             questionThirdAlternative = (CheckBox) itemView.findViewById(R.id.questionThirdAlternative);
+
+
 
         }
     }

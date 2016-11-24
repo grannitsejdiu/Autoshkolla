@@ -57,16 +57,16 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
         q.alternatives.get(0).userAnswer = holder.questionFirstAlternative.isChecked();
         Log.e("Alt 0 User Answer: ", q.alternatives.get(0).userAnswer.toString());
 
-        holder.questionFirstAlternative.setOnCheckedChangeListener(null);
-
-        holder.questionFirstAlternative.setChecked(q.alternatives.get(0).userAnswer);
-
-        holder.questionFirstAlternative.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                q.alternatives.get(0).userAnswer = isChecked;
-            }
-        });
+//        holder.questionFirstAlternative.setOnCheckedChangeListener(null);
+//
+//        holder.questionFirstAlternative.setChecked(q.alternatives.get(0).userAnswer);
+//
+//        holder.questionFirstAlternative.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                q.alternatives.get(0).userAnswer = isChecked;
+//            }
+//        });
 
 
 

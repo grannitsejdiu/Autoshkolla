@@ -1,6 +1,7 @@
 package com.example.admin.autoshkolla.ServiceLayer;
 
 import android.app.DownloadManager;
+import android.util.Log;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -22,10 +23,12 @@ import com.loopj.android.http.*;
 
 public class ServerLayer {
     private static final String BASE_URL = "http://api.tenton.co/as/v6/public/";
+    private static final String BASE_URL_RESOURCE = BASE_URL + "images/v6/";
 
     private static AsyncHttpClient client = new AsyncHttpClient();
 
     public static void get(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
+        Log.e("1","Link : " + getAbsoluteUrl(url));
         client.get(getAbsoluteUrl(url), params, responseHandler);
     }
 
@@ -35,5 +38,8 @@ public class ServerLayer {
 
     private static String getAbsoluteUrl(String relativeUrl) {
         return BASE_URL + relativeUrl;
+    }
+    public static String getImageUrl() {
+        return BASE_URL_RESOURCE;
     }
 }

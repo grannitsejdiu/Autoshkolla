@@ -1,5 +1,6 @@
 package com.example.admin.autoshkolla.Models;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -15,6 +16,17 @@ public class Alternative {
 
     public static Alternative createFromJson(JSONObject r){
 
-        return null;
+        Alternative a = new Alternative();
+        try {
+            a.id = r.getInt("id");
+            a.name = r.getString("name");
+            a.correctAnswer = r.getInt("isTrue") == 1;
+            a.question_id = r.getInt("question_id");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return a;
     }
 }

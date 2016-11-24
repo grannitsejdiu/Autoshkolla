@@ -99,8 +99,6 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:visibility="gone"
             android:drawableLeft="@drawable/backbutton"
             android:drawableStart="@drawable/backbutton"
@@ -108,7 +106,9 @@
             android:layout_marginTop="15dp"
             android:textColor="#E2792C"
             android:textSize="20sp"
-            android:text="Prapa"/>
+            android:text="Prapa"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:id="@+id/testFormNextQuestion"
@@ -119,11 +119,11 @@
             android:layout_alignParentEnd="true"
             android:drawableRight="@drawable/nextbutton"
             android:drawableEnd="@drawable/nextbutton"
-            android:fontFamily="casual"
             android:layout_marginTop="15dp"
-            android:textColor="#E2792C"
-            android:textSize="20sp"
-            android:text="Para"/>
+            android:text="Para"
+            android:fontFamily="casual"
+            android:typeface="normal"
+            android:textSize="14sp" />
     </RelativeLayout>
 
 </RelativeLayout>

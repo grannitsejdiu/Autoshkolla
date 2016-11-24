@@ -1,24 +1,23 @@
 package com.example.admin.autoshkolla.Testet;
 
 import android.content.Intent;
-import android.graphics.PointF;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SnapHelper;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.admin.autoshkolla.Models.Exam;
+import com.example.admin.autoshkolla.Models.Question;
+import com.example.admin.autoshkolla.Models.This;
 import com.example.admin.autoshkolla.R;
-import com.example.admin.autoshkolla.RecyclerAdapter;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class TestFormActivity extends AppCompatActivity {
@@ -30,6 +29,7 @@ public class TestFormActivity extends AppCompatActivity {
     TextView testFormExamTime;
     private static final String FORMAT = "%02d:%02d";
 
+    Exam selectedExam = new Exam();
 
 
     @Override
@@ -40,12 +40,18 @@ public class TestFormActivity extends AppCompatActivity {
         recyclerView= (RecyclerView) findViewById(R.id.recyclerViewTestForm);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new TestFormRecyclerAdapter();
+
+
+        //get select index
+
+        int selectedIndex = getIntent().getIntExtra("selectExamIndex",0);
+
+        selectedExam = This.exams.get(selectedIndex);
+        adapter = new TestFormRecyclerAdapter(selectedExam.questions, getApplicationContext());
         recyclerView.setAdapter(adapter);
 
-
         testFormTitle = (TextView) findViewById(R.id.testFormTitle);
-        testFormTitle.setText("Pyetja 1/" + layoutManager.getItemCount());
+        testFormTitle.setText("Pyetja 1/" + selectedExam.questions.size());
 
 
         final LinearSnapHelper helper = new LinearSnapHelper(){
@@ -99,7 +105,7 @@ public class TestFormActivity extends AppCompatActivity {
                 final int firstItem = 0;
                 final int lastItem = layoutManager.getItemCount() - 1;
                 targetPosition = Math.min(lastItem, Math.max(targetPosition, firstItem));
-                testFormTitle.setText("Pyetja " + (targetPosition +1) + "/" + layoutManager.getItemCount());
+                testFormTitle.setText("Pyetja " + (targetPosition +1) + "/" + selectedExam.questions.size());
 
                 if (targetPosition ==0){
                     testFormPreviousQuestion.setVisibility(View.INVISIBLE);
@@ -128,7 +134,7 @@ public class TestFormActivity extends AppCompatActivity {
                 final int firstItem = 0;
                 final int lastItem = layoutManager.getItemCount() - 1;
                 targetPosition = Math.min(lastItem, Math.max(targetPosition, firstItem));
-                testFormTitle.setText("Pyetja " + (targetPosition+1) + "/" + layoutManager.getItemCount());
+                testFormTitle.setText("Pyetja " + (targetPosition+1) + "/" + selectedExam.questions.size());
 
                 if (targetPosition ==0){
                     testFormPreviousQuestion.setVisibility(View.INVISIBLE);

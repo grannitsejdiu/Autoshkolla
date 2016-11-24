@@ -4,8 +4,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.admin.autoshkolla.Models.Exam;
+import com.example.admin.autoshkolla.Models.This;
+import com.example.admin.autoshkolla.ServiceLayer.ExamsLayer;
+import com.example.admin.autoshkolla.ServiceLayer.ResponseData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestetActivity extends AppCompatActivity {
 
@@ -19,10 +28,24 @@ public class TestetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__teste);
 
+        List<Exam> es = new ArrayList<Exam>();
+
         recyclerView= (RecyclerView) findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new RecyclerAdapter();
+        adapter = new ExamsRecyclerAdapter(es);
+
+        ExamsLayer.getAllExams(new ResponseData() {
+            @Override
+            public void onSuccess(Object data) {
+                List<Exam> aa = (ArrayList<Exam>)data;
+                This.exams = aa;
+
+                recyclerView.setAdapter(new ExamsRecyclerAdapter(aa));
+            }
+        });
+
+
         recyclerView.setAdapter(adapter);
 
         backButtonTeste = (Button) findViewById(R.id.backbuttonTeste);
@@ -33,15 +56,6 @@ public class TestetActivity extends AppCompatActivity {
             }
         });
 
-        contentType = (Button) findViewById(R.id.btncontenType);
-        contentType.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                layoutManager = new LinearLayoutManager(TestetActivity.this,LinearLayoutManager.HORIZONTAL,false);
-                recyclerView.setLayoutManager(layoutManager);
-                adapter = new RecyclerAdapter();
-                recyclerView.setAdapter(adapter);
-            }
-        });
+
     }
 }

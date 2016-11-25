@@ -17,15 +17,16 @@
             <RelativeLayout
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:background="#222831">
+                android:background="@color/colorAccent">
 
-                <ImageView
+                <TextView
                     android:id="@+id/cardviewItemImage"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:textSize="30sp"
+                    android:textColor="#FFFFFF"
                     android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/questions"/>
+                    android:layout_centerVertical="true" />
             </RelativeLayout>
 
             <LinearLayout

@@ -1,11 +1,14 @@
 package com.example.admin.autoshkolla.Testet;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -40,6 +43,8 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
+        final int pos = position;
+
         final Question q = questions.get(position);
 
         holder.questionText.setText(q.name);
@@ -49,25 +54,36 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
         holder.questionImage.setImageResource(R.drawable.imageplaceholder);
 
         if (q.image != null) {
-            if (q.image.link != "") {
+            if (!q.image.link.equals("")) {
                 Picasso.with(context).load(q.image.getUrl()).into(holder.questionImage);
             }
         }
 
-        q.alternatives.get(0).userAnswer = holder.questionFirstAlternative.isChecked();
-        Log.e("Alt 0 User Answer: ", q.alternatives.get(0).userAnswer.toString());
+        holder.questionFirstAlternative.setOnCheckedChangeListener(null);
+        holder.questionSecondAlternative.setOnCheckedChangeListener(null);
+        holder.questionThirdAlternative.setOnCheckedChangeListener(null);
+        holder.questionFirstAlternative.setChecked(q.alternatives.get(0).userAnswer);
+        holder.questionSecondAlternative.setChecked(q.alternatives.get(1).userAnswer);
+        holder.questionThirdAlternative.setChecked(q.alternatives.get(2).userAnswer);
 
-//        holder.questionFirstAlternative.setOnCheckedChangeListener(null);
-//
-//        holder.questionFirstAlternative.setChecked(q.alternatives.get(0).userAnswer);
-//
-//        holder.questionFirstAlternative.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                q.alternatives.get(0).userAnswer = isChecked;
-//            }
-//        });
-
+        holder.questionFirstAlternative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                q.alternatives.get(0).userAnswer = true;
+            }
+        });
+        holder.questionSecondAlternative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                q.alternatives.get(1).userAnswer = true;
+            }
+        });
+        holder.questionThirdAlternative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                q.alternatives.get(2).userAnswer = true;
+            }
+        });
 
 
     }

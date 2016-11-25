@@ -119,11 +119,12 @@
             android:layout_alignParentEnd="true"
             android:drawableRight="@drawable/nextbutton"
             android:drawableEnd="@drawable/nextbutton"
+            android:textColor="#E2792C"
             android:layout_marginTop="15dp"
             android:text="Para"
             android:fontFamily="casual"
             android:typeface="normal"
-            android:textSize="14sp" />
+            android:textSize="20sp" />
     </RelativeLayout>
 
 </RelativeLayout>

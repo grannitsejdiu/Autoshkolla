@@ -1,5 +1,6 @@
 package com.example.admin.autoshkolla;
 
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,12 +23,13 @@ public class TestetActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
     private Button backButtonTeste, contentType;
+    private ProgressDialog pDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__teste);
-
+        
         List<Exam> es = new ArrayList<Exam>();
 
         recyclerView= (RecyclerView) findViewById(R.id.recyclerView);
@@ -35,18 +37,28 @@ public class TestetActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         adapter = new ExamsRecyclerAdapter(es);
 
+        pDialog = new ProgressDialog(TestetActivity.this);
+        pDialog.setTitle("Duke marrë testet!");
+        pDialog.setMessage("Ju lutem prisni ... ");
+        pDialog.setCancelable(false);
+        pDialog.show();
+
         ExamsLayer.getAllExams(new ResponseData() {
             @Override
             public void onSuccess(Object data) {
+
                 List<Exam> aa = (ArrayList<Exam>)data;
                 This.exams = aa;
 
                 recyclerView.setAdapter(new ExamsRecyclerAdapter(aa));
+
+                if (pDialog.isShowing()){
+                    pDialog.dismiss();
+                }
             }
         });
-
-
         recyclerView.setAdapter(adapter);
+
 
         backButtonTeste = (Button) findViewById(R.id.backbuttonTeste);
         backButtonTeste.setOnClickListener(new View.OnClickListener() {

@@ -29,6 +29,7 @@
             android:id="@+id/questionImage"
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
+
             android:layout_height="200dp" />
 
         <LinearLayout
@@ -55,8 +56,8 @@
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
-          </LinearLayout>
+        </LinearLayout>
+        
 
     </LinearLayout>
 

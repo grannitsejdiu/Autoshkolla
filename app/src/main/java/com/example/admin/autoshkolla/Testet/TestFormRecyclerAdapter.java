@@ -61,7 +61,7 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
 
         holder.questionFirstAlternative.setOnCheckedChangeListener(null);
         holder.questionSecondAlternative.setOnCheckedChangeListener(null);
-        holder.questionThirdAlternative.setOnClickListener(null);
+        holder.questionThirdAlternative.setOnCheckedChangeListener(null);
         holder.questionFirstAlternative.setChecked(q.alternatives.get(0).userAnswer);
         holder.questionSecondAlternative.setChecked(q.alternatives.get(1).userAnswer);
         holder.questionThirdAlternative.setChecked(q.alternatives.get(2).userAnswer);

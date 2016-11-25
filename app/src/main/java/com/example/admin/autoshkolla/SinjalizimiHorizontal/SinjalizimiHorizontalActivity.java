@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.admin.autoshkolla.Models.Group;
+import com.example.admin.autoshkolla.Models.This;
 import com.example.admin.autoshkolla.R;
 
 public class SinjalizimiHorizontalActivity extends AppCompatActivity {
@@ -29,12 +31,16 @@ public class SinjalizimiHorizontalActivity extends AppCompatActivity {
         recyclerView= (RecyclerView) findViewById(R.id.recyclerViewTestForm);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new SinjalizimiHorizontalRecyclerAdapter();
+
+        int index = getIntent().getIntExtra("index",0);
+        final Group g = This.groups.get(index);
+
+        adapter = new SinjalizimiHorizontalRecyclerAdapter(g.signs, getApplicationContext());
         recyclerView.setAdapter(adapter);
 
         progressBar = (ProgressBar) findViewById(R.id.sinjalizimitHorizontaProgressBar);
         progressBarText = (TextView) findViewById(R.id.progressBarText);
-        progressBarText.setText("1/" + layoutManager.getItemCount());
+        progressBarText.setText("1/" + g.signs.size());
         progressBar.setMax(layoutManager.getItemCount());
         progressBar.setProgress(1);
 
@@ -56,11 +62,11 @@ public class SinjalizimiHorizontalActivity extends AppCompatActivity {
                     }
                 }
                 final int firstItem = 0;
-                final int lastItem = layoutManager.getItemCount() - 1;
+                final int lastItem = g.signs.size() - 1;
                 targetPosition = Math.min(lastItem, Math.max(targetPosition, firstItem));
 
                 progressBar.setProgress(targetPosition+1);
-                progressBarText.setText((targetPosition +1) + "/" + layoutManager.getItemCount());
+                progressBarText.setText((targetPosition +1) + "/" + g.signs.size());
 
                 return targetPosition;
 

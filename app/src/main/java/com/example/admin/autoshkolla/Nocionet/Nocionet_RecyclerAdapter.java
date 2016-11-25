@@ -1,5 +1,6 @@
 package com.example.admin.autoshkolla.Nocionet;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,8 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.admin.autoshkolla.Models.Sign;
 import com.example.admin.autoshkolla.R;
 import com.example.admin.autoshkolla.ShenjatPolicit.Shenjat_Policit_RecyclerAdapter;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Admin on 11/22/2016.
@@ -16,17 +22,13 @@ import com.example.admin.autoshkolla.ShenjatPolicit.Shenjat_Policit_RecyclerAdap
 
 public class Nocionet_RecyclerAdapter extends RecyclerView.Adapter<Nocionet_RecyclerAdapter.ViewHolder> {
 
-    private String[] nocionet_Description = {"1. Pershkrimi i pare","2. Pershkrimi i dyte",
-            "3. Pershkrimi i trete, Pershkrimi i trete,Pershkrimi i trete ,Pershkrimi i trete ,Pershkrimi i trete," +
-                    "Pershkrimi i trete, Pershkrimi i trete, Pershkrimi i trete",
-            "4. Pershkrimi i katert","5.Pershkrimi i peste","6. Pershkrimi i gjaste"};
+    private List<Sign> signs = new ArrayList<Sign>();
+    private Context context;
 
-    private String[] nocionet_DescriptionTitle = {"1. Titulli i pare","2. Pershkrimi i dyte",
-            "3. Pershkrimi i trete"," Pershkrimi i katert","5.Pershkrimi i peste","6. Pershkrimi i gjaste"};
-
-    private int[] nocionet_Image = {R.drawable.imageplaceholder ,R.drawable.imageplaceholder,
-            R.drawable.imageplaceholder,R.drawable.imageplaceholder,R.drawable.imageplaceholder,R.drawable.imageplaceholder};
-
+    public Nocionet_RecyclerAdapter(List<Sign> ss, Context c){
+        signs = ss;
+        context = c;
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -39,14 +41,22 @@ public class Nocionet_RecyclerAdapter extends RecyclerView.Adapter<Nocionet_Recy
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        holder.nocionet_Image.setImageResource(nocionet_Image[position]);
-        holder.nocionet_Description.setText(nocionet_Description[position]);
-        holder.nocionet_DescriptionTitle.setText(nocionet_DescriptionTitle[position]);
+        Sign s = signs.get(position);
+        holder.nocionet_DescriptionTitle.setText(s.name);
+        holder.nocionet_Description.setText(s.description);
+
+        holder.nocionet_Image.setImageResource(R.drawable.imageplaceholder);
+        if ((s.imager != null) && (!s.imager.link.equals("")))
+        {
+            Picasso.with(context).load(s.imager.getUrl()).into(holder.nocionet_Image);
+        }
+
+
     }
 
     @Override
     public int getItemCount() {
-        return nocionet_Description.length;
+        return signs.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

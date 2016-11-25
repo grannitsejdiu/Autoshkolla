@@ -11,21 +11,20 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.admin.autoshkolla.Models.Subgroup;
 import com.example.admin.autoshkolla.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sinjalizimi_Vertikal_RecyclerAdapter extends RecyclerView.Adapter<Sinjalizimi_Vertikal_RecyclerAdapter.ItemRowHolder>{
 
-    private ArrayList<SectionDataModel> dataList;
-    private Context mContext;
+    public List<Subgroup> subgroups = new ArrayList<Subgroup>();
+    public Context context;
 
-    private String[] sectionTitle = {"Shenjat e rrezikut", "Shenjat e lajmrimit", "Shenjat e obligimit",
-            "Shenjat e rrezikut", "Shenjat e lajmrimit", };
-
-    public Sinjalizimi_Vertikal_RecyclerAdapter(Context context, ArrayList<SectionDataModel> dataList) {
-        this.dataList = dataList;
-        this.mContext = context;
+    public Sinjalizimi_Vertikal_RecyclerAdapter(List<Subgroup> ss, Context c) {
+        context = c;
+        subgroups = ss;
     }
 
     @Override
@@ -38,28 +37,20 @@ public class Sinjalizimi_Vertikal_RecyclerAdapter extends RecyclerView.Adapter<S
     @Override
     public void onBindViewHolder(ItemRowHolder holder, int position) {
 
-        final String sectionName = dataList.get(position).getHeaderTitle();
-        ArrayList singleSectionItems = dataList.get(position).getAllItemsInSection();
+        Subgroup sg = subgroups.get(position);
 
-        holder.itemTitle.setText(sectionTitle[position]);
-        SectionListDataAdapter itemListDataAdapter = new SectionListDataAdapter(mContext, singleSectionItems);
+        holder.itemTitle.setText(sg.name);
+        SectionListDataAdapter itemListDataAdapter = new SectionListDataAdapter(sg.signs, context);
 
         holder.recycler_view_list.setHasFixedSize(true);
-        holder.recycler_view_list.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
+        holder.recycler_view_list.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         holder.recycler_view_list.setAdapter(itemListDataAdapter);
-
-        holder.btnMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "click event on more, "+ sectionName , Toast.LENGTH_SHORT).show();
-            }
-        });
 
     }
 
     @Override
     public int getItemCount() {
-        return sectionTitle.length;
+        return subgroups.size();
     }
 
     public class ItemRowHolder extends RecyclerView.ViewHolder {

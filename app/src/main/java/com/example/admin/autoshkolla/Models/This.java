@@ -9,5 +9,5 @@ import java.util.List;
 
 public class This {
     public static List<Exam> exams = new ArrayList<Exam>();
-
+    public static List<Group> groups = new ArrayList<Group>();
 }

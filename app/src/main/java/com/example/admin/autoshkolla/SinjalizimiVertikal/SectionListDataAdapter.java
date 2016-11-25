@@ -9,32 +9,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.admin.autoshkolla.Models.Sign;
 import com.example.admin.autoshkolla.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListDataAdapter.SingleItemRowHolder> {
 
-    private ArrayList<SingleItemModel> itemsList;
-    private Context mContext;
+    public List<Sign> signs = new ArrayList<Sign>();
+    public Context context;
 
-    private int[] sectionImages = {R.drawable.questions,
-            R.drawable.rregullat,
-            R.drawable.autoshkollat,
-            R.drawable.ligjeratat,
-            R.drawable.questions,
-            R.drawable.rregullat,
-            R.drawable.questions,
-            R.drawable.rregullat,
-            R.drawable.autoshkollat};
-
-    private String[] sectionItemTitle = {"Title One", "Title Two", "Title Three", "Title Four", "Title Five",
-            "Title Six", "Title Seven","Title Eight" };
-
-    public SectionListDataAdapter(Context context, ArrayList<SingleItemModel> itemsList) {
-        this.itemsList = itemsList;
-        this.mContext = context;
+    public SectionListDataAdapter(List<Sign> ss, Context c) {
+        signs = ss;
+        context = c;
     }
 
     @Override
@@ -47,14 +37,19 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
     @Override
     public void onBindViewHolder(SingleItemRowHolder holder, int position) {
 //        SingleItemModel singleItem = itemsList.get(position);
-        holder.tvTitle.setText(sectionItemTitle[position]);
-        holder.itemImage.setImageResource(sectionImages[position]);
+
+        Sign s = signs.get(position);
+
+        holder.tvTitle.setText(s.name);
+//        holder.itemImage.setImageResource(sectionImages[position]);
+
+        Picasso.with(context).load(s.imager.getUrl()).into(holder.itemImage);
 
     }
 
     @Override
     public int getItemCount() {
-        return sectionItemTitle.length;
+        return signs.size() >= 10 ? 10 : signs.size();
     }
 
     public class SingleItemRowHolder extends RecyclerView.ViewHolder {

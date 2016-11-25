@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.admin.autoshkolla.Models.Group;
+import com.example.admin.autoshkolla.Models.This;
 import com.example.admin.autoshkolla.R;
 
 public class Nocionet_Activity extends AppCompatActivity {
@@ -25,7 +27,12 @@ public class Nocionet_Activity extends AppCompatActivity {
         recyclerView= (RecyclerView) findViewById(R.id.recyclerView_Nocionet);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new Nocionet_RecyclerAdapter();
+
+
+        int index = getIntent().getIntExtra("index", 0);
+        Group selectedGroup = This.groups.get(index);
+
+        adapter = new Nocionet_RecyclerAdapter(selectedGroup.signs, getApplicationContext());
         recyclerView.setAdapter(adapter);
 
 //        LinearSnapHelper linearSnapHelper = new LinearSnapHelper();

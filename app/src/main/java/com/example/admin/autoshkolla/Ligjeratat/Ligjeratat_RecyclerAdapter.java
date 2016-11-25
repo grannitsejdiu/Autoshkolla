@@ -8,11 +8,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.admin.autoshkolla.Models.Group;
 import com.example.admin.autoshkolla.Nocionet.Nocionet_Activity;
 import com.example.admin.autoshkolla.R;
 import com.example.admin.autoshkolla.ShenjatPolicit.Shenjat_Policit_Activity;
 import com.example.admin.autoshkolla.SinjalizimiHorizontal.SinjalizimiHorizontalActivity;
 import com.example.admin.autoshkolla.SinjalizimiVertikal.Sinjalizimi_Vertikal_Activity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -21,32 +25,11 @@ import com.example.admin.autoshkolla.SinjalizimiVertikal.Sinjalizimi_Vertikal_Ac
 
 public class Ligjeratat_RecyclerAdapter extends RecyclerView.Adapter<Ligjeratat_RecyclerAdapter.ViewHolder> {
 
-    //region private String[] titles = {"Testi #1, ... , "Testi #n"}
-    private String[] titles = {"NOCIONET",
-            "SINJALIZIMI VERTIKAL",
-            "SINJALIZIMI HORIZONTAL",
-            "SHENJAT E POLICIT",
-            "SINJALIZIMET NDRICUESE",
-            "SIGURIA NE RRUGE"};
-    //endregion
+    public List<Group> groups = new ArrayList<Group>();
 
-    //region private String[] descriptions = {"Test 1 description", ... , "Test n description"}
-    private String[] descriptions = {"Njohja e nocioneve eshte e nevojshme per te kuptuar sa me mire komunikacionin",
-            "Shenjat e komunikacionit dhe tabelat plotesuese",
-            "Shenjat gjatesore te terthorta dhe shenjat tjera",
-            "Shenjat e personit te autorizuar",
-            "Shenjat ndriquese te semaforit per automjete dhe cikliste",
-            "Leksione te nevojshme per rregulla dhe siguri ne rruge"};
-    //endregion
-
-    //region private int[] images = {R.drawable.questions, ... , n R.drawable.questions}
-    private int[] images = {R.drawable.questions,
-            R.drawable.rregullat,
-            R.drawable.autoshkollat,
-            R.drawable.ligjeratat,
-            R.drawable.questions,
-            R.drawable.rregullat };
-    //endregion
+    public Ligjeratat_RecyclerAdapter(List<Group> g){
+        groups = g;
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -57,14 +40,17 @@ public class Ligjeratat_RecyclerAdapter extends RecyclerView.Adapter<Ligjeratat_
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.cardviewItemTitle.setText(titles[position]);
-        holder.getCardviewItemDescription.setText(descriptions[position]);
-        holder.cardviewItemImage.setImageResource(images[position]);
+
+        Group g = groups.get(position);
+
+        holder.cardviewItemTitle.setText(g.name.toUpperCase());
+        holder.getCardviewItemDescription.setText(g.description);
+        holder.cardviewItemImage.setImageResource(R.drawable.rregullat);
     }
 
     @Override
     public int getItemCount() {
-        return titles.length;
+        return groups.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -87,18 +73,22 @@ public class Ligjeratat_RecyclerAdapter extends RecyclerView.Adapter<Ligjeratat_
                     switch (position){
                         case 0:
                             Intent intent = new Intent(itemView.getContext().getApplicationContext(), Nocionet_Activity.class);
+                            intent.putExtra("index", position);
                             itemView.getContext().startActivity(intent);
                             break;
-                        case 1:
+                        case 2:
                             Intent intent3 = new Intent(itemView.getContext().getApplicationContext(), Sinjalizimi_Vertikal_Activity.class);
+                            intent3.putExtra("index", position);
                             itemView.getContext().startActivity(intent3);
                             break;
-                        case 2:
+                        case 1:
                             Intent intent1 = new Intent(itemView.getContext().getApplicationContext(), SinjalizimiHorizontalActivity.class);
+                            intent1.putExtra("index", position);
                             itemView.getContext().startActivity(intent1);
                             break;
                         case 3:
-                            Intent intent2 = new Intent(itemView.getContext().getApplicationContext(), Shenjat_Policit_Activity.class);
+                            Intent intent2 = new Intent(itemView.getContext().getApplicationContext(), SinjalizimiHorizontalActivity.class);
+                            intent2.putExtra("index", position);
                             itemView.getContext().startActivity(intent2);
                             break;
                        default:

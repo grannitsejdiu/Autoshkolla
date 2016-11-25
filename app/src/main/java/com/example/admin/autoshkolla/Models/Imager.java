@@ -1,5 +1,7 @@
 package com.example.admin.autoshkolla.Models;
 
+import android.util.Log;
+
 import com.example.admin.autoshkolla.ServiceLayer.ServerLayer;
 
 import org.json.JSONObject;

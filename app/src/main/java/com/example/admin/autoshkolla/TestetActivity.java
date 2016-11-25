@@ -29,19 +29,19 @@ public class TestetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__teste);
-
-        pDialog = new ProgressDialog(TestetActivity.this);
-        pDialog.setTitle("Duke marrur testet!");
-        pDialog.setMessage("Ju lutem prisni ... ");
-        pDialog.setCancelable(false);
-        pDialog.show();
-
+        
         List<Exam> es = new ArrayList<Exam>();
 
         recyclerView= (RecyclerView) findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
         adapter = new ExamsRecyclerAdapter(es);
+
+        pDialog = new ProgressDialog(TestetActivity.this);
+        pDialog.setTitle("Duke marrë testet!");
+        pDialog.setMessage("Ju lutem prisni ... ");
+        pDialog.setCancelable(false);
+        pDialog.show();
 
         ExamsLayer.getAllExams(new ResponseData() {
             @Override

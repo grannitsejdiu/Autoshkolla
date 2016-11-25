@@ -26,20 +26,11 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
 
     private Context context;
     private List<Question> questions = new ArrayList<Question>();
-//    private PackageManager pm;
-//    ArrayList<Boolean> positionArray;
 
 
     public TestFormRecyclerAdapter(List<Question> qs, Context cx){
         questions = qs;
         context = cx;
-
-//        pm = context.getPackageManager();
-//
-//        positionArray = new ArrayList<Boolean>(questions.size());
-//        for(int i =0;i<questions.size();i++) {
-//            positionArray.add(false);
-//        }
     }
 
     @Override
@@ -68,7 +59,6 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
             }
         }
 
-
         holder.questionFirstAlternative.setOnCheckedChangeListener(null);
         holder.questionSecondAlternative.setOnCheckedChangeListener(null);
         holder.questionThirdAlternative.setOnClickListener(null);
@@ -94,21 +84,6 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
                 q.alternatives.get(2).userAnswer = true;
             }
         });
-
-
-//        q.alternatives.get(0).userAnswer = holder.questionFirstAlternative.isChecked();
-        Log.e("Alt 0 User Answer: ", q.alternatives.get(0).userAnswer.toString());
-
-//        holder.questionFirstAlternative.setOnCheckedChangeListener(null);
-//
-//        holder.questionFirstAlternative.setChecked(q.alternatives.get(0).userAnswer);
-//
-//        holder.questionFirstAlternative.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                q.alternatives.get(0).userAnswer = isChecked;
-//            }
-//        });
 
 
     }

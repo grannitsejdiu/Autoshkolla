@@ -82,7 +82,7 @@ public class TestFormActivity extends AppCompatActivity {
                     testFormPreviousQuestion.setVisibility(View.VISIBLE);
                 }
 
-                if ((position == layoutManager.getItemCount()-2) || (position==layoutManager.getItemCount()-1)){
+                if (targetPosition == layoutManager.getItemCount()-1){
                     testFormNextQuestion.setText("Shiko Rezultati");
                 }
                 else {
@@ -159,7 +159,7 @@ public class TestFormActivity extends AppCompatActivity {
                     testFormPreviousQuestion.setVisibility(View.VISIBLE);
                 }
 
-                if ((position == layoutManager.getItemCount()-2) || (position==layoutManager.getItemCount()-1)){
+                if (position == layoutManager.getItemCount()){
                     testFormNextQuestion.setText("Shiko Rezultati");
                 }
                 else {

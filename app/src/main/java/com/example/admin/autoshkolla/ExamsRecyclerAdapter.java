@@ -37,14 +37,9 @@ public class ExamsRecyclerAdapter extends RecyclerView.Adapter<ExamsRecyclerAdap
          public ViewHolder(final View itemView) {
              super(itemView);
 
-
-
              cardviewItemImage = (TextView) itemView.findViewById(R.id.cardviewItemImage);
              cardviewItemTitle = (TextView) itemView.findViewById(R.id.cardviewTitle);
              getCardviewItemDescription = (TextView) itemView.findViewById(R.id.cardviewDescription);
-
-
-
 
              itemView.setOnClickListener(new View.OnClickListener() {
                  @Override

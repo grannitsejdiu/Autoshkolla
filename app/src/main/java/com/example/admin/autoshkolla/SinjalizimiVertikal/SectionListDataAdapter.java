@@ -1,6 +1,7 @@
 package com.example.admin.autoshkolla.SinjalizimiVertikal;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.admin.autoshkolla.BlurryBackgrounds_Activities.BlurRecyclerView_Activity;
 import com.example.admin.autoshkolla.Models.Sign;
 import com.example.admin.autoshkolla.R;
 import com.squareup.picasso.Picasso;
@@ -57,17 +59,18 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
         protected TextView tvTitle;
         protected ImageView itemImage;
 
-        public SingleItemRowHolder(View itemView) {
+        public SingleItemRowHolder(final View itemView) {
             super(itemView);
 
             this.tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
             this.itemImage = (ImageView) itemView.findViewById(R.id.itemImage);
 
-
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(v.getContext(), tvTitle.getText(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(itemView.getContext().getApplicationContext(), BlurRecyclerView_Activity.class);
+                    itemView.getContext().startActivity(intent);
                 }
             });
         }

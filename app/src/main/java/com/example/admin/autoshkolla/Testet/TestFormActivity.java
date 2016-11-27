@@ -1,7 +1,9 @@
 package com.example.admin.autoshkolla.Testet;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.CountDownTimer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -173,9 +175,26 @@ public class TestFormActivity extends AppCompatActivity {
         backButtonTestForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TestFormActivity.super.onBackPressed();
+                new AlertDialog.Builder(TestFormActivity.this)
+                        .setTitle("Test Form")
+                        .setMessage("A deshironi te largoheni nga kjo form ?")
+                        .setNegativeButton("JO", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // do nothing
+                            }
+                        })
+                        .setPositiveButton("PO", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                TestFormActivity.super.onBackPressed();
+                                //finish();
+                            }
+                        })
+                        .setIcon(R.drawable.questions)
+                        .show();
             }
         });
+
+
 
 
         testFormExamTime = (TextView) findViewById(R.id.testFormExamTime);
@@ -195,8 +214,25 @@ public class TestFormActivity extends AppCompatActivity {
             }
         }.start();
 
-
     }
 
-
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(TestFormActivity.this)
+                .setTitle("Test Form")
+                .setMessage("A deshironi te largoheni nga kjo form ?")
+                .setNegativeButton("JO", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .setPositiveButton("PO", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        TestFormActivity.super.onBackPressed();
+                        //finish();
+                    }
+                })
+                .setIcon(R.drawable.questions)
+                .show();
+    }
 }

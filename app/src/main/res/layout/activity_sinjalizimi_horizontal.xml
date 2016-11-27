@@ -48,7 +48,7 @@
             android:layout_marginTop="5dp"
             android:textColor="#E2792C"
             android:text="Sinjalizimi Horizontal"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
     </RelativeLayout>
     <View
         android:id="@+id/lineIdsinjalizimiHorizontalForm"

@@ -1,5 +1,6 @@
 package com.example.admin.autoshkolla.ShenjatPolicit;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.admin.autoshkolla.BlurryBackgrounds_Activities.Info_Activity;
 import com.example.admin.autoshkolla.R;
 import com.example.admin.autoshkolla.SinjalizimiHorizontal.SinjalizimiHorizontalRecyclerAdapter;
 
@@ -21,6 +23,7 @@ public class Shenjat_Policit_Activity extends AppCompatActivity {
     Button shenjat_Policit_BackButton;
     ProgressBar progressBar;
     TextView progressBarText;
+    Button btnOpenInfoForm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +77,15 @@ public class Shenjat_Policit_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Shenjat_Policit_Activity.super.onBackPressed();
+            }
+        });
+
+        btnOpenInfoForm = (Button) findViewById(R.id.shenjat_Policit_FormInfo);
+        btnOpenInfoForm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Info_Activity.class);
+                startActivity(intent);
             }
         });
     }

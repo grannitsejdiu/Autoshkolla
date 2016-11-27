@@ -2,6 +2,7 @@ package com.example.admin.autoshkolla.SinjalizimiVertikal;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.admin.autoshkolla.BlurryBackgrounds_Activities.SinjalizimiVertikalGrid_Activity;
 import com.example.admin.autoshkolla.Models.Subgroup;
 import com.example.admin.autoshkolla.R;
 
@@ -59,12 +61,21 @@ public class Sinjalizimi_Vertikal_RecyclerAdapter extends RecyclerView.Adapter<S
         RecyclerView recycler_view_list;
         Button btnMore;
 
-        public ItemRowHolder(View itemView) {
+        public ItemRowHolder(final View itemView) {
             super(itemView);
 
             this.itemTitle = (TextView) itemView.findViewById(R.id.itemTitle);
             this.recycler_view_list = (RecyclerView) itemView.findViewById(R.id.recycler_view_list);
             this.btnMore= (Button) itemView.findViewById(R.id.btnMore);
+
+            btnMore.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(itemView.getContext().getApplicationContext(),
+                            SinjalizimiVertikalGrid_Activity.class);
+                    itemView.getContext().startActivity(intent);
+                }
+            });
 
         }
     }

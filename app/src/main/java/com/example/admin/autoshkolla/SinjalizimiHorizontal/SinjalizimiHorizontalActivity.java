@@ -1,5 +1,6 @@
 package com.example.admin.autoshkolla.SinjalizimiHorizontal;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.admin.autoshkolla.BlurryBackgrounds_Activities.Info_Activity;
 import com.example.admin.autoshkolla.Models.Group;
 import com.example.admin.autoshkolla.Models.This;
 import com.example.admin.autoshkolla.R;
@@ -19,9 +21,10 @@ public class SinjalizimiHorizontalActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
-    Button sinjalizimiHorizontalBackButton;
+    Button sinjalizimiHorizontalBackButton, sinjalizimiInfo;
     ProgressBar progressBar;
     TextView progressBarText;
+    TextView formTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +35,14 @@ public class SinjalizimiHorizontalActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(layoutManager);
 
-        int index = getIntent().getIntExtra("index",0);
+        final int index = getIntent().getIntExtra("index",0);
         final Group g = This.groups.get(index);
 
         adapter = new SinjalizimiHorizontalRecyclerAdapter(g.signs, getApplicationContext());
         recyclerView.setAdapter(adapter);
+
+        formTitle = (TextView) findViewById(R.id.sinjalizimitHorizontaFormTitle);
+        formTitle.setText(g.name);
 
         progressBar = (ProgressBar) findViewById(R.id.sinjalizimitHorizontaProgressBar);
         progressBarText = (TextView) findViewById(R.id.progressBarText);
@@ -79,6 +85,17 @@ public class SinjalizimiHorizontalActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SinjalizimiHorizontalActivity.super.onBackPressed();
+            }
+        });
+
+
+        sinjalizimiInfo = (Button) findViewById(R.id.sinjalizimitHorizontaFormInfo);
+        sinjalizimiInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Info_Activity.class);
+                intent.putExtra("index", index);
+                startActivity(intent);
             }
         });
 

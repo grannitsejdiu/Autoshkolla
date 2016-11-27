@@ -1,5 +1,6 @@
 package com.example.admin.autoshkolla.SinjalizimiVertikal;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,23 +8,24 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.admin.autoshkolla.BlurryBackgrounds_Activities.Info_Activity;
 import com.example.admin.autoshkolla.Models.Group;
 import com.example.admin.autoshkolla.Models.This;
+import com.example.admin.autoshkolla.Nocionet.Nocionet_Activity;
 import com.example.admin.autoshkolla.R;
 
 import java.util.ArrayList;
 
 public class Sinjalizimi_Vertikal_Activity extends AppCompatActivity {
-
-    ArrayList<SectionDataModel> allSampleData;
-    Button sinjalizimiVertikalBackButton;
+    
+    Button sinjalizimiVertikalBackButton, btnOpenInfoForm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sinjalizimi__vertikal_);
 
-        int index = getIntent().getIntExtra("index",0);
+        final int index = getIntent().getIntExtra("index",0);
         Group group = This.groups.get(index);
 
 
@@ -42,6 +44,15 @@ public class Sinjalizimi_Vertikal_Activity extends AppCompatActivity {
             }
         });
 
+        btnOpenInfoForm = (Button) findViewById(R.id.sinjalizimiVertikalFormInfo);
+        btnOpenInfoForm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Sinjalizimi_Vertikal_Activity.this, Info_Activity.class);
+                intent.putExtra("index",index);
+                startActivity(intent);
+            }
+        });
 
     }
 }

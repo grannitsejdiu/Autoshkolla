@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.admin.autoshkolla.BlurryBackgrounds_Activities.BlurRecyclerView_Activity;
 import com.example.admin.autoshkolla.Ligjeratat.Ligjeratat_Activity;
 import com.example.admin.autoshkolla.Testet.TestFormActivity;
 import com.example.admin.autoshkolla.Testet.TestResultsFormActivity;
@@ -16,7 +17,7 @@ import com.example.admin.autoshkolla.Testet.TestResultsFormActivity;
 public class HomeTabActivity extends android.support.v4.app.Fragment{
 
     private CardView cardViewLiteratura;
-    private CardView cardViewTeste, cardViewAutoshkollat;
+    private CardView cardViewTeste, cardViewAutoshkollat, ligjet;
 
     //Overriden method onCreateView
     @Override
@@ -55,6 +56,15 @@ public class HomeTabActivity extends android.support.v4.app.Fragment{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), TestResultsFormActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ligjet = (CardView) getView().findViewById(R.id.cardViewLigjet);
+        ligjet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), BlurRecyclerView_Activity.class);
                 startActivity(intent);
             }
         });

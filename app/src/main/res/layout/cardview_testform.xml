@@ -9,7 +9,7 @@
     android:layout_marginStart="2dp"
     android:layout_marginEnd="2dp"
     card_view:cardCornerRadius="12dp"
-    card_view:cardBackgroundColor="@color/colorPrimary"
+    card_view:cardBackgroundColor="#FFFFFF"
     android:clickable="true"
     xmlns:app="http://schemas.android.com/tools">
 

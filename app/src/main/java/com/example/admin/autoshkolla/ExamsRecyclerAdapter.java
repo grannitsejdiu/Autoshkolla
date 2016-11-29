@@ -81,9 +81,11 @@ public class ExamsRecyclerAdapter extends RecyclerView.Adapter<ExamsRecyclerAdap
 
         Question q = e.questions.get(0);
 
+        String s = String.valueOf(position);
+
         holder.cardviewItemTitle.setText(e.name);
         holder.getCardviewItemDescription.setText(q.name);
-        holder.cardviewItemImage.setText("#");
+        holder.cardviewItemImage.setText(s);
 
     }
 

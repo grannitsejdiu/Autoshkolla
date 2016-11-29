@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import com.example.admin.autoshkolla.Models.Subgroup;
+import com.example.admin.autoshkolla.Models.This;
 import com.example.admin.autoshkolla.R;
 import com.example.admin.autoshkolla.ShenjatPolicit.Shenjat_Policit_RecyclerAdapter;
 
@@ -44,10 +46,16 @@ public class BlurRecyclerView_Activity extends AppCompatActivity {
         recyclerView= (RecyclerView) findViewById(R.id.recycler_view_Blur);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new BlurRecyclerView_Adapter();
+
+
+        int index = getIntent().getIntExtra("index", 0);
+        Subgroup s = This.groups.get(2).subgroups().get(index);
+        int scrollPostion = getIntent().getIntExtra("scrollPosition",0);
+
+        adapter = new BlurRecyclerView_Adapter(s.signs, getApplicationContext());
         recyclerView.setAdapter(adapter);
 
-        recyclerView.scrollToPosition(0);
+        recyclerView.scrollToPosition(scrollPostion);
 
         final LinearSnapHelper helper = new LinearSnapHelper(){
             @Override

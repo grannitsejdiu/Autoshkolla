@@ -7,6 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.admin.autoshkolla.Models.Subgroup;
+import com.example.admin.autoshkolla.Models.This;
 import com.example.admin.autoshkolla.R;
 
 public class SinjalizimiVertikalGrid_Activity extends AppCompatActivity {
@@ -26,7 +28,13 @@ public class SinjalizimiVertikalGrid_Activity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         GridLayoutManager glm=new GridLayoutManager(this,3);
         recyclerView.setLayoutManager(glm);
-        adapter = new SinjalizimiVertikalGrid_Adapter();
+
+
+        int index = getIntent().getIntExtra("index", 0);
+        Subgroup s = This.groups.get(2).subgroups().get(index);
+
+
+        adapter = new SinjalizimiVertikalGrid_Adapter(s.signs, getApplicationContext(), index);
         recyclerView.setAdapter(adapter);
 
         backBtnSVertikalGrid = (Button) findViewById(R.id.sinjalizimitHorizontalGridFormBackButton);

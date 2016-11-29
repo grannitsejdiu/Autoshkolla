@@ -23,10 +23,12 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
     public List<Sign> signs = new ArrayList<Sign>();
     public Context context;
+    public int sgIndex = 0;
 
-    public SectionListDataAdapter(List<Sign> ss, Context c) {
+    public SectionListDataAdapter(List<Sign> ss, Context c, int subgroupIndex) {
         signs = ss;
         context = c;
+        sgIndex = subgroupIndex;
     }
 
     @Override
@@ -68,8 +70,9 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(v.getContext(), tvTitle.getText(), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(itemView.getContext().getApplicationContext(), BlurRecyclerView_Activity.class);
+                    intent.putExtra("index", sgIndex);
+                    intent.putExtra("scrollPosition", getAdapterPosition());
                     itemView.getContext().startActivity(intent);
                 }
             });

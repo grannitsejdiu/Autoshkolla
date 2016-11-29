@@ -35,32 +35,14 @@ public class Ligjeratat_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ligjeratat);
 
-        List<Group> groups = new ArrayList<Group>();
-
-        pDialog = new ProgressDialog(Ligjeratat_Activity.this);
-        pDialog.setTitle("Duke marrë literaturen!");
-        pDialog.setMessage("Ju lutem prisni ... ");
-        pDialog.setCancelable(false);
-        pDialog.show();
+        List<Group> groups = This.groups;
 
         recyclerView= (RecyclerView) findViewById(R.id.recyclerViewLigjeratat);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
         adapter = new Ligjeratat_RecyclerAdapter(groups);
 
-        GroupsLayer.getAllGroups(new ResponseData() {
-            @Override
-            public void onSuccess(Object data) {
-                List<Group> gs = (ArrayList<Group>)data;
-                This.groups = gs;
 
-                recyclerView.setAdapter(new Ligjeratat_RecyclerAdapter(gs));
-
-                if (pDialog.isShowing()){
-                    pDialog.dismiss();
-                }
-            }
-        });
 
 
         recyclerView.setAdapter(adapter);

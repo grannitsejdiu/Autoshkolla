@@ -42,12 +42,11 @@ public class Sinjalizimi_Vertikal_RecyclerAdapter extends RecyclerView.Adapter<S
         Subgroup sg = subgroups.get(position);
 
         holder.itemTitle.setText(sg.name);
-        SectionListDataAdapter itemListDataAdapter = new SectionListDataAdapter(sg.signs, context);
+        SectionListDataAdapter itemListDataAdapter = new SectionListDataAdapter(sg.signs, context, position);
 
         holder.recycler_view_list.setHasFixedSize(true);
         holder.recycler_view_list.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         holder.recycler_view_list.setAdapter(itemListDataAdapter);
-
     }
 
     @Override
@@ -73,6 +72,7 @@ public class Sinjalizimi_Vertikal_RecyclerAdapter extends RecyclerView.Adapter<S
                 public void onClick(View view) {
                     Intent intent = new Intent(itemView.getContext().getApplicationContext(),
                             SinjalizimiVertikalGrid_Activity.class);
+                    intent.putExtra("index", getAdapterPosition());
                     itemView.getContext().startActivity(intent);
                 }
             });

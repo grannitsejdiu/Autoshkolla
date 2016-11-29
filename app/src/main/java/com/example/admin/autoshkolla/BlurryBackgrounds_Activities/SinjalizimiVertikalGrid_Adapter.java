@@ -1,5 +1,6 @@
 package com.example.admin.autoshkolla.BlurryBackgrounds_Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,18 +9,27 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.admin.autoshkolla.Models.Sign;
 import com.example.admin.autoshkolla.R;
 import com.example.admin.autoshkolla.SinjalizimiVertikal.SectionListDataAdapter;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class SinjalizimiVertikalGrid_Adapter extends RecyclerView.Adapter<SinjalizimiVertikalGrid_Adapter.ViewHolder> {
 
-    private String[] title = {"1. Pershkrimi i pare","2. Pershkrimi i dyte","3. Pershkrimi i trete",
-            "4. Pershkrimi i katert","5.Pershkrimi i peste", "6. Pershkrimi i gjaste","1. Pershkrimi i pare","2. Pershkrimi i dyte","3. Pershkrimi i trete",
-            "4. Pershkrimi i katert","5.Pershkrimi i peste", "6. Pershkrimi i gjaste","1. Pershkrimi i pare","2. Pershkrimi i dyte"};
 
-    private int[] image = {R.drawable.imageplaceholder ,R.drawable.imageplaceholder,
-            R.drawable.imageplaceholder,R.drawable.imageplaceholder,R.drawable.imageplaceholder,R.drawable.imageplaceholder};
+    public List<Sign> signs = new ArrayList<>();
+    public Context context;
+    public int sgIndex = 0;
+
+    public SinjalizimiVertikalGrid_Adapter(List<Sign> ss, Context c, int subgroupIndex){
+        signs = ss;
+        context = c;
+        sgIndex = subgroupIndex;
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -30,13 +40,19 @@ public class SinjalizimiVertikalGrid_Adapter extends RecyclerView.Adapter<Sinjal
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+
+        Sign s = signs.get(position);
+
+        holder.tvTitle.setText(s.name);
         holder.itemImage.setImageResource(R.drawable.imageplaceholder);
-        holder.tvTitle.setText(title[position]);
+        if (s.imager != null) {
+            Picasso.with(context).load(s.imager.getUrl()).into(holder.itemImage);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return title.length;
+        return signs.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -51,6 +67,8 @@ public class SinjalizimiVertikalGrid_Adapter extends RecyclerView.Adapter<Sinjal
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(itemView.getContext().getApplicationContext(),BlurRecyclerView_Activity.class);
+                    intent.putExtra("index", sgIndex);
+                    intent.putExtra("scrollPosition", getAdapterPosition());
                     itemView.getContext().startActivity(intent);
                 }
             });

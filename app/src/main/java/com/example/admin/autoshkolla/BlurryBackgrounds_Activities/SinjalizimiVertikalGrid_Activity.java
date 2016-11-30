@@ -6,6 +6,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.admin.autoshkolla.Models.Subgroup;
 import com.example.admin.autoshkolla.Models.This;
@@ -17,6 +18,7 @@ public class SinjalizimiVertikalGrid_Activity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
+    TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class SinjalizimiVertikalGrid_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_sinjalizimi_vertikal_grid_);
 
         recyclerView= (RecyclerView) findViewById(R.id.recyclerViewSVertikal);
+        title = (TextView) findViewById(R.id.sinjalizimitHorizontalGridFormTitle);
 
         recyclerView.setHasFixedSize(true);
         GridLayoutManager glm=new GridLayoutManager(this,3);
@@ -36,6 +39,8 @@ public class SinjalizimiVertikalGrid_Activity extends AppCompatActivity {
 
         adapter = new SinjalizimiVertikalGrid_Adapter(s.signs, getApplicationContext(), index);
         recyclerView.setAdapter(adapter);
+        
+        title.setText(s.name);
 
         backBtnSVertikalGrid = (Button) findViewById(R.id.sinjalizimitHorizontalGridFormBackButton);
         backBtnSVertikalGrid.setOnClickListener(new View.OnClickListener() {

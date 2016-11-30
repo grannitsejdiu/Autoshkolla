@@ -36,6 +36,7 @@ dependencies {
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.github.mmin18:realtimeblurview:1.0.6'
     testCompile 'junit:junit:4.12'
 
 }

@@ -3,6 +3,7 @@ package com.example.admin.autoshkolla.BlurryBackgrounds_Activities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import com.example.admin.autoshkolla.Models.Group;
 import com.example.admin.autoshkolla.Models.This;
 import com.example.admin.autoshkolla.R;
+import com.github.mmin18.widget.RealtimeBlurView;
 
 public class Info_Activity extends AppCompatActivity {
 
@@ -20,6 +22,7 @@ public class Info_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_);
+
 
         final int index = getIntent().getIntExtra("index",0);
         //final int description = getIntent().getIntExtra("Description",0);
@@ -42,4 +45,5 @@ public class Info_Activity extends AppCompatActivity {
         });
 
     }
+
 }

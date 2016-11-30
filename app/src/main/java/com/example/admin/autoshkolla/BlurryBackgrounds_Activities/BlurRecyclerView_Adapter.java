@@ -20,11 +20,7 @@ public class BlurRecyclerView_Adapter extends RecyclerView.Adapter<BlurRecyclerV
 
     public List<Sign> signs = new ArrayList<>();
     public Context context;
-    private String[] blurText = {"1. Pershkrimi i pare","2. Pershkrimi i dyte","3. Pershkrimi i trete",
-            "4. Pershkrimi i katert","5.Pershkrimi i peste", "6. Pershkrimi i gjaste"};
 
-    private int[] blurImage = {R.drawable.imageplaceholder ,R.drawable.imageplaceholder,
-            R.drawable.imageplaceholder,R.drawable.imageplaceholder,R.drawable.imageplaceholder,R.drawable.imageplaceholder};
     public  BlurRecyclerView_Adapter(List<Sign> ss, Context c){
         signs = ss;
         context = c;
@@ -39,9 +35,10 @@ public class BlurRecyclerView_Adapter extends RecyclerView.Adapter<BlurRecyclerV
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Sign s = signs.get(position);
-        holder.descirption.setText(s.name);
+        holder.title.setText(s.name);
 
         holder.imageView.setImageResource(R.drawable.imageplaceholder);
+        holder.description.setText(s.description);
         if (s.imager != null){
             Picasso.with(context).load(s.imager.getUrl()).into(holder.imageView);
         }
@@ -56,11 +53,13 @@ public class BlurRecyclerView_Adapter extends RecyclerView.Adapter<BlurRecyclerV
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView imageView;
-        public TextView descirption;
+        public TextView title;
+        public TextView description;
         public ViewHolder(View itemView) {
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.shenjat_Policit_Image);
-            descirption = (TextView) itemView.findViewById(R.id.shenjat_Policit_Description);
+            title = (TextView) itemView.findViewById(R.id.shenjat_Policit_Title);
+            description = (TextView) itemView.findViewById(R.id.shenjat_Policit_Description);
         }
     }
 }

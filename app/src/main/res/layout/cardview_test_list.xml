@@ -23,7 +23,7 @@
                     android:id="@+id/cardviewItemImage"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:textSize="30sp"
+                    android:textSize="20sp"
                     android:textColor="#FFFFFF"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true" />

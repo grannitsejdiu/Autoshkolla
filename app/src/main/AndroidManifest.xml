@@ -51,7 +51,8 @@
             android:name=".BlurryBackgrounds_Activities.BlurRecyclerView_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Transparent" />
-        <activity android:name=".BlurryBackgrounds_Activities.SinjalizimiVertikalGrid_Activity"></activity>
+        <activity android:name=".BlurryBackgrounds_Activities.SinjalizimiVertikalGrid_Activity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

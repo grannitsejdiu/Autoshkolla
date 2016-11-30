@@ -9,20 +9,21 @@
     <Button
         android:id="@+id/backButtonBlurRecyclerView"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="1dp"
         android:layout_centerHorizontal="true"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/closebutton"/>
 
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_Blur"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
+        android:layout_centerVertical="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_centerVertical="true"
         android:orientation="horizontal" />
+
 
 </RelativeLayout>

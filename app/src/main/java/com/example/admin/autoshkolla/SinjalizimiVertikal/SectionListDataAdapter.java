@@ -43,10 +43,8 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 //        SingleItemModel singleItem = itemsList.get(position);
 
         Sign s = signs.get(position);
-
         holder.tvTitle.setText(s.name);
 //        holder.itemImage.setImageResource(sectionImages[position]);
-
         Picasso.with(context).load(s.imager.getUrl()).into(holder.itemImage);
 
     }

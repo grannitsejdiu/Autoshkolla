@@ -9,11 +9,11 @@
     <Button
         android:id="@+id/backButtonBlurRecyclerView"
         android:layout_gravity="center"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="15dp"
         android:layout_centerHorizontal="true"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/closebutton"/>
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/a_cancelicon"/>
 
 
     <android.support.v7.widget.RecyclerView

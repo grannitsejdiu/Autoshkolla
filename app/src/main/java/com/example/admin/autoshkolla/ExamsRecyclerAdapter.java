@@ -1,7 +1,9 @@
 package com.example.admin.autoshkolla;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.example.admin.autoshkolla.BlurryBackgrounds_Activities.TestUdhezime_Activity;
 import com.example.admin.autoshkolla.Models.Exam;
 import com.example.admin.autoshkolla.Models.Question;
 import com.example.admin.autoshkolla.Testet.TestFormActivity;
@@ -22,6 +26,7 @@ import java.util.List;
 public class ExamsRecyclerAdapter extends RecyclerView.Adapter<ExamsRecyclerAdapter.ViewHolder> {
 
     public List<Exam> examList = new ArrayList<Exam>();
+    private Context context;
 
     public ExamsRecyclerAdapter(List<Exam> items) {
         examList = items;
@@ -46,19 +51,10 @@ public class ExamsRecyclerAdapter extends RecyclerView.Adapter<ExamsRecyclerAdap
                  public void onClick(View view) {
                      int position = getAdapterPosition();
 
-//                     Snackbar.make(view, "Click detected on Item " + position,
-//                             Snackbar.LENGTH_SHORT).show();
-
                      Exam selectedExam = examList.get(position);
 
-                     Intent intent = new Intent(itemView.getContext().getApplicationContext(), TestFormActivity.class);
-
-//                     Gson gson = new Gson();
-
-//                     intent.putExtra("selectedExam",gson.toJson(selectedExam));
-
+                     Intent intent = new Intent(itemView.getContext().getApplicationContext(), TestUdhezime_Activity.class);
                      intent.putExtra("selectExamIndex", position);
-
                      itemView.getContext().startActivity(intent);
                  }
              });

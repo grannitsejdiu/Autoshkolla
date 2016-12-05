@@ -25,39 +25,45 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
         <ImageView
             android:id="@+id/questionImage"
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
-
-            android:layout_height="200dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="bottom"
-            android:orientation="vertical">
+            android:layout_above="@+id/checkboxRelative"/>
 
-        <CheckBox
-            android:id="@+id/questionFirstAlternative"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+                <LinearLayout
+                    android:id="@+id/checkboxRelative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="bottom"
+                    android:orientation="vertical">
 
-        <CheckBox
-            android:id="@+id/questionSecondAlternative"
-            android:layout_marginTop="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+                <CheckBox
+                    android:id="@+id/questionFirstAlternative"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
 
-        <CheckBox
-            android:id="@+id/questionThirdAlternative"
-            android:layout_marginTop="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        </LinearLayout>
-        
+                <CheckBox
+                    android:id="@+id/questionSecondAlternative"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <CheckBox
+                    android:id="@+id/questionThirdAlternative"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                </LinearLayout>
+            </RelativeLayout>
 
     </LinearLayout>
 

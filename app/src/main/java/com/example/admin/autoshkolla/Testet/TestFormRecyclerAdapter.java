@@ -48,10 +48,12 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
         final Question q = questions.get(position);
 
         holder.questionText.setText(q.name);
+
         holder.questionFirstAlternative.setText(q.alternatives.get(0).name);
         holder.questionSecondAlternative.setText(q.alternatives.get(1).name);
         holder.questionThirdAlternative.setText(q.alternatives.get(2).name);
         holder.questionImage.setImageResource(R.drawable.imageplaceholder);
+
 
         if (q.image != null) {
             if (!q.image.link.equals("")) {
@@ -107,7 +109,6 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
             questionFirstAlternative = (CheckBox) itemView.findViewById(R.id.questionFirstAlternative);
             questionSecondAlternative = (CheckBox) itemView.findViewById(R.id.questionSecondAlternative);
             questionThirdAlternative = (CheckBox) itemView.findViewById(R.id.questionThirdAlternative);
-
         }
     }
 

@@ -45,7 +45,7 @@ public class Ligjeratat_RecyclerAdapter extends RecyclerView.Adapter<Ligjeratat_
 
         holder.cardviewItemTitle.setText(g.name.toUpperCase());
         holder.getCardviewItemDescription.setText(g.description);
-        holder.cardviewItemImage.setImageResource(R.drawable.rregullat);
+        holder.cardviewItemImage.setImageResource(R.drawable.a_questionicon);
     }
 
     @Override

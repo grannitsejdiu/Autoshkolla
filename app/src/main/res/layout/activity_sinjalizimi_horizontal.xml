@@ -72,12 +72,19 @@
         android:id="@+id/recyclerViewTestForm"
         android:paddingStart="2dp"
         android:paddingEnd="2dp"
-        android:layout_above="@+id/sinjalizimitHorizontaFormBottomToolbar"
+        android:layout_marginTop="2dp"
+        android:layout_above="@+id/lineIdsHBottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
     </android.support.v7.widget.RecyclerView>
 
+    <View
+        android:id="@+id/lineIdsHBottom"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/sinjalizimitHorizontaFormBottomToolbar"
+        android:layout_height="1.5dp"
+        android:background="@color/colorAccent"/>
     <RelativeLayout
         android:id="@+id/sinjalizimitHorizontaFormBottomToolbar"
         android:layout_width="match_parent"
@@ -85,7 +92,7 @@
         android:layout_height="45dp">
 
         <android.support.v7.widget.Toolbar
-            android:background="@color/colorPrimary"
+            android:background="@color/toolbarColor"
             android:title="@string/app_name"
             android:layout_width="match_parent"
             android:layout_height="45dp">
@@ -105,11 +112,11 @@
             android:layout_toEndOf="@id/sinjalizimitHorizontaProgressBar"
             android:layout_marginLeft="5dp"
             android:layout_marginStart="5dp"
+            android:textColor="#FFFFFF"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
     </RelativeLayout>
-
 
 </RelativeLayout>

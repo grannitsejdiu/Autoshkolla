@@ -1,5 +1,6 @@
 package com.example.admin.autoshkolla.Testet;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.CountDownTimer;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.admin.autoshkolla.BlurryBackgrounds_Activities.AlertWindow_Activity;
 import com.example.admin.autoshkolla.Models.Exam;
 import com.example.admin.autoshkolla.Models.Question;
 import com.example.admin.autoshkolla.Models.This;
@@ -28,8 +30,10 @@ public class TestFormActivity extends AppCompatActivity {
     RecyclerView.Adapter adapter;
     Button backButtonTestForm;
     TextView testFormTitle, testFormNextQuestion , testFormPreviousQuestion;
-    TextView testFormExamTime;
+    TextView testFormExamTime,pasTextIcon, paraTextIcon;
+    TextView piket;
     private static final String FORMAT = "%02d:%02d";
+    public static Activity fa;
 
     Exam selectedExam = new Exam();
 
@@ -38,6 +42,12 @@ public class TestFormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_form);
+
+        fa = this;
+
+        pasTextIcon = (TextView) findViewById(R.id.pasButton);
+        paraTextIcon = (TextView) findViewById(R.id.paraButton);
+        piket = (TextView) findViewById(R.id.piket);
 
         recyclerView= (RecyclerView) findViewById(R.id.recyclerViewTestForm);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
@@ -79,9 +89,11 @@ public class TestFormActivity extends AppCompatActivity {
                 testFormTitle.setText("Pyetja " + (targetPosition+1) + "/" + layoutManager.getItemCount());
                 if (targetPosition ==0){
                     testFormPreviousQuestion.setVisibility(View.INVISIBLE);
+                    pasTextIcon.setVisibility(View.INVISIBLE);
                 }
                 else{
                     testFormPreviousQuestion.setVisibility(View.VISIBLE);
+                    pasTextIcon.setVisibility(View.VISIBLE);
                 }
 
                 if (targetPosition == layoutManager.getItemCount()-1){
@@ -101,6 +113,7 @@ public class TestFormActivity extends AppCompatActivity {
         getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
         final int width = displaymetrics.widthPixels;
 
+        //region testFormNextQuestion.setOnClickListener
         testFormNextQuestion = (TextView) findViewById(R.id.testFormNextQuestion);
         testFormNextQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +132,7 @@ public class TestFormActivity extends AppCompatActivity {
 
                 if (targetPosition ==0){
                     testFormPreviousQuestion.setVisibility(View.INVISIBLE);
+                    pasTextIcon.setVisibility(View.INVISIBLE);
                 }
                 else if(position == layoutManager.getItemCount()-1){
                     Intent intent = new Intent(TestFormActivity.this, TestResultsFormActivity.class);
@@ -126,6 +140,7 @@ public class TestFormActivity extends AppCompatActivity {
                 }
                 else{
                     testFormPreviousQuestion.setVisibility(View.VISIBLE);
+                    pasTextIcon.setVisibility(View.VISIBLE);
                 }
 
 
@@ -138,7 +153,9 @@ public class TestFormActivity extends AppCompatActivity {
 
             }
         });
+        //endregion
 
+        //region testFormPreviousQuestion.setOnClickListener
         testFormPreviousQuestion = (TextView) findViewById(R.id.testFormPreviousQuestion);
         testFormPreviousQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -156,9 +173,11 @@ public class TestFormActivity extends AppCompatActivity {
 
                 if (targetPosition ==0){
                     testFormPreviousQuestion.setVisibility(View.INVISIBLE);
+                    pasTextIcon.setVisibility(View.INVISIBLE);
                 }
                 else{
                     testFormPreviousQuestion.setVisibility(View.VISIBLE);
+                    pasTextIcon.setVisibility(View.VISIBLE);
                 }
 
                 if (position == layoutManager.getItemCount()){
@@ -170,32 +189,92 @@ public class TestFormActivity extends AppCompatActivity {
 
             }
         });
+        //endregion
+
+        //region  paraTextIcon.setOnClickListener
+        paraTextIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                recyclerView.smoothScrollBy(width,0);
+
+                View centerView = helper.findSnapView(layoutManager);
+
+                int position = layoutManager.getPosition(centerView);
+                int targetPosition = position + 1;
+
+                final int firstItem = 0;
+                final int lastItem = layoutManager.getItemCount() - 1;
+                targetPosition = Math.min(lastItem, Math.max(targetPosition, firstItem));
+                testFormTitle.setText("Pyetja " + (targetPosition +1) + "/" + selectedExam.questions.size());
+
+                if (targetPosition ==0){
+                    testFormPreviousQuestion.setVisibility(View.INVISIBLE);
+                    pasTextIcon.setVisibility(View.INVISIBLE);
+                }
+                else if(position == layoutManager.getItemCount()-1){
+                    Intent intent = new Intent(TestFormActivity.this, TestResultsFormActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    testFormPreviousQuestion.setVisibility(View.VISIBLE);
+                    pasTextIcon.setVisibility(View.VISIBLE);
+                }
+
+
+                if ((position == layoutManager.getItemCount()-2) || (position==layoutManager.getItemCount()-1)){
+                    testFormNextQuestion.setText("Shiko Rezultati");
+                }
+                else {
+                    testFormNextQuestion.setText("Para");
+                }
+            }
+        });
+        //endregion
+
+        //region pasButton OnClickListener
+        pasTextIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                recyclerView.smoothScrollBy(-width,0);
+                View centerView = helper.findSnapView(layoutManager);
+
+                int position = layoutManager.getPosition(centerView);
+                int targetPosition = position - 1;
+
+                final int firstItem = 0;
+                final int lastItem = layoutManager.getItemCount() - 1;
+                targetPosition = Math.min(lastItem, Math.max(targetPosition, firstItem));
+                testFormTitle.setText("Pyetja " + (targetPosition+1) + "/" + selectedExam.questions.size());
+
+                if (targetPosition ==0){
+                    testFormPreviousQuestion.setVisibility(View.INVISIBLE);
+                    pasTextIcon.setVisibility(View.INVISIBLE);
+                }
+                else{
+                    testFormPreviousQuestion.setVisibility(View.VISIBLE);
+                    pasTextIcon.setVisibility(View.VISIBLE);
+                }
+
+                if (position == layoutManager.getItemCount()){
+                    testFormNextQuestion.setText("Shiko Rezultati");
+                }
+                else {
+                    testFormNextQuestion.setText("Para");
+                }
+            }
+        });
+        //endregion
+
 
         backButtonTestForm = (Button) findViewById(R.id.backbuttonTestForm);
         backButtonTestForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new AlertDialog.Builder(TestFormActivity.this)
-                        .setTitle("Test Form")
-                        .setMessage("A deshironi te largoheni nga kjo form ?")
-                        .setNegativeButton("JO", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                // do nothing
-                            }
-                        })
-                        .setPositiveButton("PO", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                TestFormActivity.super.onBackPressed();
-                                //finish();
-                            }
-                        })
-                        .setIcon(R.drawable.questions)
-                        .show();
+                Intent intent = new Intent(getApplicationContext(), AlertWindow_Activity.class);
+                startActivity(intent);
             }
         });
-
-
-
+        
 
         testFormExamTime = (TextView) findViewById(R.id.testFormExamTime);
         new CountDownTimer(2700000, 1000) { // adjust the milli seconds here
@@ -218,21 +297,8 @@ public class TestFormActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        new AlertDialog.Builder(TestFormActivity.this)
-                .setTitle("Test Form")
-                .setMessage("A deshironi te largoheni nga kjo form ?")
-                .setNegativeButton("JO", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // do nothing
-                    }
-                })
-                .setPositiveButton("PO", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        TestFormActivity.super.onBackPressed();
-                        //finish();
-                    }
-                })
-                .setIcon(R.drawable.questions)
-                .show();
+        Intent intent = new Intent(getApplicationContext(), AlertWindow_Activity.class);
+        startActivity(intent);
     }
+
 }

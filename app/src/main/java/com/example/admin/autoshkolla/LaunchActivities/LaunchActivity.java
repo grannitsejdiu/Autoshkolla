@@ -26,6 +26,10 @@ public class LaunchActivity extends AppCompatActivity {
     }
 
     void downloadContent(){
+
+        //message: "Ju lutem prisni"
+        //show loader
+
         AllLayer.getAll(new ResponseData() {
             @Override
             public void onSuccess(JSONObject data) {
@@ -33,17 +37,16 @@ public class LaunchActivity extends AppCompatActivity {
                 Parser.saveToShared(getApplicationContext(), data.toString());
                 Parser.createFromJSONObject(data);
 
-                //show button Fillo to go to main activity
-
+                //message: "Mire se vini"
+                //hide retry button
+                // show Start Button to go to another activity
             }
 
             @Override
             public void onFailure(ErrorResponse error) {
-
-                //tell user that internet connection is needed to download content
-                //show retry button
-
-
+                //message: Duhet te keni qasje ne internet
+                // hide Start button
+                // show retry button
             }
 
             @Override
@@ -51,5 +54,13 @@ public class LaunchActivity extends AppCompatActivity {
                 //nuk besoj qe hin najhere :P
             }
         });
+    }
+
+    void retry(){ //this method should called when user click retry button
+        //hide other fields
+        downloadContent();
+    }
+    void start(){
+        //close this activity and go to main activity
     }
 }

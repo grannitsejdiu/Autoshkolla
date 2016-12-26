@@ -22,11 +22,10 @@ public class Exam {
 
         try {
             e.id = r.getInt("id");
-            e.name = r.getString("name");
-            e.description = r.getString("description");
+            e.name = r.getString("n");
 
-            if (!r.isNull("questions")){
-                JSONArray qs = r.getJSONArray("questions");
+            if (!r.isNull("qs")){
+                JSONArray qs = r.getJSONArray("qs");
 
                 for(int i=0; i<qs.length(); i++){
                     JSONObject qo = qs.getJSONObject(i);

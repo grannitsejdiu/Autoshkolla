@@ -25,18 +25,16 @@ public class Question {
         Question q = new Question();
 
         try {
-            q.id = r.getInt("id");
-            q.name = r.getString("name");
-            q.points = r.getInt("points");
-            q.exam_id = r.getInt("exam_id");
+            q.name = r.getString("n");
+            q.points = r.getInt("p");
 
-            if (!r.isNull("image") &&
-                    (r.getString("image") != "")){
-                q.image = Imager.createFromString(r.getString("image"), false);
+            if (!r.isNull("i") &&
+                    (r.getString("i") != "")){
+                q.image = Imager.createFromString(r.getString("i"), false);
             }
 
-            if (!r.isNull("alternatives")){
-                JSONArray qs = r.getJSONArray("alternatives");
+            if (!r.isNull("als")){
+                JSONArray qs = r.getJSONArray("als");
 
                 for(int i=0; i<qs.length(); i++){
                     JSONObject qo = qs.getJSONObject(i);

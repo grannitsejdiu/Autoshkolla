@@ -22,8 +22,8 @@ import com.loopj.android.http.*;
  */
 
 public class ServerLayer {
-    private static final String BASE_URL = "http://api.tenton.co/as/v6/public/";
-    private static final String BASE_URL_RESOURCE = BASE_URL + "images/v6/";
+    private static final String BASE_URL = "http://autoshkolla-ks.com/api/as/v6/public/mobile/";
+    private static final String BASE_URL_RESOURCE = "http://autoshkolla-ks.com/api/as/v6/public/images/v6/";
 
     private static AsyncHttpClient client = new AsyncHttpClient();
 

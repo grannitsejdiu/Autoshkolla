@@ -18,10 +18,8 @@ public class Alternative {
 
         Alternative a = new Alternative();
         try {
-            a.id = r.getInt("id");
-            a.name = r.getString("name");
-            a.correctAnswer = r.getInt("isTrue") == 1;
-            a.question_id = r.getInt("question_id");
+            a.name = r.getString("n");
+            a.correctAnswer = r.getInt("t") == 1;
 
         } catch (JSONException e) {
             e.printStackTrace();

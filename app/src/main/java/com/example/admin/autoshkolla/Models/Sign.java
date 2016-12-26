@@ -17,17 +17,22 @@ public class Sign {
     public static Sign createFromJSON(JSONObject r){
         Sign s = new Sign();
 
-        s.id = r.optInt("id");
-        s.name = r.optString("name");
-        s.description = r.optString("description");
-        s.group_id = r.optInt("group_id");
+        s.name = r.optString("n");
+        s.description = r.optString("d");
 
-        if (!r.isNull("subgroup")){
-            s.subgroup = Subgroup.createFromJSON(r.optJSONObject("subgroup"));
+        if (!r.isNull("sgid")){
+            Integer sgid = r.optInt("sgid");
+
+            for (Subgroup sg : This.subgroups){
+                if (sg.id == sgid){
+                    s.subgroup = sg;
+                    break;
+                }
+            }
         }
 
-        if (!r.isNull("image")){
-            s.imager = Imager.createFromString(r.optString("image"), false);
+        if (!r.isNull("i")){
+            s.imager = Imager.createFromString(r.optString("i"), false);
         }
 
         return s;

@@ -61,10 +61,11 @@
             android:name=".BlurryBackgrounds_Activities.TestUdhezime_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Transparent" />
-        <activity android:name=".BlurryBackgrounds_Activities.AlertWindow_Activity"
+        <activity
+            android:name=".BlurryBackgrounds_Activities.AlertWindow_Activity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Transparent"
-            />
+            android:theme="@style/Theme.Transparent" />
+        <activity android:name=".LaunchActivities.LaunchActivity"></activity>
     </application>
 
 </manifest>

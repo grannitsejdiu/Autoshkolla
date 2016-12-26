@@ -6,9 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.admin.autoshkolla.Ligjeratat.Ligjeratat_RecyclerAdapter;
+import com.example.admin.autoshkolla.Models.ErrorResponse;
 import com.example.admin.autoshkolla.Models.Exam;
 import com.example.admin.autoshkolla.Models.Group;
 import com.example.admin.autoshkolla.Models.This;
+import com.example.admin.autoshkolla.ServiceLayer.AllLayer;
 import com.example.admin.autoshkolla.ServiceLayer.ExamsLayer;
 import com.example.admin.autoshkolla.ServiceLayer.GroupsLayer;
 import com.example.admin.autoshkolla.ServiceLayer.ResponseData;
@@ -25,22 +27,8 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ExamsLayer.getAllExams(new ResponseData() {
-            @Override
-            public void onSuccess(Object data) {
 
-                List<Exam> aa = (ArrayList<Exam>)data;
-                This.exams = aa;
-            }
-        });
 
-        GroupsLayer.getAllGroups(new ResponseData() {
-            @Override
-            public void onSuccess(Object data) {
-                List<Group> gs = (ArrayList<Group>)data;
-                This.groups = gs;
-            }
-        });
 
 
         //region ViewPager

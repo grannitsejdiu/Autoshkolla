@@ -26,16 +26,16 @@ public class GroupsLayer {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
 
-                List<Group> groups = new ArrayList<Group>();
-
-                for (int i = 0; i < response.length(); i++) {
-                    if (response.optJSONObject(i) != null){
-                        Group g = Group.createFromJSON(response.optJSONObject(i));
-                        groups.add(g);
-                    }
-                }
-
-                r.onSuccess(groups);
+//                List<Group> groups = new ArrayList<Group>();
+//
+//                for (int i = 0; i < response.length(); i++) {
+//                    if (response.optJSONObject(i) != null){
+//                        Group g = Group.createFromJSON(response.optJSONObject(i));
+//                        groups.add(g);
+//                    }
+//                }
+//
+//                r.onSuccess(groups);
             }
         });
     }

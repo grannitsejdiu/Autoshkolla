@@ -20,8 +20,8 @@ public class Subgroup {
         Subgroup s = new Subgroup();
 
         s.id = r.optInt("id");
-        s.name = r.optString("name");
-        s.description = r.optString("description");
+        s.name = r.optString("n");
+        s.description = r.optString("d");
 
         return s;
     }

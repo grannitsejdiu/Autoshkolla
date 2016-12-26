@@ -4,15 +4,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.example.admin.autoshkolla.Ligjeratat.Ligjeratat_RecyclerAdapter;
+import com.example.admin.autoshkolla.Models.ErrorResponse;
 import com.example.admin.autoshkolla.Models.Exam;
 import com.example.admin.autoshkolla.Models.Group;
+import com.example.admin.autoshkolla.Models.Parser;
+import com.example.admin.autoshkolla.Models.Sign;
+import com.example.admin.autoshkolla.Models.Subgroup;
 import com.example.admin.autoshkolla.Models.This;
 import com.example.admin.autoshkolla.R;
+import com.example.admin.autoshkolla.ServiceLayer.AllLayer;
 import com.example.admin.autoshkolla.ServiceLayer.ExamsLayer;
 import com.example.admin.autoshkolla.ServiceLayer.GroupsLayer;
 import com.example.admin.autoshkolla.ServiceLayer.ResponseData;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,20 +37,33 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_autoshkolla__main);
 
-        ExamsLayer.getAllExams(new ResponseData() {
-            @Override
-            public void onSuccess(Object data) {
-
-                List<Exam> aa = (ArrayList<Exam>)data;
-                This.exams = aa;
+        // fill from local repository
+        String response = Parser.getFromShared(getApplicationContext());
+        if (!response.equals("")){
+            try {
+                JSONObject data = new JSONObject(response);
+                Parser.createFromJSONObject(data);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        });
+        }
 
-        GroupsLayer.getAllGroups(new ResponseData() {
+        AllLayer.getAll(new ResponseData() {
             @Override
-            public void onSuccess(Object data) {
-                List<Group> gs = (ArrayList<Group>)data;
-                This.groups = gs;
+            public void onSuccess(JSONObject data) {
+                Parser.saveToShared(getApplicationContext(), data.toString());
+                Parser.createFromJSONObject(data);
+            }
+
+            @Override
+            public void onNotModified() {
+                Log.e("Not modified","Your updated");
+
+            }
+
+            @Override
+            public void onFailure(ErrorResponse error) {
+                Log.e("Failed", error.message);
             }
         });
 

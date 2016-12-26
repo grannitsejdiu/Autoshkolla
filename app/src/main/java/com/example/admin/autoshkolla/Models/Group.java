@@ -19,15 +19,15 @@ public class Group {
 
     public static Group createFromJSON(JSONObject r) {
         Group g = new Group();
-        g.id = r.optInt("id");
-        g.name = r.optString("name");
-        g.description = r.optString("description");
-        if (!r.isNull("image")){
-            g.imager = Imager.createFromString(r.optString("image"), false);
+
+        g.name = r.optString("n");
+        g.description = r.optString("d");
+        if (!r.isNull("i")){
+            g.imager = Imager.createFromString(r.optString("i"), false);
         }
 
-        if (!r.isNull("signs")){
-            JSONArray ss = r.optJSONArray("signs");
+        if (!r.isNull("ss")){
+            JSONArray ss = r.optJSONArray("ss");
             for(int i=0; i<ss.length(); i++){
                 JSONObject jS = ss.optJSONObject(i);
                 Sign s = Sign.createFromJSON(jS);

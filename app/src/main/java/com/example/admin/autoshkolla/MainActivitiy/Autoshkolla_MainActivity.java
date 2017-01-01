@@ -1,5 +1,7 @@
 package com.example.admin.autoshkolla.MainActivitiy;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,6 +21,8 @@ import com.example.admin.autoshkolla.ServiceLayer.AllLayer;
 import com.example.admin.autoshkolla.ServiceLayer.ExamsLayer;
 import com.example.admin.autoshkolla.ServiceLayer.GroupsLayer;
 import com.example.admin.autoshkolla.ServiceLayer.ResponseData;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -66,6 +70,7 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
                 Log.e("Failed", error.message);
             }
         });
+
 
         recyclerView= (RecyclerView) findViewById(R.id.recyclerViewMain);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);

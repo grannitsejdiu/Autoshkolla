@@ -45,14 +45,13 @@ public class Nocionet_RecyclerAdapter extends RecyclerView.Adapter<Nocionet_Recy
         holder.nocionet_DescriptionTitle.setText(s.name);
         holder.nocionet_Description.setText(s.description);
 
-        holder.nocionet_Image.setImageResource(R.drawable.imageplaceholder);
+        holder.nocionet_Image.setVisibility(View.GONE);
 
         if ((s.imager != null) && (!s.imager.link.equals("")))
         {
+            holder.nocionet_Image.setVisibility(View.VISIBLE);
             Picasso.with(context).load(s.imager.getUrl()).into(holder.nocionet_Image);
         }
-
-
     }
 
     @Override

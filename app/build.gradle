@@ -37,6 +37,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.github.mmin18:realtimeblurview:1.0.6'
+    compile 'io.realm:realm-android:0.84.1'
     testCompile 'junit:junit:4.12'
 
 }

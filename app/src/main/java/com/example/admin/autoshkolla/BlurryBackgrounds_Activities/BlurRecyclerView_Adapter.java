@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.admin.autoshkolla.Models.Sign;
@@ -20,10 +21,12 @@ public class BlurRecyclerView_Adapter extends RecyclerView.Adapter<BlurRecyclerV
 
     public List<Sign> signs = new ArrayList<>();
     public Context context;
+    BlurRecyclerView_Activity activity;
 
-    public  BlurRecyclerView_Adapter(List<Sign> ss, Context c){
+    public  BlurRecyclerView_Adapter(List<Sign> ss, Context c,BlurRecyclerView_Activity activity){
         signs = ss;
         context = c;
+        this.activity = activity;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -35,15 +38,29 @@ public class BlurRecyclerView_Adapter extends RecyclerView.Adapter<BlurRecyclerV
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Sign s = signs.get(position);
-        holder.title.setText(s.name);
+        if(holder.title == null){
+            holder.title.setVisibility(View.GONE);
+        }else {
+            holder.title.setText(s.name);
+        }
 
         holder.imageView.setImageResource(R.drawable.imageplaceholder);
-        holder.description.setText(s.description);
+        if(holder.description == null){
+            holder.description.setText(" ");
+        }else {
+            holder.description.setText(s.description);
+        }
+
         if (s.imager != null){
             Picasso.with(context).load(s.imager.getUrl()).into(holder.imageView);
         }
 
-
+        holder.parent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.onBackPressed();
+            }
+        });
     }
 
     @Override
@@ -52,6 +69,7 @@ public class BlurRecyclerView_Adapter extends RecyclerView.Adapter<BlurRecyclerV
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        public LinearLayout parent;
         public ImageView imageView;
         public TextView title;
         public TextView description;
@@ -60,6 +78,7 @@ public class BlurRecyclerView_Adapter extends RecyclerView.Adapter<BlurRecyclerV
             imageView = (ImageView) itemView.findViewById(R.id.shenjat_Policit_Image);
             title = (TextView) itemView.findViewById(R.id.shenjat_Policit_Title);
             description = (TextView) itemView.findViewById(R.id.shenjat_Policit_Description);
+            parent = (LinearLayout) itemView.findViewById(R.id.card_view_parent);
         }
     }
 }

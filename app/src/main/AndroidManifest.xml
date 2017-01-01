@@ -65,7 +65,10 @@
             android:name=".BlurryBackgrounds_Activities.AlertWindow_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Transparent" />
-        <activity android:name=".LaunchActivities.LaunchActivity"></activity>
+        <activity android:name=".LaunchActivities.LaunchActivity" />
+
+        <activity android:name=".Ilustrimet.Ilustrimet_Activity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

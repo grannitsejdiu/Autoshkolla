@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.admin.autoshkolla.BlurryBackgrounds_Activities.AlertWindow_Activity;
 import com.example.admin.autoshkolla.BlurryBackgrounds_Activities.TestUdhezime_Activity;
+import com.example.admin.autoshkolla.Ilustrimet.Ilustrimet_Activity;
 import com.example.admin.autoshkolla.Ligjeratat.Ligjeratat_Activity;
 import com.example.admin.autoshkolla.Ligjeratat.Ligjeratat_RecyclerAdapter;
 import com.example.admin.autoshkolla.Nocionet.Nocionet_Activity;
@@ -89,7 +90,7 @@ public class Autoshkolla_MainRecyclerAdapter extends RecyclerView.Adapter<Autosh
                             view.getContext().startActivity(intent3);
                             break;
                         case 3:
-                            Intent intent4 = new Intent(view.getContext().getApplicationContext(), TestUdhezime_Activity.class);
+                            Intent intent4 = new Intent(view.getContext().getApplicationContext(), Ilustrimet_Activity.class);
                             view.getContext().startActivity(intent4);
                             break;
                         case 4:

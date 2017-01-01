@@ -56,6 +56,7 @@ public class BlurRecyclerView_Activity extends AppCompatActivity {
         });
 
         recyclerView= (RecyclerView) findViewById(R.id.recycler_view_Blur);
+        recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -64,7 +65,7 @@ public class BlurRecyclerView_Activity extends AppCompatActivity {
         Subgroup s = This.groups.get(2).subgroups().get(index);
         int scrollPostion = getIntent().getIntExtra("scrollPosition",0);
 
-        adapter = new BlurRecyclerView_Adapter(s.signs, getApplicationContext());
+        adapter = new BlurRecyclerView_Adapter(s.signs, getApplicationContext(),this);
         recyclerView.setAdapter(adapter);
 
         recyclerView.scrollToPosition(scrollPostion);

@@ -51,8 +51,12 @@ public class Ilustrimet_RecyclerAdapter extends RecyclerView.Adapter<Ilustrimet_
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                   view.getContext().startActivity(new Intent(Intent.ACTION_VIEW,
-                           Uri.parse("https://www.youtube.com/watch?v=N7VCLNBNJQs")));
+
+                    Intent intent = new Intent(view.getContext().getApplicationContext(), Ilustrimet_Webview.class);
+                    view.getContext().startActivity(intent);
+
+//                   view.getContext().startActivity(new Intent(Intent.ACTION_VIEW,
+//                           Uri.parse("https://www.youtube.com/watch?v=N7VCLNBNJQs")));
                 }
             });
         }

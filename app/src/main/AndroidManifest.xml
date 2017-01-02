@@ -65,10 +65,16 @@
             android:name=".BlurryBackgrounds_Activities.AlertWindow_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Transparent" />
+
         <activity android:name=".LaunchActivities.LaunchActivity" />
 
-        <activity android:name=".Ilustrimet.Ilustrimet_Activity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Ilustrimet.Ilustrimet_Activity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".Ilustrimet.Ilustrimet_Webview"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
     </application>
 
 </manifest>

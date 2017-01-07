@@ -71,23 +71,21 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
         holder.questionFirstAlternative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                q.alternatives.get(0).userAnswer = true;
+                q.alternatives.get(0).userAnswer = !q.alternatives.get(0).userAnswer;
             }
         });
         holder.questionSecondAlternative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                q.alternatives.get(1).userAnswer = true;
+                q.alternatives.get(1).userAnswer = !q.alternatives.get(1).userAnswer;
             }
         });
         holder.questionThirdAlternative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                q.alternatives.get(2).userAnswer = true;
+                q.alternatives.get(2).userAnswer = !q.alternatives.get(2).userAnswer;
             }
         });
-
-
     }
 
     @Override

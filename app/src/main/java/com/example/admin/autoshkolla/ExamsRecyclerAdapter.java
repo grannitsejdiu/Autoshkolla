@@ -77,7 +77,7 @@ public class ExamsRecyclerAdapter extends RecyclerView.Adapter<ExamsRecyclerAdap
 
         Question q = e.questions.get(0);
 
-        String s = String.valueOf(position);
+        String s = String.valueOf(position + 1);
 
         holder.cardviewItemTitle.setText(e.name);
         holder.getCardviewItemDescription.setText(q.name);

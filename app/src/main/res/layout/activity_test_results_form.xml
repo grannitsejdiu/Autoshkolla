@@ -70,11 +70,15 @@
         android:id="@+id/progressBarPercentage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:textColor="#990000"
-        android:textSize="40sp"
-        android:text="22%"/>
+        android:textSize="54sp"
+        android:text="100%"
+        android:layout_centerVertical="true"
+        android:textAlignment="center"
+        android:layout_alignLeft="@+id/progressBar"
+        android:layout_alignStart="@+id/progressBar"
+        android:layout_alignRight="@+id/progressBar"
+        android:layout_alignEnd="@+id/progressBar" />
     </RelativeLayout>
 
     <RelativeLayout

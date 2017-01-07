@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.admin.autoshkolla.MainActivitiy.Autoshkolla_MainRecyclerAdapter;
+import com.example.admin.autoshkolla.Models.This;
 import com.example.admin.autoshkolla.R;
 
 public class Ilustrimet_Activity extends AppCompatActivity {
@@ -25,7 +26,7 @@ public class Ilustrimet_Activity extends AppCompatActivity {
         recyclerView= (RecyclerView) findViewById(R.id.recyclerView_Ilustrimet);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new Ilustrimet_RecyclerAdapter();
+        adapter = new Ilustrimet_RecyclerAdapter(This.illustraions, getApplicationContext());
         recyclerView.setAdapter(adapter);
 
         backbutton = (Button) findViewById(R.id.ilustrimet_FormBackButton);

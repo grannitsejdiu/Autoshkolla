@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.admin.autoshkolla.Models.Sign;
+import com.example.admin.autoshkolla.Models.This;
 import com.example.admin.autoshkolla.R;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -24,12 +26,15 @@ public class Ilustrimet_Webview extends YouTubeBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ilustrimet__webview);
 
-        youtube_thumnail = (ImageView) findViewById(R.id.youtube_thumbnail);
+        int index = getIntent().getIntExtra("index", 0);
+        final Sign s = This.illustraions.get(index);
+
+        //youtube_thumnail = (ImageView) findViewById(R.id.youtube_thumbnail);
         youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube_view);
         onInitializedListener = new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                youTubePlayer.loadVideo("W1UvCjj2cvQ");
+                youTubePlayer.loadVideo(s.description);
             }
 
             @Override

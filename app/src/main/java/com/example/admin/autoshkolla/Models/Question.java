@@ -55,4 +55,18 @@ public class Question {
         return q;
     }
 
+    public void clear() {
+        for (Alternative a: alternatives) {
+            a.userAnswer = false;
+        }
+    }
+
+    public boolean correct() {
+        for (Alternative a:alternatives) {
+            if (a.correctAnswer != a.userAnswer){
+                return false;
+            }
+        }
+        return true;
+    }
 }

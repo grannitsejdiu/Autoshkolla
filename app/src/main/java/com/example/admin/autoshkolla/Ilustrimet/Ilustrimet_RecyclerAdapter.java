@@ -1,5 +1,6 @@
 package com.example.admin.autoshkolla.Ilustrimet;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
@@ -9,13 +10,22 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.admin.autoshkolla.Models.Sign;
 import com.example.admin.autoshkolla.R;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Ilustrimet_RecyclerAdapter extends RecyclerView.Adapter<Ilustrimet_RecyclerAdapter.ViewHolder> {
 
-    private String[] title = {"Titulli 1", "Titulli 2","Titulli 3","Titulli 4","Titulli 5"};
-
+    private List<Sign> signs = new ArrayList<>();
+    private Context context;
+    public Ilustrimet_RecyclerAdapter(List<Sign> ss, Context ctx){
+        signs = ss;
+        context = ctx;
+    }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_ilustrimet, parent,false);
@@ -26,14 +36,23 @@ public class Ilustrimet_RecyclerAdapter extends RecyclerView.Adapter<Ilustrimet_
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.cardviewItemTitle.setText(title[position]);
-        holder.getCardviewItemDescription.setText("https://www.youtube.com/watch?v=N7VCLNBNJQs");
+
+        Sign s = signs.get(position);
+
+        holder.cardviewItemTitle.setText(s.name);
+        holder.getCardviewItemDescription.setText(s.description);
         holder.cardviewItemImage.setImageResource(R.color.titleColor);
+
+        if (s.imager != null) {
+            if (!s.imager.link.equals("")) {
+                Picasso.with(context).load(s.imager.getUrl()).into(holder.cardviewItemImage);
+            }
+        }
     }
 
     @Override
     public int getItemCount() {
-        return title.length;
+        return signs.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

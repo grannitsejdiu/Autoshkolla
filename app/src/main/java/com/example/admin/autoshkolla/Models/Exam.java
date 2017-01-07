@@ -41,4 +41,30 @@ public class Exam {
 
         return e;
     }
+
+
+    public void startNewExam(){
+        for (Question q: questions) {
+            q.clear();
+        }
+    }
+
+    public int pointsResults() {
+        int pts = 0;
+        for (Question q: questions) {
+            if (q.correct()){
+                pts += q.points;
+            }
+        }
+
+        return pts;
+    }
+
+    public float percentResults() {
+        return (float) (pointsResults() / 100.0);
+    }
+    public boolean success(){
+        return pointsResults() >= 90;
+    }
+
 }

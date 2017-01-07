@@ -7,7 +7,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.admin.autoshkolla.Models.Constants;
+import com.example.admin.autoshkolla.Models.Question;
 import com.example.admin.autoshkolla.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Admin on 11/25/2016.
@@ -15,9 +20,11 @@ import com.example.admin.autoshkolla.R;
 
 public class TestResultsForm_RecyclerAdapter extends RecyclerView.Adapter<TestResultsForm_RecyclerAdapter.ViewHolder> {
 
-    public String[] testNumbers = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20",
-    "21","22","23","24","25","26","27","28","29","30"};
+    public List<Question> questions = new ArrayList<Question>();
 
+    public TestResultsForm_RecyclerAdapter(List<Question> qs){
+        questions = qs;
+    }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_test_result, parent,false);
@@ -28,12 +35,21 @@ public class TestResultsForm_RecyclerAdapter extends RecyclerView.Adapter<TestRe
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        holder.testNumber.setText(testNumbers[position]);
+        Question q = questions.get(position);
+
+        holder.testNumber.setText(String.valueOf(position + 1));
+
+        if (q.correct()){
+            holder.testNumber.setTextColor(Constants.successColor);
+        }else{
+            holder.testNumber.setTextColor(Constants.failedColor);
+        }
+        //holder.testNumber.setText(testNumbers[position]);
     }
 
     @Override
     public int getItemCount() {
-        return testNumbers.length;
+        return questions.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -56,9 +56,11 @@ public class TestFormActivity extends AppCompatActivity {
 
         //get select index
 
-        int selectedIndex = getIntent().getIntExtra("selectExamIndex",0);
+        final int selectedIndex = getIntent().getIntExtra("selectExamIndex",0);
 
         selectedExam = This.exams.get(selectedIndex);
+        selectedExam.startNewExam();
+
         adapter = new TestFormRecyclerAdapter(selectedExam.questions, getApplicationContext());
         recyclerView.setAdapter(adapter);
 
@@ -97,7 +99,7 @@ public class TestFormActivity extends AppCompatActivity {
                 }
 
                 if (targetPosition == layoutManager.getItemCount()-1){
-                    testFormNextQuestion.setText("Shiko Rezultati");
+                    testFormNextQuestion.setText("Perfundo");
                 }
                 else {
                     testFormNextQuestion.setText("Para");
@@ -136,6 +138,7 @@ public class TestFormActivity extends AppCompatActivity {
                 }
                 else if(position == layoutManager.getItemCount()-1){
                     Intent intent = new Intent(TestFormActivity.this, TestResultsFormActivity.class);
+                    intent.putExtra("index", selectedIndex);
                     startActivity(intent);
                 }
                 else{
@@ -145,7 +148,7 @@ public class TestFormActivity extends AppCompatActivity {
 
 
                 if ((position == layoutManager.getItemCount()-2) || (position==layoutManager.getItemCount()-1)){
-                    testFormNextQuestion.setText("Shiko Rezultati");
+                    testFormNextQuestion.setText("Perfundo");
                 }
                 else {
                     testFormNextQuestion.setText("Para");

@@ -9,4 +9,6 @@
     <color name="toolbarTransparent">#BB222831</color>
     <color name="toolbarColor">#222831</color>
     <color name="transparent">#00000000</color>
+    <color name="successColor">#FFEADD</color>
+    <color name="failedColor">#AABBCC</color>
 </resources>

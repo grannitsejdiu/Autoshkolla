@@ -60,11 +60,14 @@
         android:background="@color/colorAccent"/>
 
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/youtube_lineId_Form">
 
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/youtube_view"
         android:layout_centerVertical="true"
-        android:layout_below="@id/youtube_lineId_Form"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </com.google.android.youtube.player.YouTubePlayerView>
@@ -72,8 +75,8 @@
     <ImageView
         android:id="@+id/youtube_thumbnail"
         android:layout_centerVertical="true"
-        android:background="@drawable/imageplaceholder"
         android:layout_width="match_parent"
+        android:background="@drawable/fcb"
         android:layout_height="250dp" />
 
     <Button
@@ -84,6 +87,8 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@drawable/play"/>
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.admin.autoshkolla.Autoshkolla_Profile.Autoshkolla_Profile;
 import com.example.admin.autoshkolla.BlurryBackgrounds_Activities.AlertWindow_Activity;
 import com.example.admin.autoshkolla.BlurryBackgrounds_Activities.TestUdhezime_Activity;
 import com.example.admin.autoshkolla.Ilustrimet.Ilustrimet_Activity;
@@ -94,7 +95,7 @@ public class Autoshkolla_MainRecyclerAdapter extends RecyclerView.Adapter<Autosh
                             view.getContext().startActivity(intent4);
                             break;
                         case 4:
-                            Intent intent5 = new Intent(view.getContext().getApplicationContext(), TestResultsFormActivity.class);
+                            Intent intent5 = new Intent(view.getContext().getApplicationContext(), Autoshkolla_Profile.class);
                             view.getContext().startActivity(intent5);
                             break;
                         default:

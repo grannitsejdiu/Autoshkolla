@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:id="@+id/cscroll"
+    tools:context="com.example.admin.autoshkolla.Autoshkolla_Profile.Autoshkolla_Profile">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:fitsSystemWindows="false"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="180dp"
+            android:fitsSystemWindows="false"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:map="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.example.admin.autoshkolla.Autoshkolla_Profile.Autoshkolla_Profile" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imagetrans"
+                android:layout_alignTop="@+id/map"
+                android:src="@color/transparent"/>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScroll"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.example.admin.autoshkolla.Autoshkolla_Profile.Autoshkolla_Profile"
+        tools:showIn="@layout/activity_autoshkolla__profile">
+
+        <include layout="@layout/content_autoshkolla__profile"/>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:id="@+id/autoshkolla_FormToolbar"
+        android:elevation="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <android.support.v7.widget.Toolbar
+            android:background="@color/toolbarTransparent"
+            android:title="@string/app_name"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+        </android.support.v7.widget.Toolbar>
+        <Button
+            android:id="@+id/autoshkolla_FormBackButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/backbutton"
+            />
+
+        <Button
+            android:id="@+id/autoshkolla_FormInfo"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/image_info"
+            />
+
+        <TextView
+            android:id="@+id/autoshkolla_FormTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="5dp"
+            android:textColor="#E2792C"
+            android:text="Profile"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        app:backgroundTint="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_anchor="@id/map"
+        app:layout_anchorGravity="bottom|end" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/pPicture_Cardview"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="10dp"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|center">
+
+        <ImageView
+            android:id="@+id/profile_Picture"
+            android:layout_margin="5dp"
+            android:background="@drawable/gs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </android.support.v7.widget.CardView>
+
+    <!--<ImageButton-->
+        <!--android:id="@+id/autoshkolla_callPhoneButton"-->
+        <!--android:background="@drawable/a_callbuttonicon"-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_marginEnd="60dp"-->
+        <!--android:layout_marginRight="60dp"-->
+        <!--app:layout_anchor="@id/nestedScroll"-->
+        <!--app:layout_anchorGravity="center|end"/>-->
+
+    <!--<ImageButton-->
+        <!--android:id="@+id/autoshkolla_callViberButton"-->
+        <!--android:background="@drawable/a_viberbuttonicon"-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_marginEnd="10dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--app:layout_anchor="@id/nestedScroll"-->
+        <!--app:layout_anchorGravity="center|end"/>-->
+
+</android.support.design.widget.CoordinatorLayout>

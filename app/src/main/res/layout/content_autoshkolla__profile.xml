@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+
+
     <LinearLayout
         android:orientation="vertical"
         android:padding="10dp"
@@ -33,6 +35,12 @@
             android:textColor="@color/decsriptionColor"
             android:text="Prishtine"/>
 
+
+        <LinearLayout
+            android:id="@+id/hideabbleLayout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <LinearLayout
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
@@ -216,6 +224,46 @@
             android:text="09:00 - 16:00"/>
         </RelativeLayout>
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Adresa Elektronike"
+                    android:layout_centerVertical="true"
+                    android:textSize="17sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <View
+                    android:background="@color/decsriptionColor"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/autoshkolla_FacebookLink"
+            android:textColor="#0000FF"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="https://web.facebook.com/grannitsejdiu"/>
+
+        </LinearLayout>
     </LinearLayout>
 
 

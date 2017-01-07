@@ -13,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.admin.autoshkolla.R;
 import com.google.android.gms.maps.CameraUpdate;
@@ -29,6 +30,7 @@ public class Autoshkolla_Profile extends AppCompatActivity implements OnMapReady
     private GoogleMap mMap;
     Button autoshkolla_BackButton;
     NestedScrollView nestedScrollView;
+    LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +47,12 @@ public class Autoshkolla_Profile extends AppCompatActivity implements OnMapReady
 
         final AppBarLayout appbarLayout = (AppBarLayout)findViewById(R.id.app_bar);
         nestedScrollView = (NestedScrollView) findViewById(R.id.nestedScroll);
-        nestedScrollView.scrollTo(0,200);
-        
+        nestedScrollView.scrollTo(0,180);
+
+
+        linearLayout = (LinearLayout) findViewById(R.id.hideabbleLayout);
+
+        appbarLayout.setExpanded(false);
         final FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab);
         fab.setImageResource(R.drawable.a_collapseicon);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -54,10 +60,14 @@ public class Autoshkolla_Profile extends AppCompatActivity implements OnMapReady
             public void onClick(View view) {
                 if (appbarLayout.getTop() < 0) {
                     fab.setImageResource(R.drawable.a_collapseicon);
+                    linearLayout.setVisibility(View.GONE);
+                    nestedScrollView.setNestedScrollingEnabled(false);
                     appbarLayout.setExpanded(true);
                 }
                 else{
                     fab.setImageResource(R.drawable.a_expandicon);
+                    linearLayout.setVisibility(View.VISIBLE);
+                    nestedScrollView.setNestedScrollingEnabled(true);
                     appbarLayout.setExpanded(false);
                 }
             }
@@ -104,14 +114,16 @@ public class Autoshkolla_Profile extends AppCompatActivity implements OnMapReady
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        double latitude = 42.655231;
+        double longitude = 21.160645;
+
         // Add a marker in Sydney and move the camera
-        LatLng prishtina = new LatLng(42.655231, 21.160645);
-        mMap.addMarker(new MarkerOptions().position(prishtina).title("Sony te Tony")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
+        LatLng prishtina = new LatLng(latitude, longitude);
+        mMap.addMarker(new MarkerOptions().position(prishtina).title("Sony te Tony"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(prishtina));
 
-        CameraUpdate center = CameraUpdateFactory.newLatLng(new LatLng(42.655231, 21.160645));
-        CameraUpdate zoom = CameraUpdateFactory.zoomTo(18);
+        CameraUpdate center = CameraUpdateFactory.newLatLng(new LatLng(latitude + 0.004, longitude));
+        CameraUpdate zoom = CameraUpdateFactory.zoomTo(15);
         mMap.moveCamera(center);
         mMap.animateCamera(zoom);
     }

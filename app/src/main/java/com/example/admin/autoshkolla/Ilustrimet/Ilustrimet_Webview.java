@@ -16,10 +16,9 @@ import com.google.android.youtube.player.YouTubePlayerView;
 
 public class Ilustrimet_Webview extends YouTubeBaseActivity {
 
-    Button play, back;
+    Button back;
     private YouTubePlayerView youTubePlayerView;
     private YouTubePlayer.OnInitializedListener onInitializedListener;
-    ImageView youtube_thumnail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +28,6 @@ public class Ilustrimet_Webview extends YouTubeBaseActivity {
         int index = getIntent().getIntExtra("index", 0);
         final Sign s = This.illustraions.get(index);
 
-        //youtube_thumnail = (ImageView) findViewById(R.id.youtube_thumbnail);
         youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube_view);
         onInitializedListener = new YouTubePlayer.OnInitializedListener() {
             @Override
@@ -43,16 +41,7 @@ public class Ilustrimet_Webview extends YouTubeBaseActivity {
             }
         };
 
-        play = (Button) findViewById(R.id.youtube_play);
-        play.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                youTubePlayerView.initialize("AIzaSyAejeo4T9MkERtCYC5q63Fs4Pev8-p5Czk",onInitializedListener);
-                play.setVisibility(View.GONE);
-                youtube_thumnail.setVisibility(View.GONE);
-
-            }
-        });
+        youTubePlayerView.initialize("AIzaSyAejeo4T9MkERtCYC5q63Fs4Pev8-p5Czk",onInitializedListener);
 
         back = (Button) findViewById(R.id.youtube_FormBackButton);
         back.setOnClickListener(new View.OnClickListener() {

@@ -11,7 +11,8 @@ import android.widget.TextView;
 import com.example.admin.autoshkolla.Models.Group;
 import com.example.admin.autoshkolla.Nocionet.Nocionet_Activity;
 import com.example.admin.autoshkolla.R;
-import com.example.admin.autoshkolla.ShenjatPolicit.Shenjat_Policit_Activity;
+import com.example.admin.autoshkolla.Rregullat_Komunikacionit_Siguria_MjetetMotorike.SiguriaDheMjetet_Activity;
+import com.example.admin.autoshkolla.Shenjat_tabeles_Ilustrimeve.Shenjat_tbl_IlustrimeveActivity;
 import com.example.admin.autoshkolla.SinjalizimiHorizontal.SinjalizimiHorizontalActivity;
 import com.example.admin.autoshkolla.SinjalizimiVertikal.Sinjalizimi_Vertikal_Activity;
 
@@ -26,6 +27,9 @@ import java.util.List;
 public class Ligjeratat_RecyclerAdapter extends RecyclerView.Adapter<Ligjeratat_RecyclerAdapter.ViewHolder> {
 
     public List<Group> groups = new ArrayList<Group>();
+
+    int[]  images = {R.drawable.lit_one,R.drawable.lit_two,R.drawable.lit_three,R.drawable.lit_four,
+            R.drawable.lit_five,R.drawable.lit_six};
 
     public Ligjeratat_RecyclerAdapter(List<Group> g){
         groups = g;
@@ -45,7 +49,7 @@ public class Ligjeratat_RecyclerAdapter extends RecyclerView.Adapter<Ligjeratat_
 
         holder.cardviewItemTitle.setText(g.name.toUpperCase());
         holder.getCardviewItemDescription.setText(g.description);
-        holder.cardviewItemImage.setImageResource(R.drawable.a_questionicon);
+        holder.cardviewItemImage.setImageResource(images[position]);
     }
 
     @Override
@@ -91,6 +95,15 @@ public class Ligjeratat_RecyclerAdapter extends RecyclerView.Adapter<Ligjeratat_
                             intent2.putExtra("index", position);
                             itemView.getContext().startActivity(intent2);
                             break;
+                        case 4:
+                            Intent intent4 = new Intent(itemView.getContext().getApplicationContext(), SiguriaDheMjetet_Activity.class);
+                            intent4.putExtra("index", position);
+                            itemView.getContext().startActivity(intent4);
+                            break;
+                        case 5:
+                            Intent intent5 = new Intent(itemView.getContext().getApplicationContext(), Shenjat_tbl_IlustrimeveActivity.class);
+                            intent5.putExtra("index", position);
+                            itemView.getContext().startActivity(intent5);
                        default:
                            return;
                     }

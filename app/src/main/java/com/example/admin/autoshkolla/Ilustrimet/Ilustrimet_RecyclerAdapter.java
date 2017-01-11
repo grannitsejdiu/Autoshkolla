@@ -72,6 +72,7 @@ public class Ilustrimet_RecyclerAdapter extends RecyclerView.Adapter<Ilustrimet_
                 public void onClick(View view) {
 
                     Intent intent = new Intent(view.getContext().getApplicationContext(), Ilustrimet_Webview.class);
+                    intent.putExtra("index", getAdapterPosition());
                     view.getContext().startActivity(intent);
 
 //                   view.getContext().startActivity(new Intent(Intent.ACTION_VIEW,

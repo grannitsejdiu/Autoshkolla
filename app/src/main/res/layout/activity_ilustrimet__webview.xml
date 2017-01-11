@@ -29,17 +29,6 @@
             android:background="@drawable/backbutton"
             />
 
-        <Button
-            android:id="@+id/youtube_FormInfo"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:background="@drawable/image_info"
-            />
 
         <TextView
             android:id="@+id/youtube_FormTitle"
@@ -72,14 +61,6 @@
         android:layout_height="match_parent">
     </com.google.android.youtube.player.YouTubePlayerView>
 
-    <Button
-        android:id="@+id/youtube_play"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="50dp"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@drawable/play"/>
 
     </RelativeLayout>
 

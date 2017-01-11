@@ -1,4 +1,4 @@
-package com.example.admin.autoshkolla.BlurryBackgrounds_Activities;
+package com.example.admin.autoshkolla.Shenjat_tabeles_Ilustrimeve;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,13 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.admin.autoshkolla.BlurryBackgrounds_Activities.SinjalizimiVertikalGrid_Adapter;
 import com.example.admin.autoshkolla.Models.Subgroup;
 import com.example.admin.autoshkolla.Models.This;
 import com.example.admin.autoshkolla.R;
 
-public class SinjalizimiVertikalGrid_Activity extends AppCompatActivity {
+public class Shenjat_tbl_IlustrimeveActivity extends AppCompatActivity {
 
-    Button backBtnSVertikalGrid;
+    Button shenjatIlustrimetBackButton;
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     TextView title;
@@ -22,10 +23,10 @@ public class SinjalizimiVertikalGrid_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sinjalizimi_vertikal_grid_);
+        setContentView(R.layout.activity_shenjat_tbl__ilustrimeve);
 
-        recyclerView= (RecyclerView) findViewById(R.id.recyclerViewSVertikal);
-        title = (TextView) findViewById(R.id.sinjalizimitHorizontalGridFormTitle);
+        recyclerView= (RecyclerView) findViewById(R.id.shenjatIlustrimet_recyclerViewSVertikal);
+        title = (TextView) findViewById(R.id.shenjatIlustrimet_GridFormTitle);
 
         recyclerView.setHasFixedSize(true);
         GridLayoutManager glm=new GridLayoutManager(this,3);
@@ -38,14 +39,14 @@ public class SinjalizimiVertikalGrid_Activity extends AppCompatActivity {
 
         adapter = new SinjalizimiVertikalGrid_Adapter(s.signs, getApplicationContext(), index);
         recyclerView.setAdapter(adapter);
-        
+
         title.setText(s.name);
 
-        backBtnSVertikalGrid = (Button) findViewById(R.id.sinjalizimitHorizontalGridFormBackButton);
-        backBtnSVertikalGrid.setOnClickListener(new View.OnClickListener() {
+        shenjatIlustrimetBackButton = (Button) findViewById(R.id.shenjatIlustrimet_GridFormBackButton);
+        shenjatIlustrimetBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SinjalizimiVertikalGrid_Activity.super.onBackPressed();
+                Shenjat_tbl_IlustrimeveActivity.super.onBackPressed();
             }
         });
 

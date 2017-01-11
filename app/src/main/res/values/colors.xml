@@ -11,4 +11,5 @@
     <color name="transparent">#00000000</color>
     <color name="successColor">#FFEADD</color>
     <color name="failedColor">#AABBCC</color>
+    <color name="whiteColor">#FFFFFF</color>
 </resources>

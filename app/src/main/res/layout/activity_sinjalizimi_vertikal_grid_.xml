@@ -26,7 +26,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginStart="5dp"
             android:layout_centerVertical="true"
-            android:background="@drawable/backbutton"
+            android:background="@drawable/a_lefticon"
             />
 
         <!--<Button-->
@@ -48,7 +48,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_marginTop="5dp"
-            android:textColor="#E2792C"
+            android:textColor="@color/whiteColor"
             android:text="Title"
             android:textSize="18sp" />
     </RelativeLayout>

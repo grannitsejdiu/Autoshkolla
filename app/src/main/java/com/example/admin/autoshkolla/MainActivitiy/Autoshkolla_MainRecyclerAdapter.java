@@ -15,6 +15,7 @@ import com.example.admin.autoshkolla.Ilustrimet.Ilustrimet_Activity;
 import com.example.admin.autoshkolla.Ligjeratat.Ligjeratat_Activity;
 import com.example.admin.autoshkolla.Ligjeratat.Ligjeratat_RecyclerAdapter;
 import com.example.admin.autoshkolla.Nocionet.Nocionet_Activity;
+import com.example.admin.autoshkolla.Procedurat.Procedurat_Activity;
 import com.example.admin.autoshkolla.R;
 import com.example.admin.autoshkolla.SinjalizimiHorizontal.SinjalizimiHorizontalActivity;
 import com.example.admin.autoshkolla.SinjalizimiVertikal.Sinjalizimi_Vertikal_Activity;
@@ -87,7 +88,7 @@ public class Autoshkolla_MainRecyclerAdapter extends RecyclerView.Adapter<Autosh
                             view.getContext().startActivity(intent2);
                             break;
                         case 2:
-                            Intent intent3 = new Intent(view.getContext().getApplicationContext(), AlertWindow_Activity.class);
+                            Intent intent3 = new Intent(view.getContext().getApplicationContext(), Procedurat_Activity.class);
                             view.getContext().startActivity(intent3);
                             break;
                         case 3:

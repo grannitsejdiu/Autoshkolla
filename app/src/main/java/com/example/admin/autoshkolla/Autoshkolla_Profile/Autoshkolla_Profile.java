@@ -119,7 +119,8 @@ public class Autoshkolla_Profile extends AppCompatActivity implements OnMapReady
 
         // Add a marker in Sydney and move the camera
         LatLng prishtina = new LatLng(latitude, longitude);
-        mMap.addMarker(new MarkerOptions().position(prishtina).title("Sony te Tony"));
+        mMap.addMarker(new MarkerOptions().position(prishtina).title("Sony te Tony")
+        .icon(BitmapDescriptorFactory.fromResource(R.drawable.a_googlemarker)));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(prishtina));
 
         CameraUpdate center = CameraUpdateFactory.newLatLng(new LatLng(latitude + 0.004, longitude));

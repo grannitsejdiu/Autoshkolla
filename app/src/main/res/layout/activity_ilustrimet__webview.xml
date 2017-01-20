@@ -7,52 +7,11 @@
     android:background="@color/colorPrimaryDark"
     tools:context="com.example.admin.autoshkolla.Ilustrimet.Ilustrimet_Webview">
 
-    <RelativeLayout
-        android:id="@+id/youtube_FormToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="45dp">
-
-        <android.support.v7.widget.Toolbar
-            android:background="@color/toolbarColor"
-            android:title="@string/app_name"
-            android:layout_width="match_parent"
-            android:layout_height="45dp">
-
-        </android.support.v7.widget.Toolbar>
-        <Button
-            android:id="@+id/youtube_FormBackButton"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_centerVertical="true"
-            android:background="@drawable/backbutton"
-            />
-
-
-        <TextView
-            android:id="@+id/youtube_FormTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="5dp"
-            android:textColor="#E2792C"
-            android:text="Ilustrimet"
-            android:textSize="18sp" />
-    </RelativeLayout>
-    <View
-        android:id="@+id/youtube_lineId_Form"
-        android:layout_below="@id/youtube_FormToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="1.5dp"
-        android:background="@color/colorAccent"/>
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/youtube_lineId_Form">
+        android:layout_height="match_parent">
 
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/youtube_view"

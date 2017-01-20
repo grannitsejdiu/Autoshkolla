@@ -21,6 +21,8 @@ import com.example.admin.autoshkolla.ServiceLayer.AllLayer;
 import com.example.admin.autoshkolla.ServiceLayer.ExamsLayer;
 import com.example.admin.autoshkolla.ServiceLayer.GroupsLayer;
 import com.example.admin.autoshkolla.ServiceLayer.ResponseData;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -35,11 +37,18 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_autoshkolla__main);
+
+//        mAdView = (AdView) findViewById(R.id.adView);
+//        AdRequest adRequest = new AdRequest.Builder()
+//                .build();
+//        mAdView.loadAd(adRequest);
+
 
         // fill from local repository
         String response = Parser.getFromShared(getApplicationContext());
@@ -79,4 +88,28 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
     }
+
+//    @Override
+//    public void onPause() {
+//        if (mAdView != null) {
+//            mAdView.pause();
+//        }
+//        super.onPause();
+//    }
+//
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        if (mAdView != null) {
+//            mAdView.resume();
+//        }
+//    }
+//
+//    @Override
+//    public void onDestroy() {
+//        if (mAdView != null) {
+//            mAdView.destroy();
+//        }
+//        super.onDestroy();
+//    }
 }

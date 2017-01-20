@@ -99,4 +99,5 @@ public class TestResultsFormActivity extends AppCompatActivity {
         progressAnimator.start();
     }
 
+
 }

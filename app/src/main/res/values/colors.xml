@@ -6,6 +6,7 @@
     <color name="titleColor">#555555</color>
     <color name="decsriptionColor">#929292</color>
     <color name="transparentBackground">#EF000000</color>
+    <color name="blackColor">#000000</color>
     <color name="toolbarTransparent">#BB222831</color>
     <color name="toolbarColor">#222831</color>
     <color name="transparent">#00000000</color>

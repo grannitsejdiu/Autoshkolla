@@ -3,6 +3,7 @@
     package="com.example.admin.autoshkolla">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -20,12 +21,17 @@
         <activity
             android:name=".MainActivitiy.Autoshkolla_MainActivity"
             android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".SplashScreen_Activity.Welcome_Activity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".TestetActivity"
             android:screenOrientation="portrait" />
@@ -92,12 +98,26 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <activity
             android:name=".Autoshkolla_Profile.Autoshkolla_Profile"
             android:screenOrientation="portrait" />
-        <activity android:name=".Shenjat_tabeles_Ilustrimeve.Shenjat_tbl_IlustrimeveActivity" />
-        <activity android:name=".Procedurat.Procedurat_Activity" />
-        <activity android:name=".Rregullat_Komunikacionit_Siguria_MjetetMotorike.SiguriaDheMjetet_Activity"></activity>
+        <activity
+            android:name=".Shenjat_tabeles_Ilustrimeve.Shenjat_tbl_IlustrimeveActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Procedurat.Procedurat_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Rregullat_Komunikacionit_Siguria_MjetetMotorike.SiguriaDheMjetet_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Testet.TestQuestionResultActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

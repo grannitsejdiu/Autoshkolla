@@ -1,5 +1,6 @@
 package com.example.admin.autoshkolla.Testet;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,7 +65,9 @@ public class TestResultsForm_RecyclerAdapter extends RecyclerView.Adapter<TestRe
                 @Override
                 public void onClick(View view) {
                     int position = getAdapterPosition() + 1;
-                    Toast.makeText(view.getContext(),"Question " + position + " clicked", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(view.getContext(),"Question " + position + " clicked", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(itemView.getContext().getApplicationContext(),TestQuestionResultActivity.class);
+                    itemView.getContext().startActivity(intent);
                 }
             });
 

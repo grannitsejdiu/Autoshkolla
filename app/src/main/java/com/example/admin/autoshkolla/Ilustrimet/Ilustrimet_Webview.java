@@ -1,8 +1,12 @@
 package com.example.admin.autoshkolla.Ilustrimet;
 
+import android.os.Build;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -25,6 +29,13 @@ public class Ilustrimet_Webview extends YouTubeBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ilustrimet__webview);
 
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.blackColor));
+        }
+
         int index = getIntent().getIntExtra("index", 0);
         final Sign s = This.illustraions.get(index);
 
@@ -43,13 +54,6 @@ public class Ilustrimet_Webview extends YouTubeBaseActivity {
 
         youTubePlayerView.initialize("AIzaSyAejeo4T9MkERtCYC5q63Fs4Pev8-p5Czk",onInitializedListener);
 
-        back = (Button) findViewById(R.id.youtube_FormBackButton);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Ilustrimet_Webview.super.onBackPressed();
-            }
-        });
 
     }
 }

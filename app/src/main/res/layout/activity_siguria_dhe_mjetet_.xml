@@ -31,13 +31,20 @@
 
         <TextView
             android:id="@+id/siguriadhemjetet_FormTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@id/siguriadhemjetet_FormBackButton"
+            android:layout_toEndOf="@id/siguriadhemjetet_FormBackButton"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:textAlignment="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:layout_centerVertical="true"
             android:layout_marginTop="5dp"
             android:textColor="@color/whiteColor"
-            android:text="Rregullat e komunikaci..."
+            android:text="Rregullat e komunikacionit, Siguria dhe Mjetet Motorike"
             android:textSize="18sp" />
     </RelativeLayout>
 

@@ -6,7 +6,7 @@
     android:id="@+id/activity_autoshkolla__main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.admin.autoshkolla.MainActivitiy.Autoshkolla_MainActivity">
+    tools:context="co.tenton.admin.autoshkolla.MainActivitiy.Autoshkolla_MainActivity">
 
 
     <RelativeLayout
@@ -56,11 +56,12 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.admin.autoshkolla.TestetActivity"/>
+        tools:context="com.tenton.admin.autoshkolla.co.tenton.admin.autoshkolla.TestetActivity"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_below="@id/lineId"
         android:id="@+id/recyclerViewMain"
+        android:layout_above="@+id/bannerimage"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:paddingBottom="5dp"
@@ -79,5 +80,12 @@
         <!--ads:adSize="BANNER"-->
         <!--ads:adUnitId="@string/banner_home_footer">-->
     <!--</com.google.android.gms.ads.AdView>-->
+
+    <ImageView
+        android:id="@+id/bannerimage"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/banner"/>
 
 </RelativeLayout>

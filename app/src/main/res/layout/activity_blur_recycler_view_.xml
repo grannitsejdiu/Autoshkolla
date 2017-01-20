@@ -4,7 +4,7 @@
     android:id="@+id/activity_blur_recycler_view_"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.admin.autoshkolla.BlurryBackgrounds_Activities.BlurRecyclerView_Activity">
+    tools:context="com.tenton.admin.autoshkolla.co.tenton.admin.autoshkolla.BlurryBackgrounds_Activities.BlurRecyclerView_Activity">
 
     <Button
         android:id="@+id/backButtonBlurRecyclerView"

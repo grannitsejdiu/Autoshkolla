@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="com.example.admin.autoshkolla.TestetActivity">
+    tools:context="co.tenton.admin.autoshkolla.TestetActivity">
 
     <RelativeLayout
         android:id="@+id/ligjeratat_Toolbar"
@@ -54,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        tools:context="com.example.admin.autoshkolla.TestetActivity"/>
+        tools:context="com.tenton.admin.autoshkolla.co.tenton.admin.autoshkolla.TestetActivity"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_below="@id/ligjeratat_lineId"

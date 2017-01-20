@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.admin.autoshkolla">
+    package="co.tenton.admin.autoshkolla">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -19,11 +19,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivitiy.Autoshkolla_MainActivity"
+            android:name="co.tenton.admin.autoshkolla.MainActivitiy.Autoshkolla_MainActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".SplashScreen_Activity.Welcome_Activity"
+        <activity android:name="co.tenton.admin.autoshkolla.SplashScreen_Activity.Welcome_Activity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,57 +33,57 @@
         </activity>
 
         <activity
-            android:name=".TestetActivity"
+            android:name="co.tenton.admin.autoshkolla.TestetActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Testet.TestFormActivity"
+            android:name="co.tenton.admin.autoshkolla.Testet.TestFormActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Testet.TestResultsFormActivity"
+            android:name="co.tenton.admin.autoshkolla.Testet.TestResultsFormActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SinjalizimiHorizontal.SinjalizimiHorizontalActivity"
+            android:name="co.tenton.admin.autoshkolla.SinjalizimiHorizontal.SinjalizimiHorizontalActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ShenjatPolicit.Shenjat_Policit_Activity"
+            android:name="co.tenton.admin.autoshkolla.ShenjatPolicit.Shenjat_Policit_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Nocionet.Nocionet_Activity"
+            android:name="co.tenton.admin.autoshkolla.Nocionet.Nocionet_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Ligjeratat.Ligjeratat_Activity"
+            android:name="co.tenton.admin.autoshkolla.Ligjeratat.Ligjeratat_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SinjalizimiVertikal.Sinjalizimi_Vertikal_Activity"
+            android:name="co.tenton.admin.autoshkolla.SinjalizimiVertikal.Sinjalizimi_Vertikal_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".BlurryBackgrounds_Activities.Info_Activity"
+            android:name="co.tenton.admin.autoshkolla.BlurryBackgrounds_Activities.Info_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Transparent" />
         <activity
-            android:name=".BlurryBackgrounds_Activities.BlurRecyclerView_Activity"
+            android:name="co.tenton.admin.autoshkolla.BlurryBackgrounds_Activities.BlurRecyclerView_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Transparent" />
         <activity
-            android:name=".BlurryBackgrounds_Activities.SinjalizimiVertikalGrid_Activity"
+            android:name="co.tenton.admin.autoshkolla.BlurryBackgrounds_Activities.SinjalizimiVertikalGrid_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name="co.tenton.admin.autoshkolla.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".BlurryBackgrounds_Activities.TestUdhezime_Activity"
+            android:name="co.tenton.admin.autoshkolla.BlurryBackgrounds_Activities.TestUdhezime_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Transparent" />
         <activity
-            android:name=".BlurryBackgrounds_Activities.AlertWindow_Activity"
+            android:name="co.tenton.admin.autoshkolla.BlurryBackgrounds_Activities.AlertWindow_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Transparent" />
-        <activity android:name=".LaunchActivities.LaunchActivity" />
+        <activity android:name="co.tenton.admin.autoshkolla.LaunchActivities.LaunchActivity" />
         <activity
-            android:name=".Ilustrimet.Ilustrimet_Activity"
+            android:name="co.tenton.admin.autoshkolla.Ilustrimet.Ilustrimet_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Ilustrimet.Ilustrimet_Webview"
+            android:name="co.tenton.admin.autoshkolla.Ilustrimet.Ilustrimet_Webview"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
         <!--
@@ -103,19 +103,19 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".Autoshkolla_Profile.Autoshkolla_Profile"
+            android:name="co.tenton.admin.autoshkolla.Autoshkolla_Profile.Autoshkolla_Profile"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Shenjat_tabeles_Ilustrimeve.Shenjat_tbl_IlustrimeveActivity"
+            android:name="co.tenton.admin.autoshkolla.Shenjat_tabeles_Ilustrimeve.Shenjat_tbl_IlustrimeveActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Procedurat.Procedurat_Activity"
+            android:name="co.tenton.admin.autoshkolla.Procedurat.Procedurat_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Rregullat_Komunikacionit_Siguria_MjetetMotorike.SiguriaDheMjetet_Activity"
+            android:name="co.tenton.admin.autoshkolla.Rregullat_Komunikacionit_Siguria_MjetetMotorike.SiguriaDheMjetet_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Testet.TestQuestionResultActivity"
+            android:name="co.tenton.admin.autoshkolla.Testet.TestQuestionResultActivity"
             android:screenOrientation="portrait" />
 
     </application>

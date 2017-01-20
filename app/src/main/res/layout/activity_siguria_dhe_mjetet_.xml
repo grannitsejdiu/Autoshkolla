@@ -5,7 +5,7 @@
     android:id="@+id/activity_autoshkolla__main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.admin.autoshkolla.MainActivitiy.Autoshkolla_MainActivity">
+    tools:context="co.tenton.admin.autoshkolla.MainActivitiy.Autoshkolla_MainActivity">
 
 
     <RelativeLayout
@@ -61,7 +61,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.admin.autoshkolla.TestetActivity"/>
+        tools:context="com.tenton.admin.autoshkolla.co.tenton.admin.autoshkolla.TestetActivity"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_below="@id/siguriadhemjetet_lineId"

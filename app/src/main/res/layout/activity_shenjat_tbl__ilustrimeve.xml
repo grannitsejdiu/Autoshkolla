@@ -5,7 +5,7 @@
     android:id="@+id/activity_shenjat_tbl__ilustrimeve"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.admin.autoshkolla.Shenjat_tabeles_Ilustrimeve.Shenjat_tbl_IlustrimeveActivity">
+    tools:context="co.tenton.admin.autoshkolla.Shenjat_tabeles_Ilustrimeve.Shenjat_tbl_IlustrimeveActivity">
 
     <RelativeLayout
         android:id="@+id/shenjatIlustrimet_FormToolbar"
@@ -63,7 +63,7 @@
         android:layout_below="@id/lineIdshenjatIlustrimet_GridForm"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.admin.autoshkolla.Testet.TestFormActivity"/>
+        tools:context="com.tenton.admin.autoshkolla.co.tenton.admin.autoshkolla.Testet.TestFormActivity"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/shenjatIlustrimet_recyclerViewSVertikal"

@@ -4,7 +4,7 @@
     android:id="@+id/activity_test_question_result"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.admin.autoshkolla.Testet.TestQuestionResultActivity">
+    tools:context="co.tenton.admin.autoshkolla.Testet.TestQuestionResultActivity">
 
     <RelativeLayout
         android:id="@+id/pyetja_Toolbar"

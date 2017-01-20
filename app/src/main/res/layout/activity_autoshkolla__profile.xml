@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:id="@+id/cscroll"
-    tools:context="com.example.admin.autoshkolla.Autoshkolla_Profile.Autoshkolla_Profile">
+    tools:context="co.tenton.admin.autoshkolla.Autoshkolla_Profile.Autoshkolla_Profile">
 
 
     <android.support.design.widget.AppBarLayout
@@ -32,7 +32,7 @@
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="com.example.admin.autoshkolla.Autoshkolla_Profile.Autoshkolla_Profile" />
+                tools:context="com.tenton.admin.autoshkolla.co.tenton.admin.autoshkolla.Autoshkolla_Profile.Autoshkolla_Profile" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -52,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context="com.example.admin.autoshkolla.Autoshkolla_Profile.Autoshkolla_Profile"
+        tools:context="com.tenton.admin.autoshkolla.co.tenton.admin.autoshkolla.Autoshkolla_Profile.Autoshkolla_Profile"
         tools:showIn="@layout/activity_autoshkolla__profile">
 
         <include layout="@layout/content_autoshkolla__profile"/>

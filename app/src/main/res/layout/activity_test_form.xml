@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="com.example.admin.autoshkolla.Testet.TestFormActivity">
+    tools:context="co.tenton.admin.autoshkolla.Testet.TestFormActivity">
 
     <RelativeLayout
         android:id="@+id/testFormToolbar"
@@ -75,7 +75,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.admin.autoshkolla.Testet.TestFormActivity"/>
+        tools:context="com.tenton.admin.autoshkolla.co.tenton.admin.autoshkolla.Testet.TestFormActivity"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_below="@id/lineIdtestForm"

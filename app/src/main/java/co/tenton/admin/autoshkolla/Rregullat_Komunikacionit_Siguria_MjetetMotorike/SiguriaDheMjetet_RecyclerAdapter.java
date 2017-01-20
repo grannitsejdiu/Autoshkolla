@@ -6,9 +6,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import co.tenton.admin.autoshkolla.Models.Sign;
+import co.tenton.admin.autoshkolla.Models.This;
+
 public class SiguriaDheMjetet_RecyclerAdapter extends RecyclerView.Adapter<SiguriaDheMjetet_RecyclerAdapter.ViewHolder> {
     int[] descriptions = {co.tenton.admin.autoshkolla.R.string.procedura1, co.tenton.admin.autoshkolla.R.string.procedura1, co.tenton.admin.autoshkolla.R.string.procedura1,
             co.tenton.admin.autoshkolla.R.string.procedura1, co.tenton.admin.autoshkolla.R.string.procedura1, co.tenton.admin.autoshkolla.R.string.procedura1};
+
+    List<Sign> signList = new ArrayList<>();
+
+    public SiguriaDheMjetet_RecyclerAdapter(){
+        signList = This.groups.get(4).signs;
+    }
 
     @Override
     public SiguriaDheMjetet_RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -19,12 +31,15 @@ public class SiguriaDheMjetet_RecyclerAdapter extends RecyclerView.Adapter<Sigur
 
     @Override
     public void onBindViewHolder(SiguriaDheMjetet_RecyclerAdapter.ViewHolder holder, int position) {
-        holder.description.setText(descriptions[position]);
+
+        Sign s = signList.get(position);
+
+        holder.description.setText(s.description);
     }
 
     @Override
     public int getItemCount() {
-        return descriptions.length;
+        return signList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

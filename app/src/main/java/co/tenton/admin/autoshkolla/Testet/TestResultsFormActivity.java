@@ -39,7 +39,7 @@ public class TestResultsFormActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         GridLayoutManager glm=new GridLayoutManager(this,10);
         recyclerView.setLayoutManager(glm);
-        adapter = new TestResultsForm_RecyclerAdapter(selectedExam.questions);
+        adapter = new TestResultsForm_RecyclerAdapter(selectedExam.questions, examId);
         recyclerView.setAdapter(adapter);
 
         checkResults();

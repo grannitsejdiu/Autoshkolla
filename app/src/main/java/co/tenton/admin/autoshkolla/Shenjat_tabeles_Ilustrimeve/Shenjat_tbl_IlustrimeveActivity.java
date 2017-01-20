@@ -8,7 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.List;
+
 import co.tenton.admin.autoshkolla.BlurryBackgrounds_Activities.SinjalizimiVertikalGrid_Adapter;
+import co.tenton.admin.autoshkolla.Models.Group;
+import co.tenton.admin.autoshkolla.Models.Sign;
 import co.tenton.admin.autoshkolla.Models.Subgroup;
 import co.tenton.admin.autoshkolla.Models.This;
 import co.tenton.admin.autoshkolla.R;
@@ -34,13 +38,13 @@ public class Shenjat_tbl_IlustrimeveActivity extends AppCompatActivity {
 
 
         int index = getIntent().getIntExtra("index", 0);
-        Subgroup s = This.groups.get(2).subgroups().get(index);
+        Group g = This.groups.get(index);
+        List<Sign> s = g.signs;
 
-
-        adapter = new SinjalizimiVertikalGrid_Adapter(s.signs, getApplicationContext(), index);
+        adapter = new SinjalizimiVertikalGrid_Adapter(s, getApplicationContext(), index, 5);
         recyclerView.setAdapter(adapter);
 
-        title.setText(s.name);
+        title.setText(g.name);
 
         shenjatIlustrimetBackButton = (Button) findViewById(R.id.shenjatIlustrimet_GridFormBackButton);
         shenjatIlustrimetBackButton.setOnClickListener(new View.OnClickListener() {

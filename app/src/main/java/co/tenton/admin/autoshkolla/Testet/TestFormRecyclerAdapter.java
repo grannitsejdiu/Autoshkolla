@@ -46,7 +46,13 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
 
         holder.questionFirstAlternative.setText(q.alternatives.get(0).name);
         holder.questionSecondAlternative.setText(q.alternatives.get(1).name);
-        holder.questionThirdAlternative.setText(q.alternatives.get(2).name);
+        if (q.alternatives.size() == 3) {
+            holder.questionThirdAlternative.setText(q.alternatives.get(2).name);
+        }
+        else{
+            holder.questionThirdAlternative.setVisibility(View.GONE);
+        }
+
         holder.questionImage.setImageResource(R.drawable.imageplaceholder);
 
 

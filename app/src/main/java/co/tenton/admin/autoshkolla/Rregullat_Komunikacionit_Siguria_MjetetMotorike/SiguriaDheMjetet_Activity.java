@@ -17,7 +17,13 @@ public class SiguriaDheMjetet_Activity extends AppCompatActivity {
         recyclerView= (RecyclerView) findViewById(co.tenton.admin.autoshkolla.R.id.siguriadhemjetet_recyclerView);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
+
+
         adapter = new SiguriaDheMjetet_RecyclerAdapter();
+
+
+
+
         recyclerView.setAdapter(adapter);
     }
 }

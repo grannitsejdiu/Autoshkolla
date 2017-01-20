@@ -21,9 +21,12 @@ import java.util.List;
 public class TestResultsForm_RecyclerAdapter extends RecyclerView.Adapter<TestResultsForm_RecyclerAdapter.ViewHolder> {
 
     public List<Question> questions = new ArrayList<Question>();
+    public int examId;
 
-    public TestResultsForm_RecyclerAdapter(List<Question> qs){
+    public TestResultsForm_RecyclerAdapter(List<Question> qs, int eId)
+    {
         questions = qs;
+        examId = eId;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -63,9 +66,9 @@ public class TestResultsForm_RecyclerAdapter extends RecyclerView.Adapter<TestRe
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    int position = getAdapterPosition() + 1;
-//                    Toast.makeText(view.getContext(),"Question " + position + " clicked", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(itemView.getContext().getApplicationContext(),TestQuestionResultActivity.class);
+                    intent.putExtra("examIndex", examId);
+                    intent.putExtra("questionIndex", getAdapterPosition());
                     itemView.getContext().startActivity(intent);
                 }
             });

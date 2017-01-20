@@ -1,8 +1,11 @@
 package co.tenton.admin.autoshkolla.ServiceLayer;
 
+import android.provider.SyncStateContract;
 import android.util.Log;
 
 import com.loopj.android.http.*;
+
+import co.tenton.admin.autoshkolla.Models.Constants;
 
 /**
  * Created by herolindsopjani on 11/23/16.
@@ -15,12 +18,15 @@ public class ServerLayer {
     private static AsyncHttpClient client = new AsyncHttpClient();
 
     public static void get(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
-        Log.e("1","Link : " + getAbsoluteUrl(url));
-        client.get(getAbsoluteUrl(url), params, responseHandler);
+        String urlToken = url + "&token=" + Constants.getToken();
+
+        Log.e("1","Link : " + getAbsoluteUrl(urlToken));
+        client.get(getAbsoluteUrl(urlToken), params, responseHandler);
     }
 
     public static void post(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
-        client.post(getAbsoluteUrl(url), params, responseHandler);
+        String urlToken = url + "&token=" + Constants.getToken();
+        client.post(getAbsoluteUrl(urlToken), params, responseHandler);
     }
 
     private static String getAbsoluteUrl(String relativeUrl) {

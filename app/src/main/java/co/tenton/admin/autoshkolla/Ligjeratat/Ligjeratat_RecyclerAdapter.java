@@ -100,6 +100,7 @@ public class Ligjeratat_RecyclerAdapter extends RecyclerView.Adapter<Ligjeratat_
                             intent4.putExtra("index", position);
                             itemView.getContext().startActivity(intent4);
                             break;
+
                         case 5:
                             Intent intent5 = new Intent(itemView.getContext().getApplicationContext(), Shenjat_tbl_IlustrimeveActivity.class);
                             intent5.putExtra("index", position);

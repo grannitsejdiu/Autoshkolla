@@ -13,6 +13,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import java.util.List;
+
+import co.tenton.admin.autoshkolla.Models.Sign;
 import co.tenton.admin.autoshkolla.Models.Subgroup;
 import co.tenton.admin.autoshkolla.Models.This;
 
@@ -60,13 +63,25 @@ public class BlurRecyclerView_Activity extends AppCompatActivity {
 
 
         int index = getIntent().getIntExtra("index", 0);
-        Subgroup s = This.groups.get(2).subgroups().get(index);
-        int scrollPostion = getIntent().getIntExtra("scrollPosition",0);
+        int groupIndex = getIntent().getIntExtra("groupIndex", 0);
 
-        adapter = new BlurRecyclerView_Adapter(s.signs, getApplicationContext(),this);
-        recyclerView.setAdapter(adapter);
+        if (groupIndex == 5) {
+            List<Sign> ss = This.groups.get(groupIndex).signs;
+            int scrollPostion = getIntent().getIntExtra("scrollPosition", 0);
 
-        recyclerView.scrollToPosition(scrollPostion);
+            adapter = new BlurRecyclerView_Adapter(ss, getApplicationContext(), this);
+            recyclerView.setAdapter(adapter);
+            recyclerView.scrollToPosition(scrollPostion);
+        }
+        else {
+            Subgroup s = This.groups.get(2).subgroups().get(index);
+            int scrollPostion = getIntent().getIntExtra("scrollPosition", 0);
+
+            adapter = new BlurRecyclerView_Adapter(s.signs, getApplicationContext(), this);
+            recyclerView.setAdapter(adapter);
+            recyclerView.scrollToPosition(scrollPostion);
+        }
+
 
         final LinearSnapHelper helper = new LinearSnapHelper(){
             @Override

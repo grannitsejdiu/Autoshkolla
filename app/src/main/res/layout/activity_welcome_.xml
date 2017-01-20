@@ -8,4 +8,50 @@
     android:fitsSystemWindows="true"
     tools:context="co.tenton.admin.autoshkolla.SplashScreen_Activity.Welcome_Activity">
 
+
+    <TextView
+        android:id="@+id/tekst"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="130dp"
+        android:textSize="15sp"
+        android:text="Ju lutem, prisni ..."
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/provoPerseritBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:textColor="@color/colorAccent"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundedorangebutton"
+        android:text="Provo perseri"/>
+
+    <Button
+        android:id="@+id/filloBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:textColor="@color/colorAccent"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundedorangebutton"
+        android:text="Fillo"/>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:visibility="gone"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:id="@+id/loaderGif" />
+
 </RelativeLayout>

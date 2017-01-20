@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.List;
+
+import co.tenton.admin.autoshkolla.Models.Group;
+import co.tenton.admin.autoshkolla.Models.Sign;
 import co.tenton.admin.autoshkolla.Models.Subgroup;
 import co.tenton.admin.autoshkolla.Models.This;
 import co.tenton.admin.autoshkolla.R;
@@ -33,13 +37,22 @@ public class SinjalizimiVertikalGrid_Activity extends AppCompatActivity {
 
 
         int index = getIntent().getIntExtra("index", 0);
-        Subgroup s = This.groups.get(2).subgroups().get(index);
+        int groupIndex = getIntent().getIntExtra("groupIndex",0);
 
+        if (groupIndex == 5) {
+            Group g = This.groups.get(5);
+            List<Sign> ss = g.signs;
+            adapter = new SinjalizimiVertikalGrid_Adapter(ss, getApplicationContext(), index, 2);
+            recyclerView.setAdapter(adapter);
+            title.setText(g.name);
+        }
+        else {
+            Subgroup s = This.groups.get(2).subgroups().get(index);
+            adapter = new SinjalizimiVertikalGrid_Adapter(s.signs, getApplicationContext(), index, 2);
+            recyclerView.setAdapter(adapter);
+            title.setText(s.name);
+        }
 
-        adapter = new SinjalizimiVertikalGrid_Adapter(s.signs, getApplicationContext(), index);
-        recyclerView.setAdapter(adapter);
-        
-        title.setText(s.name);
 
         backBtnSVertikalGrid = (Button) findViewById(R.id.sinjalizimitHorizontalGridFormBackButton);
         backBtnSVertikalGrid.setOnClickListener(new View.OnClickListener() {

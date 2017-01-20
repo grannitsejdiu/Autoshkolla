@@ -59,10 +59,10 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(ErrorResponse error) {
+
                 Log.e("Failed", error.message);
             }
         });
-
 
         recyclerView= (RecyclerView) findViewById(R.id.recyclerViewMain);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);

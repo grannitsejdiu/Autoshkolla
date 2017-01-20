@@ -23,11 +23,13 @@ public class SinjalizimiVertikalGrid_Adapter extends RecyclerView.Adapter<Sinjal
     public List<Sign> signs = new ArrayList<>();
     public Context context;
     public int sgIndex = 0;
+    public int gIndex = 0;
 
-    public SinjalizimiVertikalGrid_Adapter(List<Sign> ss, Context c, int subgroupIndex){
+    public SinjalizimiVertikalGrid_Adapter(List<Sign> ss, Context c, int subgroupIndex, int groupIndex){
         signs = ss;
         context = c;
         sgIndex = subgroupIndex;
+        gIndex = groupIndex;
     }
 
     @Override
@@ -67,6 +69,7 @@ public class SinjalizimiVertikalGrid_Adapter extends RecyclerView.Adapter<Sinjal
                 public void onClick(View view) {
                     Intent intent = new Intent(itemView.getContext().getApplicationContext(),BlurRecyclerView_Activity.class);
                     intent.putExtra("index", sgIndex);
+                    intent.putExtra("groupIndex", gIndex);
                     intent.putExtra("scrollPosition", getAdapterPosition());
                     itemView.getContext().startActivity(intent);
                 }

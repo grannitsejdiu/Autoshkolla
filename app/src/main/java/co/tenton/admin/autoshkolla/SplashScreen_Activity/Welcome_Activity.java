@@ -1,7 +1,6 @@
 package co.tenton.admin.autoshkolla.SplashScreen_Activity;
 
 import android.content.Intent;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 import org.json.JSONObject;
 
 import co.tenton.admin.autoshkolla.MainActivitiy.Autoshkolla_MainActivity;
-import co.tenton.admin.autoshkolla.MainActivity;
 import co.tenton.admin.autoshkolla.Models.ErrorResponse;
 import co.tenton.admin.autoshkolla.Models.Parser;
 import co.tenton.admin.autoshkolla.R;
@@ -23,26 +21,16 @@ public class Welcome_Activity extends AppCompatActivity {
     Button provoPerseriBtn,filloBtn;
     TextView teksti;
     ProgressBar progressBar;
-    private static int SPLASH_SCREEN_OUT = 3000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(co.tenton.admin.autoshkolla.R.layout.activity_welcome_);
 
+
         provoPerseriBtn = (Button) findViewById(R.id.provoPerseritBtn);
         filloBtn = (Button) findViewById(R.id.filloBtn);
         teksti = (TextView) findViewById(R.id.tekst);
         progressBar = (ProgressBar) findViewById(R.id.loaderGif);
-
-
-        String sharedData = Parser.getFromShared(getApplicationContext());
-
-        if (sharedData != ""){
-            Intent intent = new Intent(getApplicationContext(), Autoshkolla_MainActivity.class);
-            startActivity(intent);
-            finish();
-            return;
-        }
 
         downloadContent();
 

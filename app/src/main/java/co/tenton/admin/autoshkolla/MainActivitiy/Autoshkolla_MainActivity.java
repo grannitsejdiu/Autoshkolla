@@ -11,6 +11,8 @@ import co.tenton.admin.autoshkolla.Models.Parser;
 import co.tenton.admin.autoshkolla.R;
 import co.tenton.admin.autoshkolla.ServiceLayer.AllLayer;
 import co.tenton.admin.autoshkolla.ServiceLayer.ResponseData;
+
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import org.json.JSONException;
@@ -27,10 +29,12 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_autoshkolla__main);
 
-//        mAdView = (AdView) findViewById(R.id.adView);
-//        AdRequest adRequest = new AdRequest.Builder()
-//                .build();
-//        mAdView.loadAd(adRequest);
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("7F82521562046F0F8BD5A3F021FB707B")
+                .build();
+        mAdView.loadAd(adRequest);
 
 
         // fill from local repository
@@ -72,27 +76,27 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
 
     }
 
-//    @Override
-//    public void onPause() {
-//        if (mAdView != null) {
-//            mAdView.pause();
-//        }
-//        super.onPause();
-//    }
-//
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        if (mAdView != null) {
-//            mAdView.resume();
-//        }
-//    }
-//
-//    @Override
-//    public void onDestroy() {
-//        if (mAdView != null) {
-//            mAdView.destroy();
-//        }
-//        super.onDestroy();
-//    }
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
+    }
 }

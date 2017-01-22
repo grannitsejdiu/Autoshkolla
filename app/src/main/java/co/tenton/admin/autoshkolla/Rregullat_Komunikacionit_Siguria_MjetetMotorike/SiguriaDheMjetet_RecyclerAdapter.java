@@ -13,8 +13,6 @@ import co.tenton.admin.autoshkolla.Models.Sign;
 import co.tenton.admin.autoshkolla.Models.This;
 
 public class SiguriaDheMjetet_RecyclerAdapter extends RecyclerView.Adapter<SiguriaDheMjetet_RecyclerAdapter.ViewHolder> {
-    int[] descriptions = {co.tenton.admin.autoshkolla.R.string.procedura1, co.tenton.admin.autoshkolla.R.string.procedura1, co.tenton.admin.autoshkolla.R.string.procedura1,
-            co.tenton.admin.autoshkolla.R.string.procedura1, co.tenton.admin.autoshkolla.R.string.procedura1, co.tenton.admin.autoshkolla.R.string.procedura1};
 
     List<Sign> signList = new ArrayList<>();
 

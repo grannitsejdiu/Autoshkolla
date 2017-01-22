@@ -40,7 +40,30 @@
                 android:textColor="#E2792C"
                 android:textSize="18sp"
                 android:text="shkolla"/>
+
         </LinearLayout>
+
+        <Button
+            android:id="@+id/shareAutoshkolla"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/a_shareicon"
+            />
+
+        <Button
+            android:id="@+id/settingsBtn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/a_settingsicon"
+            />
     </RelativeLayout>
 
     <View
@@ -71,15 +94,6 @@
 
     </android.support.v7.widget.RecyclerView>
 
-    <!--<com.google.android.gms.ads.AdView-->
-        <!--android:id="@+id/adView"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--ads:adSize="BANNER"-->
-        <!--ads:adUnitId="@string/banner_home_footer">-->
-    <!--</com.google.android.gms.ads.AdView>-->
 
     <ImageView
         android:id="@+id/bannerimage"
@@ -87,5 +101,15 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/banner"/>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
+    </com.google.android.gms.ads.AdView>
 
 </RelativeLayout>

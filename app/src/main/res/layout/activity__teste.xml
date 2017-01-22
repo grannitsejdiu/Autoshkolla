@@ -53,15 +53,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-        tools:context="com.tenton.admin.autoshkolla.co.tenton.admin.autoshkolla.TestetActivity"/>
+        tools:context="co.tenton.admin.autoshkolla.TestetActivity"/>
 
         <android.support.v7.widget.RecyclerView
             android:layout_below="@id/lineIdteste"
             android:id="@+id/recyclerView"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:paddingBottom="5dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">

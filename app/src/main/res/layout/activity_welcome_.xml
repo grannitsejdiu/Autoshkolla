@@ -4,10 +4,13 @@
     android:id="@+id/activity_welcome_"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wallpaper"
-    android:fitsSystemWindows="true"
+    android:background="@color/colorPrimaryDark"
     tools:context="co.tenton.admin.autoshkolla.SplashScreen_Activity.Welcome_Activity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/wallpaper"/>
 
     <TextView
         android:id="@+id/tekst"
@@ -15,7 +18,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="130dp"
         android:textSize="15sp"
-        android:text="Ju lutem, prisni ..."
+        android:text="Ju lutem  prisni ..."
         android:textColor="@color/colorAccent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

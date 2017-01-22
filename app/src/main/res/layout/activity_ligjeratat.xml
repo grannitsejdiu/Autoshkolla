@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_Ligjeratat"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -54,19 +55,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        tools:context="com.tenton.admin.autoshkolla.co.tenton.admin.autoshkolla.TestetActivity"/>
+        tools:context="co.tenton.admin.autoshkolla.TestetActivity"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_below="@id/ligjeratat_lineId"
         android:id="@+id/recyclerViewLigjeratat"
+        android:layout_above="@+id/bannerimage"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
-        android:paddingBottom="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     </android.support.v7.widget.RecyclerView>
+
+    <ImageView
+        android:id="@+id/bannerimage"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/banner"/>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
+    </com.google.android.gms.ads.AdView>
 
 
 </RelativeLayout>

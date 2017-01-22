@@ -9,6 +9,7 @@ android {
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         renderscriptTargetApi 14
@@ -39,6 +40,8 @@ dependencies {
     compile 'com.github.mmin18:realtimeblurview:1.0.6'
     compile 'io.realm:realm-android:0.84.1'
     compile 'com.google.android.gms:play-services:9.8.0'
+    compile 'com.google.android.gms:play-services-ads:9.8.0'
     testCompile 'junit:junit:4.12'
     compile files('libs/YouTubeAndroidPlayerApi.jar')
+    compile 'com.android.support:multidex:1.0.1'
 }

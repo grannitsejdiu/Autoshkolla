@@ -288,7 +288,10 @@ public class TestFormActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
-                testFormExamTime.setText("done!");
+//                testFormExamTime.setText("done!");
+                Intent intent = new Intent(getApplicationContext(), TestResultsFormActivity.class);
+                intent.putExtra("index", selectedIndex);
+                startActivity(intent);
             }
         }.start();
 

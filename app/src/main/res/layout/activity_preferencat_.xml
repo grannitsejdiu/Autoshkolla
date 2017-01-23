@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_preferencat_"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="co.tenton.admin.autoshkolla.MainActivitiy.Preferencat_Activity">
+
+    <RelativeLayout
+        android:id="@+id/preferencat_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <android.support.v7.widget.Toolbar
+            android:background="@color/toolbarColor"
+            android:title="@string/app_name"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+        </android.support.v7.widget.Toolbar>
+        <Button
+            android:id="@+id/preferencat_FormBackButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/a_lefticon"
+            />
+
+        <TextView
+            android:id="@+id/preferencat_FormTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/whiteColor"
+            android:text="Procedurat"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/preferencat_lineId"
+        android:layout_below="@id/preferencat_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/colorAccent"/>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardviewpreferencat"
+        android:layout_margin="10dp"
+        android:layout_below="@id/preferencat_lineId"
+        app:cardCornerRadius="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/a_notification"/>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/titleColor"
+                    android:textSize="17sp"
+                    android:text="NJOFTIMET"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/decsriptionColor"
+                    android:text="@string/njoftimet"/>
+                <View
+                    android:layout_marginTop="5dp"
+                    android:background="#EFEFF4"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/a_clean"/>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/titleColor"
+                        android:textSize="17sp"
+                        android:text="LIRIMI HAPESIRES"/>
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/decsriptionColor"
+                        android:text="@string/lirimiHapesires"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_marginTop="5dp"
+                android:background="#EFEFF4"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"/>
+
+            <RelativeLayout
+                android:id="@+id/editoPreferencat"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:textSize="16sp"
+                    android:text="Edito preferencat"
+                    />
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/cardviewnext"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_margin="10dp"
+        android:layout_alignParentBottom="true"
+        app:cardCornerRadius="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@mipmap/ic_launcher"/>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="17sp"
+                        android:text="AUTOSHKOLLA"/>
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="info@autoshkolla-ks.com"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+377 44 177 134"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/autoshkolla_fb"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/a_fb"/>
+                    <Button
+                        android:id="@+id/autoshkolla_call"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/a_phone"/>
+                    <Button
+                        android:id="@+id/autoshkolla_sms"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/a_sms"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

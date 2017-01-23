@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.List;
 
 import co.tenton.admin.autoshkolla.BlurryBackgrounds_Activities.SinjalizimiVertikalGrid_Adapter;
@@ -23,11 +26,19 @@ public class Shenjat_tbl_IlustrimeveActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     TextView title;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shenjat_tbl__ilustrimeve);
+
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("7F82521562046F0F8BD5A3F021FB707B")
+                .build();
+        mAdView.loadAd(adRequest);
 
         recyclerView= (RecyclerView) findViewById(R.id.shenjatIlustrimet_recyclerViewSVertikal);
         title = (TextView) findViewById(R.id.shenjatIlustrimet_GridFormTitle);
@@ -54,5 +65,29 @@ public class Shenjat_tbl_IlustrimeveActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
     }
 }

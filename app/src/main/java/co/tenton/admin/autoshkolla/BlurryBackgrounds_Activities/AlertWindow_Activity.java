@@ -9,13 +9,14 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import co.tenton.admin.autoshkolla.Testet.TestFormActivity;
 
 public class AlertWindow_Activity extends AppCompatActivity {
 
     Button vazhdoButton,anuloButton;
-    LinearLayout alertWindowLinear;
+    RelativeLayout alertWindowLinear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +47,7 @@ public class AlertWindow_Activity extends AppCompatActivity {
             }
         });
 
-        alertWindowLinear = (LinearLayout) findViewById(co.tenton.admin.autoshkolla.R.id.activity_alert_window_);
+        alertWindowLinear = (RelativeLayout) findViewById(co.tenton.admin.autoshkolla.R.id.activity_alert_window_);
         alertWindowLinear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,10 +1,17 @@
 package co.tenton.admin.autoshkolla.MainActivitiy;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import co.tenton.admin.autoshkolla.Models.ErrorResponse;
 import co.tenton.admin.autoshkolla.Models.Parser;
@@ -22,19 +29,39 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
-    private AdView mAdView;
+    Button shareApp,settingsBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_autoshkolla__main);
 
-        mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("7F82521562046F0F8BD5A3F021FB707B")
-                .build();
-        mAdView.loadAd(adRequest);
+        isStoragePermissionGranted();
+
+        shareApp = (Button) findViewById(R.id.shareAutoshkolla);
+        shareApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                String appLink = "http://autoshkolla-ks.com/";
+                String shareBody = "Shkarko e Autoshkollen ne : \n\n";
+                 String shareSubject = "Autoshkolla : ";
+                intent.putExtra(Intent.EXTRA_SUBJECT, shareSubject);
+                intent.putExtra(Intent.EXTRA_TEXT, shareBody + appLink);
+                startActivity(Intent.createChooser(intent,"Share Autoshkolla with ... "));
+            }
+        });
+
+        settingsBtn = (Button) findViewById(R.id.settingsBtn);
+        settingsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Autoshkolla_MainActivity.this, Preferencat_Activity.class);
+                startActivity(intent);
+            }
+        });
 
 
         // fill from local repository
@@ -76,27 +103,21 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onPause() {
-        if (mAdView != null) {
-            mAdView.pause();
+        public  boolean isStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                return true;
+            }
+            else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                return false;
+            }
         }
-        super.onPause();
+        else { //permission is automatically granted on sdk<23 upon installation
+            return true;
+
+        }
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (mAdView != null) {
-            mAdView.resume();
-        }
-    }
-
-    @Override
-    public void onDestroy() {
-        if (mAdView != null) {
-            mAdView.destroy();
-        }
-        super.onDestroy();
-    }
 }

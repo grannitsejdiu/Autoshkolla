@@ -8,6 +8,8 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.squareup.picasso.Picasso;
 
 import co.tenton.admin.autoshkolla.Models.Alternative;
@@ -22,11 +24,19 @@ public class TestQuestionResultActivity extends AppCompatActivity {
     ImageView pyetjaImage;
     TextView titulli, pyetjaText;
     public CheckBox pyetjaFirstAlternative,pyetjaSecondAlternative, pyetjaThirdAlternative;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(co.tenton.admin.autoshkolla.R.layout.activity_test_question_result);
+
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("7F82521562046F0F8BD5A3F021FB707B")
+                .build();
+        mAdView.loadAd(adRequest);
 
         pyetjaImage = (ImageView) findViewById(R.id.pyetja_Image);
         titulli = (TextView) findViewById(R.id.pyetja_title);
@@ -114,6 +124,30 @@ public class TestQuestionResultActivity extends AppCompatActivity {
                 TestQuestionResultActivity.super.onBackPressed();
             }
         });
+    }
+
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
     }
 
 }

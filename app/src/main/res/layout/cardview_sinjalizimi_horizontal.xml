@@ -20,14 +20,19 @@
         android:orientation="vertical">
 
 
-        <ImageView
-            android:id="@+id/sinjalizimitHorizontalImage"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:background="@drawable/imageview_border"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:adjustViewBounds="true"
-            />
+            android:background="@drawable/imageview_border"
+            android:padding="5dp"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/sinjalizimitHorizontalImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/sinjalizimitHorizontalDescription"
@@ -36,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textSize="17sp"/>
+            android:textSize="14sp"/>
 
     </LinearLayout>
 

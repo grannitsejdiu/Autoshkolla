@@ -20,4 +20,7 @@
     </string>
 
     <string name="action_settings">Settings</string>
+    
+    <string name="njoftimet">Ju pranoni njoftime nëse gjatë një periudhe të caktuar nuk e përdorni aplikacionin.</string>
+    <string name="lirimiHapesires">Nëse dëshironi të lironi hapësiren e cila është zënë nga shkarkimi i imazheve në telefonin tuaj në mënyrë të përhershme.</string>
 </resources>

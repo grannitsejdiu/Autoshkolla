@@ -32,7 +32,7 @@ public class TestetActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new ExamsRecyclerAdapter(es);
+        adapter = new ExamsRecyclerAdapter(es, getApplicationContext());
 
         recyclerView.setAdapter(adapter);
 

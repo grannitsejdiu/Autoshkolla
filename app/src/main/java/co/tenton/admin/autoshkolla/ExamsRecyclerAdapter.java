@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import co.tenton.admin.autoshkolla.BlurryBackgrounds_Activities.TestUdhezime_Activity;
 import co.tenton.admin.autoshkolla.Models.Exam;
+import co.tenton.admin.autoshkolla.Models.ExamStatuses;
 import co.tenton.admin.autoshkolla.Models.Question;
 
 import java.util.ArrayList;
@@ -23,8 +24,9 @@ public class ExamsRecyclerAdapter extends RecyclerView.Adapter<ExamsRecyclerAdap
     public List<Exam> examList = new ArrayList<Exam>();
     private Context context;
 
-    public ExamsRecyclerAdapter(List<Exam> items) {
+    public ExamsRecyclerAdapter(List<Exam> items, Context ctx) {
         examList = items;
+        context = ctx;
     }
 
      class ViewHolder extends RecyclerView.ViewHolder {
@@ -81,16 +83,14 @@ public class ExamsRecyclerAdapter extends RecyclerView.Adapter<ExamsRecyclerAdap
         holder.getCardviewItemDescription.setText(q.name);
         holder.cardviewItemImage.setText(s);
 
-        if (position ==3){
+        ExamStatuses examStatus = e.getLastResults(context);
+        if (examStatus == ExamStatuses.Passed){
             holder.testStatus.setImageResource(R.drawable.passed);
-        }
-        else if ( position ==5){
+        }else if (examStatus == ExamStatuses.Failed){
             holder.testStatus.setImageResource(R.drawable.failed);
-        }
-        else {
+        }else {
             holder.testStatus.setImageResource(R.drawable.cardviewnext);
         }
-
     }
 
 

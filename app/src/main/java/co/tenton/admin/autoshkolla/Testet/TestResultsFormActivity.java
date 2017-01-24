@@ -97,6 +97,8 @@ public class TestResultsFormActivity extends AppCompatActivity {
         int examId = getIntent().getIntExtra("index",0);
         selectedExam = This.exams.get(examId);
 
+        selectedExam.saveResults(getApplicationContext()); //save exam results
+
         recyclerView= (RecyclerView) findViewById(R.id.recyclerViewTestFormResult);
 
         recyclerView.setHasFixedSize(true);

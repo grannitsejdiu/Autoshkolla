@@ -1,5 +1,8 @@
 package co.tenton.admin.autoshkolla.Models;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -65,6 +68,29 @@ public class Exam {
     }
     public boolean success(){
         return pointsResults() >= 90;
+    }
+
+    public void saveResults(Context context){
+        SharedPreferences sh = context.getSharedPreferences("exams_results", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = sh.edit();
+
+        String keyName = "exam_" + id;
+        String value = success() ? "1" : "0";
+        editor.putString(keyName,value);
+        editor.apply();
+    }
+    public ExamStatuses getLastResults(Context context){
+        SharedPreferences sh = context.getSharedPreferences("exams_results", Context.MODE_PRIVATE);
+        String result = sh.getString("exam_" + id, "");
+
+        if (result == "1"){
+            return ExamStatuses.Passed;
+        } else if (result == "0"){
+            return ExamStatuses.Failed;
+        }else {
+            return ExamStatuses.None;
+        }
     }
 
 }

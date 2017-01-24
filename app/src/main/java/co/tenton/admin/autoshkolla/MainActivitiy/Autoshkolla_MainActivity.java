@@ -2,6 +2,7 @@ package co.tenton.admin.autoshkolla.MainActivitiy;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
@@ -39,6 +40,11 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
 
         isStoragePermissionGranted();
 
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPref", 0);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+
         shareApp = (Button) findViewById(R.id.shareAutoshkolla);
         shareApp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +52,7 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 String appLink = "http://autoshkolla-ks.com/";
-                String shareBody = "Shkarko e Autoshkollen ne : \n\n";
+                String shareBody = "Aplikacioni Autoshkolla, për iOS dhe Android. : \n\n";
                  String shareSubject = "Autoshkolla : ";
                 intent.putExtra(Intent.EXTRA_SUBJECT, shareSubject);
                 intent.putExtra(Intent.EXTRA_TEXT, shareBody + appLink);

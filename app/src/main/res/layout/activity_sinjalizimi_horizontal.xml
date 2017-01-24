@@ -11,31 +11,45 @@
     <RelativeLayout
         android:id="@+id/sinjalizimitHorizontaFormToolbar"
         android:layout_width="match_parent"
-        android:layout_height="45dp">
+        android:layout_height="50dp">
 
         <android.support.v7.widget.Toolbar
             android:background="@color/toolbarColor"
             android:title="@string/app_name"
             android:layout_width="match_parent"
-            android:layout_height="45dp">
+            android:layout_height="match_parent">
 
         </android.support.v7.widget.Toolbar>
         <Button
             android:id="@+id/sinjalizimitHorizontaFormBackButton"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:background="@color/transparent"
+            />
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginStart="5dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:layout_centerVertical="true"
             android:background="@drawable/a_lefticon"
             />
 
         <Button
             android:id="@+id/sinjalizimitHorizontaFormInfo"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@color/transparent"
+            />
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
@@ -44,21 +58,22 @@
 
         <TextView
             android:id="@+id/sinjalizimitHorizontaFormTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/sinjalizimitHorizontaFormBackButton"
+            android:layout_toEndOf="@+id/sinjalizimitHorizontaFormBackButton"
+            android:layout_toLeftOf="@+id/sinjalizimitHorizontaFormInfo"
+            android:layout_toStartOf="@+id/sinjalizimitHorizontaFormInfo"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAlignment="center"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_marginTop="5dp"
             android:textColor="@color/whiteColor"
             android:text="Sinjalizimi Horizontal"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
     </RelativeLayout>
-    <View
-        android:id="@+id/lineIdsinjalizimiHorizontalForm"
-        android:layout_below="@id/sinjalizimitHorizontaFormToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="1.5dp"
-        android:background="@color/colorAccent"/>
 
     <android.support.design.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -69,26 +84,20 @@
         tools:context="com.tenton.admin.autoshkolla.co.tenton.admin.autoshkolla.Testet.TestFormActivity"/>
 
     <android.support.v7.widget.RecyclerView
-        android:layout_below="@id/lineIdsinjalizimiHorizontalForm"
+        android:layout_below="@id/sinjalizimitHorizontaFormToolbar"
         android:id="@+id/recyclerViewTestForm"
         android:paddingStart="2dp"
         android:paddingEnd="2dp"
         android:layout_marginTop="2dp"
-        android:layout_above="@+id/lineIdsHBottom"
+        android:layout_above="@+id/sinjalizimitHorizontaFormBottomToolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
     </android.support.v7.widget.RecyclerView>
 
-    <View
-        android:id="@+id/lineIdsHBottom"
-        android:layout_width="match_parent"
-        android:layout_above="@+id/sinjalizimitHorizontaFormBottomToolbar"
-        android:layout_height="1.5dp"
-        android:background="@color/colorAccent"/>
     <RelativeLayout
         android:id="@+id/sinjalizimitHorizontaFormBottomToolbar"
-        android:layout_above="@+id/bannerimage"
+        android:layout_above="@+id/adView"
         android:layout_width="match_parent"
         android:layout_height="25dp">
 

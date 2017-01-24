@@ -3,10 +3,12 @@ package co.tenton.admin.autoshkolla;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import co.tenton.admin.autoshkolla.BlurryBackgrounds_Activities.TestUdhezime_Activity;
@@ -31,6 +33,7 @@ public class ExamsRecyclerAdapter extends RecyclerView.Adapter<ExamsRecyclerAdap
          public TextView cardviewItemImage;
          public TextView cardviewItemTitle;
          public TextView getCardviewItemDescription;
+         public ImageView testStatus;
 
          public ViewHolder(final View itemView) {
              super(itemView);
@@ -38,11 +41,13 @@ public class ExamsRecyclerAdapter extends RecyclerView.Adapter<ExamsRecyclerAdap
              cardviewItemImage = (TextView) itemView.findViewById(R.id.cardviewItemImage);
              cardviewItemTitle = (TextView) itemView.findViewById(R.id.cardviewTitle);
              getCardviewItemDescription = (TextView) itemView.findViewById(R.id.cardviewDescription);
+             testStatus = (ImageView) itemView.findViewById(R.id.testStatus);
 
              itemView.setOnClickListener(new View.OnClickListener() {
                  @Override
                  public void onClick(View view) {
                      int position = getAdapterPosition();
+
 
                      Exam selectedExam = examList.get(position);
 
@@ -75,6 +80,16 @@ public class ExamsRecyclerAdapter extends RecyclerView.Adapter<ExamsRecyclerAdap
         holder.cardviewItemTitle.setText(e.name);
         holder.getCardviewItemDescription.setText(q.name);
         holder.cardviewItemImage.setText(s);
+
+        if (position ==3){
+            holder.testStatus.setImageResource(R.drawable.passed);
+        }
+        else if ( position ==5){
+            holder.testStatus.setImageResource(R.drawable.failed);
+        }
+        else {
+            holder.testStatus.setImageResource(R.drawable.cardviewnext);
+        }
 
     }
 

@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="72dp"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="5dp"
+    android:layout_marginTop="8dp"
     android:layout_marginLeft="1dp"
     android:layout_marginRight="1dp"
-    android:layout_marginBottom="5dp"
-    card_view:cardCornerRadius="12dp"
+    android:layout_marginBottom="2dp"
+    card_view:cardCornerRadius="5dp"
     android:clickable="true">
 
     <RelativeLayout
@@ -86,12 +86,14 @@
 
         <ImageView
             android:id="@+id/btnimage"
-            android:layout_width="30dp"
+            android:layout_width="25dp"
             android:layout_gravity="center"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_height="30dp"
+            android:layout_height="25dp"
             android:background="@drawable/cardviewnext" />
 </RelativeLayout>
 

@@ -1,5 +1,6 @@
 package co.tenton.admin.autoshkolla.BlurryBackgrounds_Activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -18,6 +19,7 @@ import co.tenton.admin.autoshkolla.Models.Sign;
 import co.tenton.admin.autoshkolla.Models.Subgroup;
 import co.tenton.admin.autoshkolla.Models.This;
 import co.tenton.admin.autoshkolla.R;
+import co.tenton.admin.autoshkolla.SinjalizimiVertikal.Sinjalizimi_Vertikal_Activity;
 
 public class SinjalizimiVertikalGrid_Activity extends AppCompatActivity {
 
@@ -25,6 +27,7 @@ public class SinjalizimiVertikalGrid_Activity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     TextView title;
+    Button info;
     private AdView mAdView;
 
     @Override
@@ -47,7 +50,7 @@ public class SinjalizimiVertikalGrid_Activity extends AppCompatActivity {
         recyclerView.setLayoutManager(glm);
 
 
-        int index = getIntent().getIntExtra("index", 0);
+        final int index = getIntent().getIntExtra("index", 0);
         int groupIndex = getIntent().getIntExtra("groupIndex",0);
 
         if (groupIndex == 5) {
@@ -72,6 +75,17 @@ public class SinjalizimiVertikalGrid_Activity extends AppCompatActivity {
                 SinjalizimiVertikalGrid_Activity.super.onBackPressed();
             }
         });
+
+        info = (Button) findViewById(R.id.sinjalizimitVertikalGridFormInfo);
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SinjalizimiVertikalGrid_Activity.this, Info_Activity.class);
+                intent.putExtra("index",index);
+                startActivity(intent);
+            }
+        });
+
     }
     @Override
     public void onPause() {

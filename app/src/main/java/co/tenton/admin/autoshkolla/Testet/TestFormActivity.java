@@ -30,7 +30,7 @@ public class TestFormActivity extends AppCompatActivity {
     Button backButtonTestForm;
     TextView testFormTitle, testFormNextQuestion , testFormPreviousQuestion;
     TextView testFormExamTime,pasTextIcon, paraTextIcon;
-    TextView piket;
+    TextView piket,testNr,questionPoints;
     private static final String FORMAT = "%02d:%02d";
     public static Activity fa;
     private AdView mAdView;
@@ -54,6 +54,8 @@ public class TestFormActivity extends AppCompatActivity {
         pasTextIcon = (TextView) findViewById(co.tenton.admin.autoshkolla.R.id.pasButton);
         paraTextIcon = (TextView) findViewById(co.tenton.admin.autoshkolla.R.id.paraButton);
         piket = (TextView) findViewById(co.tenton.admin.autoshkolla.R.id.piket);
+        testNr = (TextView) findViewById(R.id.testNr);
+        questionPoints = (TextView) findViewById(R.id.questionPoint);
 
         recyclerView= (RecyclerView) findViewById(co.tenton.admin.autoshkolla.R.id.recyclerViewTestForm);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
@@ -72,6 +74,11 @@ public class TestFormActivity extends AppCompatActivity {
 
         testFormTitle = (TextView) findViewById(co.tenton.admin.autoshkolla.R.id.testFormTitle);
         testFormTitle.setText("Pyetja 1/" + selectedExam.questions.size());
+
+
+        int testNumber = selectedIndex +1;
+        testNr.setText(String.valueOf("Testi " + testNumber));
+        questionPoints.setText(String.valueOf(selectedExam.questions.get(0).points));
 
 
         final LinearSnapHelper helper = new LinearSnapHelper(){
@@ -95,6 +102,7 @@ public class TestFormActivity extends AppCompatActivity {
                 final int lastItem = layoutManager.getItemCount() - 1;
                 targetPosition = Math.min(lastItem, Math.max(targetPosition, firstItem));
                 testFormTitle.setText("Pyetja " + (targetPosition+1) + "/" + layoutManager.getItemCount());
+                questionPoints.setText(String.valueOf(selectedExam.questions.get((targetPosition)).points));
                 if (targetPosition ==0){
                     testFormPreviousQuestion.setVisibility(View.INVISIBLE);
                     pasTextIcon.setVisibility(View.INVISIBLE);
@@ -137,6 +145,7 @@ public class TestFormActivity extends AppCompatActivity {
                 final int lastItem = layoutManager.getItemCount() - 1;
                 targetPosition = Math.min(lastItem, Math.max(targetPosition, firstItem));
                 testFormTitle.setText("Pyetja " + (targetPosition +1) + "/" + selectedExam.questions.size());
+                questionPoints.setText(String.valueOf(selectedExam.questions.get((targetPosition)).points));
 
                 if (targetPosition ==0){
                     testFormPreviousQuestion.setVisibility(View.INVISIBLE);
@@ -180,6 +189,7 @@ public class TestFormActivity extends AppCompatActivity {
                 final int lastItem = layoutManager.getItemCount() - 1;
                 targetPosition = Math.min(lastItem, Math.max(targetPosition, firstItem));
                 testFormTitle.setText("Pyetja " + (targetPosition+1) + "/" + selectedExam.questions.size());
+                questionPoints.setText(String.valueOf(selectedExam.questions.get((targetPosition)).points));
 
                 if (targetPosition ==0){
                     testFormPreviousQuestion.setVisibility(View.INVISIBLE);
@@ -216,6 +226,7 @@ public class TestFormActivity extends AppCompatActivity {
                 final int lastItem = layoutManager.getItemCount() - 1;
                 targetPosition = Math.min(lastItem, Math.max(targetPosition, firstItem));
                 testFormTitle.setText("Pyetja " + (targetPosition +1) + "/" + selectedExam.questions.size());
+                questionPoints.setText(String.valueOf(selectedExam.questions.get((targetPosition)).points));
 
                 if (targetPosition ==0){
                     testFormPreviousQuestion.setVisibility(View.INVISIBLE);
@@ -257,6 +268,7 @@ public class TestFormActivity extends AppCompatActivity {
                 final int lastItem = layoutManager.getItemCount() - 1;
                 targetPosition = Math.min(lastItem, Math.max(targetPosition, firstItem));
                 testFormTitle.setText("Pyetja " + (targetPosition+1) + "/" + selectedExam.questions.size());
+                questionPoints.setText(String.valueOf(selectedExam.questions.get((targetPosition)).points));
 
                 if (targetPosition ==0){
                     testFormPreviousQuestion.setVisibility(View.INVISIBLE);

@@ -24,32 +24,30 @@ public class TestUdhezime_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_udhezime_);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPref", Context.MODE_PRIVATE);
+        final String vlera = sharedPreferences.getString("vlera", "");
+        final int selectedIndex = getIntent().getIntExtra("selectExamIndex",0);
+
+        if(vlera.equals(""))
+        {
+            setContentView(R.layout.activity_test_udhezime_);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("vlera", "0");
+            editor.apply();
+        }
+        else{
+            Intent intent = new Intent(getApplicationContext(), TestFormActivity.class);
+            intent.putExtra("selectExamIndex", selectedIndex);
+            startActivity(intent);
+            finish();
+        }
+
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.transparentBackground));
         }
-
-
-        SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-        String username = sharedPref.getString("activity", "");
-        final int selectedIndex = getIntent().getIntExtra("selectExamIndex",0);
-
-        if (!username.equals("1")) {
-            setContentView(R.layout.activity_test_udhezime_);
-        }
-        else {
-            Intent intent = new Intent(this, TestFormActivity.class);
-            intent.putExtra("selectExamIndex", selectedIndex);
-            startActivity(intent);
-            finish();
-        }
-
-        SharedPreferences sharedPreferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("activity", "0");
-        editor.apply();
 
         startButton = (Button) findViewById(R.id.startButton);
         startButton.setOnClickListener(new View.OnClickListener() {

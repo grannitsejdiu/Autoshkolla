@@ -11,21 +11,27 @@
     <RelativeLayout
         android:id="@+id/testeToolbar"
         android:layout_width="match_parent"
-        android:layout_height="45dp">
+        android:layout_height="50dp">
 
         <android.support.v7.widget.Toolbar
             android:background="@color/toolbarColor"
             android:title="@string/app_name"
             android:layout_width="match_parent"
-            android:layout_height="45dp">
+            android:layout_height="match_parent">
 
         </android.support.v7.widget.Toolbar>
         <Button
             android:id="@+id/backbuttonTeste"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:background="@color/transparent"
+            />
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginStart="5dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:layout_centerVertical="true"
             android:background="@drawable/a_lefticon"
             />
@@ -37,15 +43,9 @@
             android:layout_centerVertical="true"
             android:layout_marginTop="5dp"
             android:textColor="@color/whiteColor"
-            android:textSize="19sp"
+            android:textSize="20sp"
             android:text="Test"/>
     </RelativeLayout>
-    <View
-        android:id="@+id/lineIdteste"
-        android:layout_below="@id/testeToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="1.5dp"
-        android:background="@color/colorAccent"/>
 
     <android.support.design.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -56,7 +56,7 @@
         tools:context="co.tenton.admin.autoshkolla.TestetActivity"/>
 
         <android.support.v7.widget.RecyclerView
-            android:layout_below="@id/lineIdteste"
+            android:layout_below="@id/testeToolbar"
             android:id="@+id/recyclerView"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"

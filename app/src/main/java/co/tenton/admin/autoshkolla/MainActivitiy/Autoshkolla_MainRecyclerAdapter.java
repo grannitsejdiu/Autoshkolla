@@ -20,11 +20,11 @@ import co.tenton.admin.autoshkolla.TestetActivity;
 
 public class Autoshkolla_MainRecyclerAdapter extends RecyclerView.Adapter<Autoshkolla_MainRecyclerAdapter.ViewHolder> {
 
-    private String[] title = {"TESTE", "LIGJERATA","PROCEDURAT","ILUSTRIMET","AUTOSHKOLLAT"};
+    private String[] title = {"TESTE", "LITERATURA","PROCEDURAT","ILUSTRIMET","AUTOSHKOLLAT"};
     private String[] description = {"Teste teorike për përgaditjen e provimit final për patent shofer, kategoria A dhe B",
-    "Literatura dhe shembuj të ndryshëm në lidhje me Rregullat e Sigurisë  dhe të Komunikacionit.",
-    "Dokumentet e nevojshme për regjistrim të patent shoferit.",
-    "Lorem ipsum is simply dummy text of the printin and typesetting",
+    "Literatura në lidhje me Nocionet,Shenjat e Komunikacionit Rrugor, Rregullat e Sigurisë dhe të Komunikacionit Rrugor.",
+    "Procedurat për regjistrimin e patent shoferit. Dokumentet e nevojshme dhe kohëzgjatja e tyre.",
+    "Ilustrime te komunikacionit rrugor. Si duhet të sillemi dhe si të veprojmë në raste të ndryshme ?",
     "Autoshkolla të ndryshme në vendin tonë, zgjedhe autoshkollen tënde!"};
 
     private int[] images = {co.tenton.admin.autoshkolla.R.drawable.a_questionicon, co.tenton.admin.autoshkolla.R.drawable.a_learningicon,

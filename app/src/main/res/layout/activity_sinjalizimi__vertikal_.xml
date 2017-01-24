@@ -1,39 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-
 
     <RelativeLayout
         android:id="@+id/sinjalizimiVertikalFormToolbar"
         android:layout_width="match_parent"
-        android:layout_height="45dp">
+        android:layout_height="50dp">
 
         <android.support.v7.widget.Toolbar
             android:background="@color/toolbarColor"
             android:title="@string/app_name"
             android:layout_width="match_parent"
-            android:layout_height="45dp">
+            android:layout_height="match_parent">
 
         </android.support.v7.widget.Toolbar>
         <Button
             android:id="@+id/sinjalizimitVertikalFormBackButton"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:background="@color/transparent"
+            />
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginStart="5dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:layout_centerVertical="true"
             android:background="@drawable/a_lefticon"
             />
 
         <Button
             android:id="@+id/sinjalizimiVertikalFormInfo"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@color/transparent"
+            />
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
@@ -49,19 +63,34 @@
             android:layout_marginTop="5dp"
             android:textColor="@color/whiteColor"
             android:text="Sinjalizimi Vertikal"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
     </RelativeLayout>
-    <View
-        android:id="@+id/lineIdsinjalizimiHorizontalForm"
-        android:layout_width="match_parent"
-        android:layout_height="1.5dp"
-        android:background="@color/colorAccent"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/my_recycler_view"
+        android:layout_below="@id/sinjalizimiVertikalFormToolbar"
+        android:layout_above="@id/adView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none" />
 
+    <ImageView
+        android:id="@+id/bannerimage"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bannerxxl"/>
 
-</LinearLayout>
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
+    </com.google.android.gms.ads.AdView>
+
+
+
+</RelativeLayout>

@@ -10,9 +10,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import co.tenton.admin.autoshkolla.Models.ErrorResponse;
 import co.tenton.admin.autoshkolla.Models.Parser;
@@ -31,6 +33,7 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
     Button shareApp,settingsBtn;
+    ImageView banner;
 
 
     @Override
@@ -106,6 +109,11 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         adapter = new Autoshkolla_MainRecyclerAdapter();
         recyclerView.setAdapter(adapter);
+
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        final int heightPixels = displaymetrics.heightPixels;
+
 
     }
 

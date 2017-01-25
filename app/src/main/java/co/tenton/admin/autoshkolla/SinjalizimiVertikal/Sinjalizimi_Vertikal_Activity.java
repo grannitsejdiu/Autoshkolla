@@ -7,7 +7,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
@@ -32,6 +34,19 @@ public class Sinjalizimi_Vertikal_Activity extends AppCompatActivity {
                 .addTestDevice("7F82521562046F0F8BD5A3F021FB707B")
                 .build();
         mAdView.loadAd(adRequest);
+        mAdView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                ImageView banner = (ImageView) findViewById(R.id.bannerimage);
+                banner.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                ImageView banner = (ImageView) findViewById(R.id.bannerimage);
+                banner.setVisibility(View.VISIBLE);
+            }
+        });
 
         final int index = getIntent().getIntExtra("index",0);
         Group group = This.groups.get(index);

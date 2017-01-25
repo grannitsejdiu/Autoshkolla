@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -65,6 +66,21 @@ public class TestResultsFormActivity extends AppCompatActivity {
                 .addTestDevice("7F82521562046F0F8BD5A3F021FB707B")
                 .build();
         mAdView.loadAd(adRequest);
+
+        mAdView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                ImageView banner = (ImageView) findViewById(R.id.bannerimage);
+                banner.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                ImageView banner = (ImageView) findViewById(R.id.bannerimage);
+                banner.setVisibility(View.VISIBLE);
+            }
+        });
+
         // Load ads into Interstitial Ads
         mInterstitialAd.loadAd(adRequest);
         mInterstitialAd.setAdListener(new AdListener() {

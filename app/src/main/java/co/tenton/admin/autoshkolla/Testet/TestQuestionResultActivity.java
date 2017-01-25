@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.squareup.picasso.Picasso;
@@ -37,6 +38,19 @@ public class TestQuestionResultActivity extends AppCompatActivity {
                 .addTestDevice("7F82521562046F0F8BD5A3F021FB707B")
                 .build();
         mAdView.loadAd(adRequest);
+        mAdView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                ImageView banner = (ImageView) findViewById(R.id.bannerimage);
+                banner.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                ImageView banner = (ImageView) findViewById(R.id.bannerimage);
+                banner.setVisibility(View.VISIBLE);
+            }
+        });
 
         pyetjaImage = (ImageView) findViewById(R.id.pyetja_Image);
         titulli = (TextView) findViewById(R.id.pyetja_title);

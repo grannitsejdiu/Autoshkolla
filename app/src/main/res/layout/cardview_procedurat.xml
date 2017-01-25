@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textSize="17sp"
-            android:textColor="#000000"
+            android:textColor="#333333"
             />
 
         <TextView

@@ -45,7 +45,7 @@
             android:layout_centerVertical="true"
             android:layout_marginTop="5dp"
             android:textColor="@color/whiteColor"
-            android:text="Ilustrimet"
+            android:text="Ilustrime"
             android:textSize="20sp" />
     </RelativeLayout>
 
@@ -71,21 +71,21 @@
 
 
 
+    <ImageView
+        android:id="@+id/bannerimage"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/banner150"/>
+
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
-        android:background="@color/transparent"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        ads:adSize="SMART_BANNER"
+        ads:adSize="BANNER"
         ads:adUnitId="@string/banner_ad_unit_id">
-        <ImageView
-            android:id="@+id/bannerimage"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/bannerxxl"/>
     </com.google.android.gms.ads.AdView>
 
 </RelativeLayout>

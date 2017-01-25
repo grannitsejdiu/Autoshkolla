@@ -37,7 +37,7 @@
         <TextView
             android:id="@+id/sinjalizimitHorizontalDescription"
             android:layout_marginTop="10dp"
-            android:textColor="@color/titleColor"
+            android:textColor="#333333"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"

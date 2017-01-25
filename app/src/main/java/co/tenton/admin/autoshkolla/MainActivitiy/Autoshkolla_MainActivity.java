@@ -9,18 +9,23 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import co.tenton.admin.autoshkolla.Models.ErrorResponse;
 import co.tenton.admin.autoshkolla.Models.Parser;
 import co.tenton.admin.autoshkolla.R;
 import co.tenton.admin.autoshkolla.ServiceLayer.AllLayer;
 import co.tenton.admin.autoshkolla.ServiceLayer.ResponseData;
+import co.tenton.admin.autoshkolla.TestetActivity;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -34,6 +39,7 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
     RecyclerView.Adapter adapter;
     Button shareApp,settingsBtn;
     ImageView banner;
+    Button menu;
 
 
     @Override
@@ -69,6 +75,34 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Autoshkolla_MainActivity.this, Preferencat_Activity.class);
                 startActivity(intent);
+            }
+        });
+
+        menu = (Button) findViewById(R.id.main_menu);
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                PopupMenu popupMenu = new PopupMenu(Autoshkolla_MainActivity.this,menu);
+
+                popupMenu.getMenuInflater().inflate(R.menu.main_menu,popupMenu.getMenu());
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId())
+                        {
+                            case R.id.menu_raporto:
+                                Intent intent = new Intent(view.getContext().getApplicationContext(), Raporto_Activity.class);
+                                view.getContext().startActivity(intent);
+                                break;
+                            case R.id.menu_vlereso:
+                                Toast.makeText(Autoshkolla_MainActivity.this,"You Clicked : " + item.getTitle(),Toast.LENGTH_SHORT).show();
+                                break;
+                        }
+                        return true;
+                    }
+                });
+                popupMenu.show();
             }
         });
 
@@ -109,11 +143,6 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         adapter = new Autoshkolla_MainRecyclerAdapter();
         recyclerView.setAdapter(adapter);
-
-        DisplayMetrics displaymetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-        final int heightPixels = displaymetrics.heightPixels;
-
 
     }
 

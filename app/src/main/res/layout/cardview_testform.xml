@@ -17,6 +17,8 @@
 
         <TextView
             android:id="@+id/questionText"
+            android:textColor="#333333"
+            android:textSize="15sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -42,19 +44,25 @@
                 <CheckBox
                     android:id="@+id/questionFirstAlternative"
                     android:layout_marginTop="20dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/titleColor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     />
 
                 <CheckBox
                     android:id="@+id/questionSecondAlternative"
+                    android:textColor="@color/titleColor"
                     android:layout_marginTop="15dp"
+                    android:textSize="14sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <CheckBox
                     android:id="@+id/questionThirdAlternative"
+                    android:textColor="@color/titleColor"
                     android:layout_marginTop="15dp"
+                    android:textSize="14sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 </LinearLayout>

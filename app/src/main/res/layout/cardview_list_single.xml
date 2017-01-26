@@ -32,8 +32,8 @@
             android:text="Sample title"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textColor="@android:color/black"
-            android:textSize="14sp" />
+            android:textColor="#333333"
+            android:textSize="12sp" />
 
 
     </LinearLayout>

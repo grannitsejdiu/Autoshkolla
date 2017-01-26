@@ -39,7 +39,7 @@ public class Ilustrimet_RecyclerAdapter extends RecyclerView.Adapter<Ilustrimet_
         Sign s = signs.get(position);
 
         holder.cardviewItemTitle.setText(s.name);
-        holder.getCardviewItemDescription.setText(s.description);
+        holder.getCardviewItemDescription.setText("https://youtu.be/" +  s.description);
         holder.cardviewItemImage.setImageResource(co.tenton.admin.autoshkolla.R.color.titleColor);
 
         if (s.imager != null) {

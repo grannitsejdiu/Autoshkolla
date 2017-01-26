@@ -180,16 +180,16 @@
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_gravity="center_vertical"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:background="@mipmap/ic_launcher"/>
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/l_splash"/>
 
                 <LinearLayout
                     android:layout_marginTop="10dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -206,7 +206,7 @@
                         android:text="info@autoshkolla-ks.com"/>
 
                 </LinearLayout>
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -215,18 +215,41 @@
                     android:orientation="horizontal">
                     <Button
                         android:id="@+id/autoshkolla_fb"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/a_fb"/>
-                    <Button
-                        android:id="@+id/autoshkolla_sms"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/a_sms"/>
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_toStartOf="@+id/autoshkolla_email"
+                        android:layout_toLeftOf="@+id/autoshkolla_email"
+                        android:background="@color/transparent"/>
 
-                </LinearLayout>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/autoshkolla_email"
+                        android:layout_toLeftOf="@+id/autoshkolla_email"
+                        android:background="@drawable/a_facebook"/>
+
+                    <Button
+                        android:id="@+id/autoshkolla_email"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:background="@color/transparent"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/a_message"/>
+
+
+                </RelativeLayout>
 
             </LinearLayout>
         </LinearLayout>

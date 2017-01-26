@@ -23,7 +23,7 @@
             android:layout_toLeftOf="@+id/btnMore"
             android:layout_toStartOf="@+id/btnMore"
             android:text="Sample title"
-            android:textColor="@color/titleColor"
+            android:textColor="#333333"
             android:textSize="18sp" />
 
         <Button
@@ -36,7 +36,7 @@
             android:drawableRight="@drawable/cardviewnext"
             android:drawableEnd="@drawable/cardviewnext"
             android:text="Te gjitha"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/titleColor"
             style="@style/Widget.AppCompat.Button.Borderless" />
 
     </RelativeLayout>

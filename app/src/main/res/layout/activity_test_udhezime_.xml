@@ -133,7 +133,7 @@
             android:layout_marginRight="40dp"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
-            android:text="Pyetjet mund të kenë një, dy ose trepergjigje të sakta!"/>
+            android:text="Pyetjet mund të kenë një, dy ose tre pergjigje të sakta!"/>
     </LinearLayout>
     </LinearLayout>
     

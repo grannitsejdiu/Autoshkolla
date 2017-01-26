@@ -57,26 +57,22 @@
             android:background="@color/transparent"/>
 
         <Button
-            android:id="@+id/settingsBtn"
+            android:id="@+id/main_menu"
             android:layout_width="56dp"
             android:layout_height="match_parent"
-            android:layout_marginRight="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
             android:background="@color/transparent"
-            />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"/>
+
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:background="@drawable/a_settingsicon"
-            />
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/a_menu"/>
     </RelativeLayout>
 
 
@@ -102,12 +98,11 @@
 
     </android.support.v7.widget.RecyclerView>
 
-
     <ImageView
         android:id="@+id/bannerimage"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/bannerxxl"/>
+        android:background="@drawable/banner150"/>
 
 </RelativeLayout>

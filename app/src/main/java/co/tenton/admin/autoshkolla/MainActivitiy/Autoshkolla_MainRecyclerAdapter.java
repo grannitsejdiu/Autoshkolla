@@ -20,16 +20,14 @@ import co.tenton.admin.autoshkolla.TestetActivity;
 
 public class Autoshkolla_MainRecyclerAdapter extends RecyclerView.Adapter<Autoshkolla_MainRecyclerAdapter.ViewHolder> {
 
-    private String[] title = {"TESTE", "LITERATURA","PROCEDURAT","ILUSTRIMET","AUTOSHKOLLAT"};
+    private String[] title = {"TESTE", "LITERATURA","PROCEDURAT","ILUSTRIME"};
     private String[] description = {"Teste teorike për përgaditjen e provimit final për patent shofer, kategoria A dhe B",
     "Literatura në lidhje me Nocionet,Shenjat e Komunikacionit Rrugor, Rregullat e Sigurisë dhe të Komunikacionit Rrugor.",
     "Procedurat për regjistrimin e patent shoferit. Dokumentet e nevojshme dhe kohëzgjatja e tyre.",
-    "Ilustrime te komunikacionit rrugor. Si duhet të sillemi dhe si të veprojmë në raste të ndryshme ?",
-    "Autoshkolla të ndryshme në vendin tonë, zgjedhe autoshkollen tënde!"};
+    "Ilustrime te komunikacionit rrugor. Si duhet të sillemi dhe si të veprojmë në raste të ndryshme ?"};
 
     private int[] images = {co.tenton.admin.autoshkolla.R.drawable.a_questionicon, co.tenton.admin.autoshkolla.R.drawable.a_learningicon,
-    co.tenton.admin.autoshkolla.R.drawable.a_procedureicon, co.tenton.admin.autoshkolla.R.drawable.a_ilustrimeicon,
-    co.tenton.admin.autoshkolla.R.drawable.a_mapsicon};
+    co.tenton.admin.autoshkolla.R.drawable.a_procedureicon, co.tenton.admin.autoshkolla.R.drawable.a_ilustrimeicon};
 
 
     @Override
@@ -84,10 +82,6 @@ public class Autoshkolla_MainRecyclerAdapter extends RecyclerView.Adapter<Autosh
                         case 3:
                             Intent intent4 = new Intent(view.getContext().getApplicationContext(), Ilustrimet_Activity.class);
                             view.getContext().startActivity(intent4);
-                            break;
-                        case 4:
-                            Intent intent5 = new Intent(view.getContext().getApplicationContext(), Autoshkolla_Profile.class);
-                            view.getContext().startActivity(intent5);
                             break;
                         default:
                             return;

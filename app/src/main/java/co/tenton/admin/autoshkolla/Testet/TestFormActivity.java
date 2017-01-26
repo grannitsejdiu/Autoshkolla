@@ -11,8 +11,10 @@ import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
@@ -29,7 +31,7 @@ public class TestFormActivity extends AppCompatActivity {
     RecyclerView.Adapter adapter;
     Button backButtonTestForm;
     TextView testFormTitle, testFormNextQuestion , testFormPreviousQuestion;
-    TextView testFormExamTime,pasTextIcon, paraTextIcon;
+    TextView testFormExamTime,pasTextIcon, paraTextIcon,perfundo;
     TextView piket,testNr,questionPoints;
     private static final String FORMAT = "%02d:%02d";
     public static Activity fa;
@@ -48,6 +50,19 @@ public class TestFormActivity extends AppCompatActivity {
                 .addTestDevice("7F82521562046F0F8BD5A3F021FB707B")
                 .build();
         mAdView.loadAd(adRequest);
+        mAdView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                ImageView banner = (ImageView) findViewById(R.id.bannerimage);
+                banner.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                ImageView banner = (ImageView) findViewById(R.id.bannerimage);
+                banner.setVisibility(View.VISIBLE);
+            }
+        });
 
         fa = this;
 
@@ -56,6 +71,7 @@ public class TestFormActivity extends AppCompatActivity {
         piket = (TextView) findViewById(co.tenton.admin.autoshkolla.R.id.piket);
         testNr = (TextView) findViewById(R.id.testNr);
         questionPoints = (TextView) findViewById(R.id.questionPoint);
+        perfundo = (TextView) findViewById(R.id.perfundo);
 
         recyclerView= (RecyclerView) findViewById(co.tenton.admin.autoshkolla.R.id.recyclerViewTestForm);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
@@ -113,10 +129,12 @@ public class TestFormActivity extends AppCompatActivity {
                 }
 
                 if (targetPosition == layoutManager.getItemCount()-1){
-                    testFormNextQuestion.setText("Perfundo");
+                    perfundo.setVisibility(View.VISIBLE);
+                    paraTextIcon.setVisibility(View.GONE);
                 }
                 else {
-                    testFormNextQuestion.setText("Para");
+                    paraTextIcon.setVisibility(View.VISIBLE);
+                    perfundo.setVisibility(View.GONE);
                 }
 
                 return targetPosition;
@@ -164,10 +182,12 @@ public class TestFormActivity extends AppCompatActivity {
 
 
                 if ((position == layoutManager.getItemCount()-2) || (position==layoutManager.getItemCount()-1)){
-                    testFormNextQuestion.setText("Perfundo");
+                    perfundo.setVisibility(View.VISIBLE);
+                    paraTextIcon.setVisibility(View.GONE);
                 }
                 else {
-                    testFormNextQuestion.setText("Para");
+                    paraTextIcon.setVisibility(View.VISIBLE);
+                    perfundo.setVisibility(View.GONE);
                 }
 
             }
@@ -201,10 +221,12 @@ public class TestFormActivity extends AppCompatActivity {
                 }
 
                 if (position == layoutManager.getItemCount()){
-                    testFormNextQuestion.setText("Shiko Rezultati");
+                    perfundo.setVisibility(View.VISIBLE);
+                    paraTextIcon.setVisibility(View.GONE);
                 }
                 else {
-                    testFormNextQuestion.setText("Para");
+                    paraTextIcon.setVisibility(View.VISIBLE);
+                    perfundo.setVisibility(View.GONE);
                 }
 
             }
@@ -245,10 +267,12 @@ public class TestFormActivity extends AppCompatActivity {
 
 
                 if ((position == layoutManager.getItemCount()-2) || (position==layoutManager.getItemCount()-1)){
-                    testFormNextQuestion.setText("Perfundo");
+                    perfundo.setVisibility(View.VISIBLE);
+                    paraTextIcon.setVisibility(View.GONE);
                 }
                 else {
-                    testFormNextQuestion.setText("Para");
+                    paraTextIcon.setVisibility(View.VISIBLE);
+                    perfundo.setVisibility(View.GONE);
                 }
             }
         });
@@ -280,10 +304,12 @@ public class TestFormActivity extends AppCompatActivity {
                 }
 
                 if (position == layoutManager.getItemCount()){
-                    testFormNextQuestion.setText("Shiko Rezultati");
+                    perfundo.setVisibility(View.VISIBLE);
+                    paraTextIcon.setVisibility(View.GONE);
                 }
                 else {
-                    testFormNextQuestion.setText("Para");
+                    paraTextIcon.setVisibility(View.VISIBLE);
+                    perfundo.setVisibility(View.GONE);
                 }
             }
         });

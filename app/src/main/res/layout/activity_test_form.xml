@@ -104,7 +104,7 @@
         android:layout_height="45dp">
 
         <android.support.v7.widget.Toolbar
-            android:background="@color/toolbarColor"
+            android:background="#EFEFF4"
             android:title="@string/app_name"
             android:layout_width="match_parent"
             android:layout_height="45dp">
@@ -113,30 +113,28 @@
 
         <TextView
             android:id="@+id/pasButton"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
             android:visibility="gone"
-            android:background="@drawable/a_lefticon"
+            android:layout_width="29dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/prapa"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"/>
 
         <TextView
             android:id="@+id/testFormPreviousQuestion"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:visibility="gone"
-            android:layout_toRightOf="@id/pasButton"
-            android:layout_toEndOf="@id/pasButton"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
             android:layout_centerVertical="true"
-            android:layout_marginTop="15dp"
             android:textColor="@color/whiteColor"
             android:textSize="18sp"
-            android:text="Prapa"
         />
 
         <TextView
             android:id="@+id/piket"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -146,22 +144,34 @@
 
         <TextView
             android:id="@+id/testFormNextQuestion"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:layout_toStartOf="@+id/paraButton"
-            android:layout_toLeftOf="@+id/paraButton"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:textColor="@color/whiteColor"
-            android:layout_marginTop="15dp"
-            android:text="Para"
             android:typeface="normal"
             android:textSize="18sp" />
 
         <TextView
+            android:id="@+id/perfundo"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:visibility="gone"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/perfundo"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
             android:id="@+id/paraButton"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:background="@drawable/a_righticon"
+            android:layout_width="29dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/para"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"/>
@@ -176,12 +186,13 @@
             android:id="@+id/questionPoint"
             android:layout_centerHorizontal="true"
             android:textColor="@color/colorAccent"
-            android:textSize="13sp"
+            android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="13sp"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/questionPoint"
             android:text="Pikë"
@@ -194,7 +205,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/banner"/>
+        android:background="@drawable/banner150"/>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
@@ -202,7 +213,7 @@
         android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        ads:adSize="SMART_BANNER"
+        ads:adSize="BANNER"
         ads:adUnitId="@string/banner_ad_unit_id">
     </com.google.android.gms.ads.AdView>
 

@@ -84,9 +84,9 @@ public class Exam {
         SharedPreferences sh = context.getSharedPreferences("exams_results", Context.MODE_PRIVATE);
         String result = sh.getString("exam_" + id, "");
 
-        if (result == "1"){
+        if (result.equals("1")){
             return ExamStatuses.Passed;
-        } else if (result == "0"){
+        } else if (result.equals("0")){
             return ExamStatuses.Failed;
         }else {
             return ExamStatuses.None;

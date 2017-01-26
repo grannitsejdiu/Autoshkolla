@@ -67,6 +67,8 @@
 
             <TextView
                 android:id="@+id/pyetja_Text"
+                android:textColor="#333333"
+                android:textSize="15sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -91,19 +93,25 @@
 
                     <CheckBox
                         android:id="@+id/pyetja_FirstAlternative"
+                        android:textColor="@color/titleColor"
                         android:layout_marginTop="20dp"
+                        android:textSize="14sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         />
 
                     <CheckBox
                         android:id="@+id/pyetja_SecondAlternative"
+                        android:textColor="@color/titleColor"
                         android:layout_marginTop="15dp"
+                        android:textSize="14sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
                     <CheckBox
                         android:id="@+id/pyetja_ThirdAlternative"
+                        android:textColor="@color/titleColor"
+                        android:textSize="14sp"
                         android:layout_marginTop="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
@@ -118,7 +126,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/banner"/>
+        android:background="@drawable/banner150"/>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
@@ -126,7 +134,7 @@
         android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        ads:adSize="SMART_BANNER"
+        ads:adSize="BANNER"
         ads:adUnitId="@string/banner_ad_unit_id">
     </com.google.android.gms.ads.AdView>
 

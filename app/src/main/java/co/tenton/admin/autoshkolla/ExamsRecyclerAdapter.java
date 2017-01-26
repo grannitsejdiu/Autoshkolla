@@ -79,7 +79,7 @@ public class ExamsRecyclerAdapter extends RecyclerView.Adapter<ExamsRecyclerAdap
 
         String s = String.valueOf(position + 1);
 
-        holder.cardviewItemTitle.setText(e.name);
+        holder.cardviewItemTitle.setText(e.name.toUpperCase());
         holder.getCardviewItemDescription.setText(q.name);
         holder.cardviewItemImage.setText(s);
 

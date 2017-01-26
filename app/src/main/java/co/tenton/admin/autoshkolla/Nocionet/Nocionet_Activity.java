@@ -14,6 +14,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import co.tenton.admin.autoshkolla.BlurryBackgrounds_Activities.Info_Activity;
+import co.tenton.admin.autoshkolla.Models.GA;
 import co.tenton.admin.autoshkolla.Models.Group;
 import co.tenton.admin.autoshkolla.Models.This;
 import co.tenton.admin.autoshkolla.R;
@@ -30,6 +31,8 @@ public class Nocionet_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(co.tenton.admin.autoshkolla.R.layout.activity_nocionet_);
+
+        GA.TrackScreen("Notion VC");
 
         mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()

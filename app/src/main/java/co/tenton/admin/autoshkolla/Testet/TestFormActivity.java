@@ -20,6 +20,7 @@ import com.google.android.gms.ads.AdView;
 
 import co.tenton.admin.autoshkolla.BlurryBackgrounds_Activities.AlertWindow_Activity;
 import co.tenton.admin.autoshkolla.Models.Exam;
+import co.tenton.admin.autoshkolla.Models.GA;
 import co.tenton.admin.autoshkolla.Models.This;
 import co.tenton.admin.autoshkolla.R;
 
@@ -44,6 +45,9 @@ public class TestFormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(co.tenton.admin.autoshkolla.R.layout.activity_test_form);
+
+        GA.TrackScreen("Questions VC");
+
         mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
@@ -90,6 +94,8 @@ public class TestFormActivity extends AppCompatActivity {
 
         testFormTitle = (TextView) findViewById(co.tenton.admin.autoshkolla.R.id.testFormTitle);
         testFormTitle.setText("Pyetja 1/" + selectedExam.questions.size());
+
+        GA.TrackAction("Questions VC","Exam Open",selectedExam.name);
 
 
         int testNumber = selectedIndex +1;

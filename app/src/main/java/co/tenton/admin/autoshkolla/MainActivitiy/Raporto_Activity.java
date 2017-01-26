@@ -11,6 +11,7 @@ import android.widget.Toast;
 import org.json.JSONObject;
 
 import co.tenton.admin.autoshkolla.Models.ErrorResponse;
+import co.tenton.admin.autoshkolla.Models.GA;
 import co.tenton.admin.autoshkolla.R;
 import co.tenton.admin.autoshkolla.ServiceLayer.ReportLayer;
 import co.tenton.admin.autoshkolla.ServiceLayer.ResponseData;
@@ -23,6 +24,8 @@ public class Raporto_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_raporto_);
+
+        GA.TrackAction("Report View Controller","Reporting Problem", "Report");
 
         raportoMessage = (EditText) findViewById(R.id.raportoMessage);
         raportoDergo = (Button) findViewById(R.id.raportoDergo);

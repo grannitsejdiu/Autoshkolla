@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import co.tenton.admin.autoshkolla.Models.ErrorResponse;
+import co.tenton.admin.autoshkolla.Models.GA;
 import co.tenton.admin.autoshkolla.Models.Parser;
 import co.tenton.admin.autoshkolla.R;
 import co.tenton.admin.autoshkolla.ServiceLayer.AllLayer;
@@ -46,6 +47,8 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_autoshkolla__main);
 
+        GA.TrackScreen("Main VC");
+
         isStoragePermissionGranted();
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyPref", 0);
@@ -57,6 +60,8 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
         shareApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                GA.TrackAction("Main VC","Hit Share Button","");
+
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 String appLink = "http://autoshkolla-ks.com/";
@@ -64,7 +69,7 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
                  String shareSubject = "Autoshkolla : ";
                 intent.putExtra(Intent.EXTRA_SUBJECT, shareSubject);
                 intent.putExtra(Intent.EXTRA_TEXT, shareBody + appLink);
-                startActivity(Intent.createChooser(intent,"Shprendaje Autoshkolla me ... "));
+                startActivity(Intent.createChooser(intent,"Shpërndaje Autoshkolla me ... "));
             }
         });
 

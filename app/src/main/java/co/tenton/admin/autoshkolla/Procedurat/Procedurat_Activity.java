@@ -12,6 +12,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import co.tenton.admin.autoshkolla.Models.GA;
 import co.tenton.admin.autoshkolla.R;
 
 public class Procedurat_Activity extends AppCompatActivity {
@@ -25,6 +26,8 @@ public class Procedurat_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_procedurat_);
+
+        GA.TrackScreen("Procedures VC");
 
         mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()

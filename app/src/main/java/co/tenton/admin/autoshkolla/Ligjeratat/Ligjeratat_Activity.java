@@ -13,6 +13,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import co.tenton.admin.autoshkolla.Models.GA;
 import co.tenton.admin.autoshkolla.Models.Group;
 import co.tenton.admin.autoshkolla.Models.This;
 import co.tenton.admin.autoshkolla.R;
@@ -33,6 +34,8 @@ public class Ligjeratat_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(co.tenton.admin.autoshkolla.R.layout.activity_ligjeratat);
+
+        GA.TrackScreen("Lectures VC");
 
         mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()

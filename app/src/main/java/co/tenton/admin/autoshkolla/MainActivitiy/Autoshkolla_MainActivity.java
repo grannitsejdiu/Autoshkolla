@@ -64,7 +64,7 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
                  String shareSubject = "Autoshkolla : ";
                 intent.putExtra(Intent.EXTRA_SUBJECT, shareSubject);
                 intent.putExtra(Intent.EXTRA_TEXT, shareBody + appLink);
-                startActivity(Intent.createChooser(intent,"Share Autoshkolla with ... "));
+                startActivity(Intent.createChooser(intent,"Shprendaje Autoshkolla me ... "));
             }
         });
 

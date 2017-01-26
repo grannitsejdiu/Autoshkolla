@@ -31,7 +31,7 @@ public class TestFormActivity extends AppCompatActivity {
     RecyclerView.Adapter adapter;
     Button backButtonTestForm;
     TextView testFormTitle, testFormNextQuestion , testFormPreviousQuestion;
-    TextView testFormExamTime,pasTextIcon, paraTextIcon;
+    TextView testFormExamTime,pasTextIcon, paraTextIcon,perfundo;
     TextView piket,testNr,questionPoints;
     private static final String FORMAT = "%02d:%02d";
     public static Activity fa;
@@ -71,6 +71,7 @@ public class TestFormActivity extends AppCompatActivity {
         piket = (TextView) findViewById(co.tenton.admin.autoshkolla.R.id.piket);
         testNr = (TextView) findViewById(R.id.testNr);
         questionPoints = (TextView) findViewById(R.id.questionPoint);
+        perfundo = (TextView) findViewById(R.id.perfundo);
 
         recyclerView= (RecyclerView) findViewById(co.tenton.admin.autoshkolla.R.id.recyclerViewTestForm);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
@@ -128,10 +129,12 @@ public class TestFormActivity extends AppCompatActivity {
                 }
 
                 if (targetPosition == layoutManager.getItemCount()-1){
-                    testFormNextQuestion.setText("Perfundo");
+                    perfundo.setVisibility(View.VISIBLE);
+                    paraTextIcon.setVisibility(View.GONE);
                 }
                 else {
-                    testFormNextQuestion.setText("Para");
+                    paraTextIcon.setVisibility(View.VISIBLE);
+                    perfundo.setVisibility(View.GONE);
                 }
 
                 return targetPosition;
@@ -179,10 +182,12 @@ public class TestFormActivity extends AppCompatActivity {
 
 
                 if ((position == layoutManager.getItemCount()-2) || (position==layoutManager.getItemCount()-1)){
-                    testFormNextQuestion.setText("Perfundo");
+                    perfundo.setVisibility(View.VISIBLE);
+                    paraTextIcon.setVisibility(View.GONE);
                 }
                 else {
-                    testFormNextQuestion.setText("Para");
+                    paraTextIcon.setVisibility(View.VISIBLE);
+                    perfundo.setVisibility(View.GONE);
                 }
 
             }
@@ -216,10 +221,12 @@ public class TestFormActivity extends AppCompatActivity {
                 }
 
                 if (position == layoutManager.getItemCount()){
-                    testFormNextQuestion.setText("Shiko Rezultati");
+                    perfundo.setVisibility(View.VISIBLE);
+                    paraTextIcon.setVisibility(View.GONE);
                 }
                 else {
-                    testFormNextQuestion.setText("Para");
+                    paraTextIcon.setVisibility(View.VISIBLE);
+                    perfundo.setVisibility(View.GONE);
                 }
 
             }
@@ -260,10 +267,12 @@ public class TestFormActivity extends AppCompatActivity {
 
 
                 if ((position == layoutManager.getItemCount()-2) || (position==layoutManager.getItemCount()-1)){
-                    testFormNextQuestion.setText("Perfundo");
+                    perfundo.setVisibility(View.VISIBLE);
+                    paraTextIcon.setVisibility(View.GONE);
                 }
                 else {
-                    testFormNextQuestion.setText("Para");
+                    paraTextIcon.setVisibility(View.VISIBLE);
+                    perfundo.setVisibility(View.GONE);
                 }
             }
         });
@@ -295,10 +304,12 @@ public class TestFormActivity extends AppCompatActivity {
                 }
 
                 if (position == layoutManager.getItemCount()){
-                    testFormNextQuestion.setText("Shiko Rezultati");
+                    perfundo.setVisibility(View.VISIBLE);
+                    paraTextIcon.setVisibility(View.GONE);
                 }
                 else {
-                    testFormNextQuestion.setText("Para");
+                    paraTextIcon.setVisibility(View.VISIBLE);
+                    perfundo.setVisibility(View.GONE);
                 }
             }
         });

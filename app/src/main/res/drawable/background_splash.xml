@@ -4,7 +4,7 @@
 
     <item>
         <bitmap
-            android:src="@drawable/wallpaper"/>
+            android:src="@drawable/launchscreen"/>
     </item>
 
 </layer-list>

@@ -37,8 +37,7 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
-    Button shareApp,settingsBtn;
-    ImageView banner;
+    Button shareApp;
     Button menu;
 
 
@@ -69,14 +68,6 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
             }
         });
 
-        settingsBtn = (Button) findViewById(R.id.settingsBtn);
-        settingsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Autoshkolla_MainActivity.this, Preferencat_Activity.class);
-                startActivity(intent);
-            }
-        });
 
         menu = (Button) findViewById(R.id.main_menu);
         menu.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +82,10 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId())
                         {
+                            case R.id.menu_preferencat:
+                                Intent intent1 = new Intent(Autoshkolla_MainActivity.this, Preferencat_Activity.class);
+                                startActivity(intent1);
+                                break;
                             case R.id.menu_raporto:
                                 Intent intent = new Intent(view.getContext().getApplicationContext(), Raporto_Activity.class);
                                 view.getContext().startActivity(intent);

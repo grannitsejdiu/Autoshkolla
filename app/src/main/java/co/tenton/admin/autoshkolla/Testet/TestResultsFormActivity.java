@@ -49,6 +49,7 @@ public class TestResultsFormActivity extends AppCompatActivity {
     RecyclerView.Adapter adapter;
     Button shareTestResults;
     private AdView mAdView;
+    TextView testResultFormTitle;
 
     Exam selectedExam;
 
@@ -89,25 +90,6 @@ public class TestResultsFormActivity extends AppCompatActivity {
             }
         });
 
-        shareTestResults = (Button) findViewById(R.id.shareTestResults);
-        shareTestResults.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Bitmap bm = screenShot(view.getRootView());
-                File file = saveBitmap(bm, "rezultatet.png");
-                Log.i("chase", "filepath: "+file.getAbsolutePath());
-                Uri uri = Uri.fromFile(new File(file.getAbsolutePath()));
-                Intent shareIntent = new Intent();
-                shareIntent.setAction(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Rezultatet!");
-                shareIntent.putExtra(Intent.EXTRA_TEXT, "Rezultatet e arritura ne testin nga applikacioni Autoshkolla!");
-                shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
-                shareIntent.setType("image/*");
-                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                startActivity(Intent.createChooser(shareIntent, "Shperndaji rezultet me :"));
-            }
-        });
 
 
         int examId = getIntent().getIntExtra("index",0);
@@ -132,6 +114,32 @@ public class TestResultsFormActivity extends AppCompatActivity {
                 TestResultsFormActivity.super.onBackPressed();
             }
         });
+
+        shareTestResults = (Button) findViewById(R.id.shareTestResults);
+        shareTestResults.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Bitmap bm = screenShot(view.getRootView());
+                File file = saveBitmap(bm, "rezultatet.png");
+                Log.i("chase", "filepath: "+file.getAbsolutePath());
+                Uri uri = Uri.fromFile(new File(file.getAbsolutePath()));
+                Intent shareIntent = new Intent();
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Rezultatet!");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Gjatë testimit tim për patent shofer në aplikacionin Autoshkolla, " +
+                        "në " + selectedExam.name + ", kam arritur rezultat prej " + selectedExam.pointsResults() +
+                " pikëve nga 100. \n\nAplikacionin mund ta shkarkoni në linkun: www.autoshkolla.com");
+                shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+                shareIntent.setType("image/*");
+                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                startActivity(Intent.createChooser(shareIntent, "Shperndaji rezultet me :"));
+            }
+        });
+
+        testResultFormTitle = (TextView) findViewById(R.id.testFormResultTitle);
+        int testTitle = examId + 1;
+        testResultFormTitle.setText(String.valueOf("Rezultati për Testin " + testTitle));
 
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);

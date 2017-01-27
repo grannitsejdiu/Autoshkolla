@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        android:text="A dëshironi të anuloni këtë test ?"
+        android:text="A dëshironi të anuloni këtë test?"
         />
 
     <Button

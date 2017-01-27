@@ -109,8 +109,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textAlignment="center"
-        android:textSize="19sp"
-        android:text="Pergjigjet e sakta dhe te pasakta"/>
+        android:textSize="17sp"
+        android:text="Përgjigjet e sakta dhe të pasakta"/>
     </RelativeLayout>
 
 

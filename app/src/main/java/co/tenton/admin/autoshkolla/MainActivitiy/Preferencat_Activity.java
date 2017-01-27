@@ -44,7 +44,7 @@ public class Preferencat_Activity extends AppCompatActivity {
         autoshkolla_fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent fbIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.autoshkolla-ks.com"));
+                Intent fbIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.facebook.com/autoshkollaapp"));
                 startActivity(fbIntent);
             }
         });
@@ -53,12 +53,11 @@ public class Preferencat_Activity extends AppCompatActivity {
         autoshkolla_email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("message/rfc822");
-                intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "info@autoshkolla-ks.com" });
-//                intent.putExtra(Intent.EXTRA_SUBJECT, "Email");
-//                intent.putExtra(Intent.EXTRA_TEXT, "Shkruani messazhin ketu");
-                startActivity(Intent.createChooser(intent, ""));
+
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                Uri data = Uri.parse("mailto:info@autoshkolla-ks.com?subject= Autoshkolla Android App");
+                intent.setData(data);
+                startActivity(intent);
             }
         });
     }

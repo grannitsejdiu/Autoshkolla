@@ -46,7 +46,6 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_autoshkolla__main);
 
-        isStoragePermissionGranted();
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyPref", 0);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -74,9 +73,7 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
             @Override
             public void onClick(final View view) {
                 PopupMenu popupMenu = new PopupMenu(Autoshkolla_MainActivity.this,menu);
-
                 popupMenu.getMenuInflater().inflate(R.menu.main_menu,popupMenu.getMenu());
-
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
@@ -141,21 +138,5 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
 
     }
 
-        public  boolean isStoragePermissionGranted() {
-        if (Build.VERSION.SDK_INT >= 23) {
-            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    == PackageManager.PERMISSION_GRANTED) {
-                return true;
-            }
-            else {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-                return false;
-            }
-        }
-        else { //permission is automatically granted on sdk<23 upon installation
-            return true;
-
-        }
-    }
 
 }

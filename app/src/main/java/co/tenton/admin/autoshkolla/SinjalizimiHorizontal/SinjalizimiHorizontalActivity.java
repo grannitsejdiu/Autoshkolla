@@ -121,6 +121,8 @@ public class SinjalizimiHorizontalActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Info_Activity.class);
                 intent.putExtra("index", index);
+                intent.putExtra("name", g.name);
+                intent.putExtra("description", g.description);
                 startActivity(intent);
             }
         });

@@ -67,7 +67,7 @@ public class SinjalizimiVertikalGrid_Activity extends AppCompatActivity {
 
 
         final int index = getIntent().getIntExtra("index", 0);
-        int groupIndex = getIntent().getIntExtra("groupIndex",0);
+        final int groupIndex = getIntent().getIntExtra("groupIndex",0);
 
         if (groupIndex == 5) {
             Group g = This.groups.get(5);
@@ -98,6 +98,18 @@ public class SinjalizimiVertikalGrid_Activity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SinjalizimiVertikalGrid_Activity.this, Info_Activity.class);
                 intent.putExtra("index",index);
+
+                if (groupIndex == 5) {
+                    Group g = This.groups.get(5);
+                    intent.putExtra("name", g.name);
+                    intent.putExtra("description", g.description);
+                }
+                else {
+                    Subgroup s = This.groups.get(2).subgroups().get(index);
+                    intent.putExtra("name", s.name);
+                    intent.putExtra("description", s.description);
+                }
+
                 startActivity(intent);
             }
         });

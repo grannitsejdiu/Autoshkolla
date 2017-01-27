@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import co.tenton.admin.autoshkolla.Models.Group;
+import co.tenton.admin.autoshkolla.Models.Sign;
 import co.tenton.admin.autoshkolla.Models.This;
 import co.tenton.admin.autoshkolla.R;
 
@@ -33,15 +34,14 @@ public class Info_Activity extends AppCompatActivity {
         }
 
 
-        final int index = getIntent().getIntExtra("index",0);
-        //final int description = getIntent().getIntExtra("Description",0);
-        final Group g = This.groups.get(index);
-       // final Group gs = This.groups.get(description);
+        String name = getIntent().getStringExtra("name");
+        String description = getIntent().getStringExtra("description");
+
 
         titleText = (TextView) findViewById(R.id.infoFormTitle);
         descriptionText = (TextView) findViewById(R.id.infoFormDescription);
-        titleText.setText(g.name);
-        descriptionText.setText(g.description);
+        titleText.setText(name);
+        descriptionText.setText(description);
         descriptionText.setMovementMethod(new ScrollingMovementMethod());
 
 

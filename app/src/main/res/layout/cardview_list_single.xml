@@ -31,7 +31,7 @@
             android:padding="5dp"
             android:text="Sample title"
             android:ellipsize="end"
-            android:maxLines="1"
+            android:maxLines="2"
             android:textColor="#333333"
             android:textSize="12sp" />
 

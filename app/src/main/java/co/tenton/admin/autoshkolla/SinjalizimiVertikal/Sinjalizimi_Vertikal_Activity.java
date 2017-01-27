@@ -49,7 +49,7 @@ public class Sinjalizimi_Vertikal_Activity extends AppCompatActivity {
         });
 
         final int index = getIntent().getIntExtra("index",0);
-        Group group = This.groups.get(index);
+        final Group group = This.groups.get(index);
 
 
         RecyclerView my_recycler_view = (RecyclerView) findViewById(R.id.my_recycler_view);
@@ -73,6 +73,8 @@ public class Sinjalizimi_Vertikal_Activity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Sinjalizimi_Vertikal_Activity.this, Info_Activity.class);
                 intent.putExtra("index",index);
+                intent.putExtra("name", group.name);
+                intent.putExtra("description", group.description);
                 startActivity(intent);
             }
         });

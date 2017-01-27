@@ -1,5 +1,6 @@
 package co.tenton.admin.autoshkolla.Shenjat_tabeles_Ilustrimeve;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -15,6 +16,7 @@ import com.google.android.gms.ads.AdView;
 
 import java.util.List;
 
+import co.tenton.admin.autoshkolla.BlurryBackgrounds_Activities.Info_Activity;
 import co.tenton.admin.autoshkolla.BlurryBackgrounds_Activities.SinjalizimiVertikalGrid_Adapter;
 import co.tenton.admin.autoshkolla.Models.Group;
 import co.tenton.admin.autoshkolla.Models.Sign;
@@ -24,7 +26,7 @@ import co.tenton.admin.autoshkolla.R;
 
 public class Shenjat_tbl_IlustrimeveActivity extends AppCompatActivity {
 
-    Button shenjatIlustrimetBackButton;
+    Button shenjatIlustrimetBackButton, infoBtn;
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     TextView title;
@@ -64,7 +66,7 @@ public class Shenjat_tbl_IlustrimeveActivity extends AppCompatActivity {
 
 
         int index = getIntent().getIntExtra("index", 0);
-        Group g = This.groups.get(index);
+        final Group g = This.groups.get(index);
         List<Sign> s = g.signs;
 
         adapter = new SinjalizimiVertikalGrid_Adapter(s, getApplicationContext(), index, 5);
@@ -77,6 +79,18 @@ public class Shenjat_tbl_IlustrimeveActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Shenjat_tbl_IlustrimeveActivity.super.onBackPressed();
+            }
+        });
+
+        infoBtn = (Button) findViewById(R.id.tblInfo);
+        infoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Info_Activity.class);
+                intent.putExtra("index", 0);
+                intent.putExtra("name", g.name);
+                intent.putExtra("description", g.description);
+                startActivity(intent);
             }
         });
 

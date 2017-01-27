@@ -1,5 +1,6 @@
 package co.tenton.admin.autoshkolla.Rregullat_Komunikacionit_Siguria_MjetetMotorike;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,18 +13,24 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import co.tenton.admin.autoshkolla.BlurryBackgrounds_Activities.Info_Activity;
+import co.tenton.admin.autoshkolla.Models.GA;
+import co.tenton.admin.autoshkolla.Models.Group;
+import co.tenton.admin.autoshkolla.Models.This;
 import co.tenton.admin.autoshkolla.R;
 
 public class SiguriaDheMjetet_Activity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
-    Button smBackButton;
+    Button smBackButton, btnInfo;
     private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(co.tenton.admin.autoshkolla.R.layout.activity_siguria_dhe_mjetet_);
+
+        GA.TrackScreen("Notion VC");
 
         mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
@@ -45,6 +52,8 @@ public class SiguriaDheMjetet_Activity extends AppCompatActivity {
             }
         });
 
+        final Group g = This.groups.get(4);
+
         recyclerView= (RecyclerView) findViewById(co.tenton.admin.autoshkolla.R.id.siguriadhemjetet_recyclerView);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
@@ -57,6 +66,18 @@ public class SiguriaDheMjetet_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SiguriaDheMjetet_Activity.super.onBackPressed();
+            }
+        });
+
+        btnInfo = (Button) findViewById(R.id.btnInfo);
+        btnInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Info_Activity.class);
+                intent.putExtra("index", 0);
+                intent.putExtra("name", g.name);
+                intent.putExtra("description", g.description);
+                startActivity(intent);
             }
         });
     }

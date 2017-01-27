@@ -42,17 +42,36 @@
             android:layout_toEndOf="@id/siguriadhemjetet_FormBackButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:ellipsize="end"
             android:maxLines="1"
+            android:layout_toLeftOf="@+id/btnInfo"
+            android:layout_toStartOf="@+id/btnInfo"
             android:layout_centerVertical="true"
             android:layout_marginTop="5dp"
             android:textColor="@color/whiteColor"
             android:text="Rregullat e komunikacionit, Siguria dhe Mjetet Motorike"
             android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnInfo"
+            android:layout_width="56dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"/>
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/a_infoicon"/>
+
     </RelativeLayout>
 
 

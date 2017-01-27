@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -32,11 +33,6 @@ public class TestetActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new ExamsRecyclerAdapter(es, getApplicationContext());
-
-        recyclerView.setAdapter(adapter);
-
-
         backButtonTeste = (Button) findViewById(R.id.backbuttonTeste);
         backButtonTeste.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +40,15 @@ public class TestetActivity extends AppCompatActivity {
                 TestetActivity.super.onBackPressed();
             }
         });
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+        List<Exam> es = This.exams;
+        adapter = new ExamsRecyclerAdapter(es, getApplicationContext());
+
+        recyclerView.setAdapter(adapter);
     }
 }

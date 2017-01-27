@@ -60,7 +60,7 @@ public class Nocionet_Activity extends AppCompatActivity {
 
 
         final int index = getIntent().getIntExtra("index", 0);
-        Group selectedGroup = This.groups.get(index);
+        final Group selectedGroup = This.groups.get(index);
 
         adapter = new Nocionet_RecyclerAdapter(selectedGroup.signs, getApplicationContext());
         recyclerView.setAdapter(adapter);
@@ -80,6 +80,8 @@ public class Nocionet_Activity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Nocionet_Activity.this, Info_Activity.class);
                 intent.putExtra("index",index);
+                intent.putExtra("name", selectedGroup.name);
+                intent.putExtra("description", selectedGroup.description);
                 startActivity(intent);
             }
         });

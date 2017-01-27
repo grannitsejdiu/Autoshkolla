@@ -25,7 +25,7 @@ public class ServerLayer {
     }
 
     public static void post(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
-        String urlToken = url + "&token=" + Constants.getToken();
+        String urlToken = url + "?token=" + Constants.getToken();
         client.post(getAbsoluteUrl(urlToken), params, responseHandler);
     }
 

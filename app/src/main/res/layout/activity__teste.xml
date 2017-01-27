@@ -44,7 +44,7 @@
             android:layout_marginTop="5dp"
             android:textColor="@color/whiteColor"
             android:textSize="20sp"
-            android:text="Test"/>
+            android:text="Teste"/>
     </RelativeLayout>
 
     <android.support.design.widget.CoordinatorLayout

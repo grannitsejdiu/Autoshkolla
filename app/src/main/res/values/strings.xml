@@ -9,14 +9,14 @@
     <string name="interstitial_ad_unit_id">ca-app-pub-5366250438818219/2333181085</string>
 
     <string name="procedura1">
-       "Filloni duke gjetur autoshkollën ku duhet të aftësoheni për vozitje dhe të merrni mësimet e duhura për marrjen e patent shoferit. Nëse ende nuk keni vendosur se në cilën autoshkollë dëshironi të regjistroheni, atëherë atë mund ta kërkoni edhe përmes aplikacionit tonë.",
+       "Filloni duke gjetur autoshkollën ku duhet të aftësoheni për vozitje dhe të merrni mësimet e duhura për marrjen e patent shoferit."
     </string>
      <string name="procedura2">
-      "Kushtet dhe Dokumentet e nevojshme për regjistrim të autoshkollës dhe për t’iu nënshtruar provimit teorik dhe praktik për patentë shofer janë:\r\n\t• Kandidati ti ketë mbushur 18 vjet për drejtimin e mjeteve të kategorisë A, B1, B dhe C1  \r\n\t• Kopja e letërnjoftimit\r\n\t• Pagesat për paraqitjen e provimeve \r\n\t• Qertifikata e kontrollit mjeksor (me kohë skadence prej 1 viti nga data e marrjes)\r\n\t• Qertifikata e kryqit të kuq (pa kohë skadence)\r\n\t• Dokumentet e regjistrimit të autoshkollës (në kohë skadence prej 2 viteve nga data e regjistrimit)",
+      "Kushtet dhe Dokumentet e nevojshme për regjistrim të autoshkollës dhe për t’iu nënshtruar provimit teorik dhe praktik për patentë shofer janë:\r\n\t• Kandidati ti ketë mbushur 18 vjet për drejtimin e mjeteve të kategorisë A, B1, B dhe C1  \r\n\t• Kopja e letërnjoftimit\r\n\t• Pagesa për paraqitjen e provimit \r\n\t• Çertifikata e kontrollit mjeksor (me kohë skadence prej 1 viti nga data e marrjes)\r\n\t• Çertifikata e kryqit të kuq (pa kohë skadence)\r\n\t• Dokumentet e regjistrimit të autoshkollës (në kohë skadence prej 2 viteve nga data e regjistrimit)."
     </string>
 
      <string name="procedura3">
-"Sqarim: Duhet që të keni kujdes të përgaditeni dhe të paraqitni provimin teorik si dhe praktik për marrjen e patent shoferit para se dokumenteve të lartëcekura të ju skadoj koha e skadencës.\n\nPasi ti keni përfunduar orët e caktuara të vozitjes me instruktorin e autoshkollës suaj për të arritur aftësim në vozitje si dhe të keni mësuar pjesën teorike gjë që mund ta bëni përmes aplikacionit AUTOSHKOLLA tek seksioni LITERATURA dhe TESTET, ju jeni të gatshëm që me kompletimin e dokumenteve të lartëcekura të paraqitni provimet (teorik dhe praktik) për marrjen e patent shoferit.”
+"Sqarim: Duhet të keni kujdes të përgaditeni dhe të paraqitni provimin teorik dhe praktik për marrjen e patent shoferit para se dokumenteve të lartëcekura të ju kaloj koha e skadencës.\n\nPasi të keni përfunduar orët e caktuara të vozitjës me instruktorin e autoshkollës suaj, për të arritur aftësim në vozitje si dhe të keni mësuar pjesën teorike gjë që mund ta bëni përmes këtij aplikacioni tek kategoria LITERATURA dhe TESTET, ju jeni të gatshëm të paraqitni provimin (teorik dhe praktik) për marrjen e patent shoferit.”
     </string>
 
     <string name="action_settings">Settings</string>

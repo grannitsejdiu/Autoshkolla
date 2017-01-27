@@ -102,7 +102,7 @@
         android:id="@+id/bannerimage"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="50dp"
         android:background="@drawable/banner150"/>
 
 </RelativeLayout>

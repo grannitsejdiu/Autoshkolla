@@ -80,7 +80,9 @@
                 android:id="@+id/raportoMessage"
                 android:background="@color/transparent"
                 android:layout_margin="5dp"
+                android:textSize="14sp"
                 android:layout_width="match_parent"
+                android:hint="Përshkruani problemin ose sygjerimin tuaj ketu ..."
                 android:gravity="top"
                 android:layout_height="match_parent"
                 />

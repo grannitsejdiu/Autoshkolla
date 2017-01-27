@@ -24,7 +24,7 @@ public class Autoshkolla_MainRecyclerAdapter extends RecyclerView.Adapter<Autosh
     private String[] description = {"Teste teorike për përgaditjen e provimit final për patent shofer, kategoria A dhe B",
     "Literatura në lidhje me Nocionet,Shenjat e Komunikacionit Rrugor, Rregullat e Sigurisë dhe të Komunikacionit Rrugor.",
     "Procedurat për regjistrimin e patent shoferit. Dokumentet e nevojshme dhe kohëzgjatja e tyre.",
-    "Ilustrime te komunikacionit rrugor. Si duhet të sillemi dhe si të veprojmë në raste të ndryshme ?"};
+    "Ilustrime te komunikacionit rrugor. Si duhet të sillemi dhe si duhet të veprojmë në raste të ndryshme ?"};
 
     private int[] images = {co.tenton.admin.autoshkolla.R.drawable.a_questionicon, co.tenton.admin.autoshkolla.R.drawable.a_learningicon,
     co.tenton.admin.autoshkolla.R.drawable.a_procedureicon, co.tenton.admin.autoshkolla.R.drawable.a_ilustrimeicon};

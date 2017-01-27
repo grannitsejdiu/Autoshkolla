@@ -10,6 +10,7 @@ import android.graphics.Canvas;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -57,6 +58,8 @@ public class TestResultsFormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_results_form);
+
+        View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
 
         mAdView = (AdView) findViewById(R.id.adView);
         mInterstitialAd = new InterstitialAd(this);
@@ -127,13 +130,16 @@ public class TestResultsFormActivity extends AppCompatActivity {
                 Intent shareIntent = new Intent();
                 shareIntent.setAction(Intent.ACTION_SEND);
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Rezultatet!");
-                shareIntent.putExtra(Intent.EXTRA_TEXT, "Gjatë testimit tim për patent shofer në aplikacionin Autoshkolla, " +
-                        "në " + selectedExam.name + ", kam arritur rezultat prej " + selectedExam.pointsResults() +
-                " pikëve nga 100. \n\nAplikacionin mund ta shkarkoni në linkun: www.autoshkolla.com");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Në testimin tim për patent shofer në aplikacionin Autoshkolla," +
+                        " kam arritur rezultat prej " + selectedExam.pointsResults() +
+                " pikëve. \n\nAplikacionin mund ta shkarkoni në: www.autoshkolla.com");
                 shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
                 shareIntent.setType("image/*");
                 shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                startActivity(Intent.createChooser(shareIntent, "Shperndaji rezultet me :"));
+                startActivity(Intent.createChooser(shareIntent, "Shperndaje rezultatin me:"));
+
+                isStoragePermissionGranted();
+
             }
         });
 
@@ -231,5 +237,46 @@ public class TestResultsFormActivity extends AppCompatActivity {
             mAdView.destroy();
         }
         super.onDestroy();
+    }
+
+    public  boolean isStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                return true;
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                return false;
+            }
+        } else { //permission is automatically granted on sdk<23 upon installation
+            return true;
+
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                } else {
+
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                    Toast.makeText(TestResultsFormActivity.this,
+                            "Permission denied to read your External Storage", Toast.LENGTH_SHORT).show();
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
     }
 }

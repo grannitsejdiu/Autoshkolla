@@ -97,6 +97,16 @@
         android:layout_centerVertical="true"
         android:textAlignment="center"
         android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/testResultStatus"
+            android:text="Test ReultStatus"
+            android:textSize="17sp"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
     </RelativeLayout>
 
     <RelativeLayout

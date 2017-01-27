@@ -35,6 +35,7 @@ import java.io.FileOutputStream;
 
 import co.tenton.admin.autoshkolla.Models.Constants;
 import co.tenton.admin.autoshkolla.Models.Exam;
+import co.tenton.admin.autoshkolla.Models.GA;
 import co.tenton.admin.autoshkolla.Models.This;
 import co.tenton.admin.autoshkolla.R;
 
@@ -50,7 +51,7 @@ public class TestResultsFormActivity extends AppCompatActivity {
     RecyclerView.Adapter adapter;
     Button shareTestResults;
     private AdView mAdView;
-    TextView testResultFormTitle;
+    TextView testResultFormTitle, testResultStatus;
 
     Exam selectedExam;
 
@@ -58,6 +59,8 @@ public class TestResultsFormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_results_form);
+
+        GA.TrackScreen("ExamsResult VC");
 
         View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
 
@@ -146,6 +149,9 @@ public class TestResultsFormActivity extends AppCompatActivity {
         testResultFormTitle = (TextView) findViewById(R.id.testFormResultTitle);
         int testTitle = examId + 1;
         testResultFormTitle.setText(String.valueOf("Rezultati për Testin " + testTitle));
+        testResultStatus = (TextView) findViewById(R.id.testResultStatus);
+
+
 
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -202,12 +208,20 @@ public class TestResultsFormActivity extends AppCompatActivity {
             mProgressBar.setProgressDrawable(getResources().getDrawable(R.drawable.circular_green_progressbar));
             progressBarPercentage.setTextColor(Constants.successColor);
             progressBarPercentage.setText(progressBarValue + "%");
+            testResultStatus.setTextColor(Constants.successColor);
+            testResultStatus.setText("KALUAT!");
 
+        }
+        else if (progressBarValue == 100){
+            testResultStatus.setTextColor(Constants.successColor);
+            testResultStatus.setText("SHKËLSHQYESHËM!!");
         }
         else{
             mProgressBar.setProgressDrawable(getResources().getDrawable(R.drawable.circular_progress_bar));
             progressBarPercentage.setTextColor(Constants.failedColor);
             progressBarPercentage.setText(progressBarValue + "%");
+            testResultStatus.setTextColor(Constants.failedColor);
+            testResultStatus.setText("DËSHTUAT!");
         }
 
         progressAnimator.setInterpolator(new LinearInterpolator());

@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -49,8 +50,6 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
 
         GA.TrackScreen("Main VC");
 
-        isStoragePermissionGranted();
-
         SharedPreferences sharedPreferences = getSharedPreferences("MyPref", 0);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
@@ -94,7 +93,13 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
                                 view.getContext().startActivity(intent);
                                 break;
                             case R.id.menu_vlereso:
-                                Toast.makeText(Autoshkolla_MainActivity.this,"You Clicked : " + item.getTitle(),Toast.LENGTH_SHORT).show();
+                                final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
+                                try {
+                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                                } catch (android.content.ActivityNotFoundException anfe) {
+                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                                }
+
                                 break;
                         }
                         return true;

@@ -7,10 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import co.tenton.admin.autoshkolla.Models.Question;
 import co.tenton.admin.autoshkolla.R;
+
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -58,7 +61,19 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
 
         if (q.image != null) {
             if (!q.image.link.equals("")) {
-                Picasso.with(context).load(q.image.getUrl()).into(holder.questionImage);
+                holder.testFormProgressBar.setVisibility(View.VISIBLE);
+                Picasso.with(context).load(q.image.getUrl()).into(holder.questionImage, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        holder.testFormProgressBar.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onError() {
+                        holder.testFormProgressBar.setVisibility(View.GONE);
+                        holder.questionImage.setImageResource(R.drawable.error_image);
+                    }
+                });
             }
         }
 
@@ -99,6 +114,7 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
         public ImageView questionImage;
         public TextView questionText;
         public CheckBox questionFirstAlternative,questionSecondAlternative, questionThirdAlternative;
+        ProgressBar testFormProgressBar;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -108,6 +124,7 @@ public class TestFormRecyclerAdapter extends RecyclerView.Adapter<TestFormRecycl
             questionFirstAlternative = (CheckBox) itemView.findViewById(R.id.questionFirstAlternative);
             questionSecondAlternative = (CheckBox) itemView.findViewById(R.id.questionSecondAlternative);
             questionThirdAlternative = (CheckBox) itemView.findViewById(R.id.questionThirdAlternative);
+            testFormProgressBar = (ProgressBar) itemView.findViewById(R.id.testProgressBar);
         }
     }
 

@@ -33,6 +33,21 @@
             android:layout_height="match_parent"
             android:layout_above="@+id/checkboxRelative"/>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/checkboxRelative">
+
+                <ProgressBar
+                    android:id="@+id/testProgressBar"
+                    android:visibility="gone"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
                 <LinearLayout
                     android:id="@+id/checkboxRelative"
                     android:layout_width="match_parent"

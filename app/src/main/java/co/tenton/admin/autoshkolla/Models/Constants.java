@@ -15,7 +15,7 @@ public class Constants {
     public static int cardColor = Color.argb(255,244,245,246);
     public static int backgroudColor = Color.argb(255,239,239,244);
 
-    public static Boolean DEBUGMODE = true;
+    public static Boolean DEBUGMODE = false;
 
     public static String clientId = "72WTF776B71O6ZJWXAQ5WLB9VYZ54ZUG03BTH4XW9XL5AKUOX0GDVZ57SFNZK1EG";
     public static String clientDebugId = "7BWQ4B2I2QQYI92MRLRW47QNXIHI3LCHF6ON6VDOL1G3INKB0MCV7E6FJ503UJL7";

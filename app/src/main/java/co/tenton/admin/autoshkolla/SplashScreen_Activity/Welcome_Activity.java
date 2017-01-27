@@ -80,7 +80,7 @@ public class Welcome_Activity extends AppCompatActivity {
         provoPerseriBtn.setVisibility(View.VISIBLE);
     }
     protected void showSuccess(){
-        teksti.setText("Mirë se vini !");
+        teksti.setText("Mirë se vini!");
         progressBar.setVisibility(View.GONE);
         filloBtn.setVisibility(View.VISIBLE);
         provoPerseriBtn.setVisibility(View.GONE);

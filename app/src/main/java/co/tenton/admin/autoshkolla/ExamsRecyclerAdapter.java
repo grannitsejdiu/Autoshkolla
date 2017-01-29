@@ -89,6 +89,7 @@ public class ExamsRecyclerAdapter extends RecyclerView.Adapter<ExamsRecyclerAdap
         }else if (examStatus == ExamStatuses.Failed){
             holder.testStatus.setImageResource(R.drawable.failed);
         }else {
+            holder.testStatus.setImageDrawable(null);
         }
     }
 

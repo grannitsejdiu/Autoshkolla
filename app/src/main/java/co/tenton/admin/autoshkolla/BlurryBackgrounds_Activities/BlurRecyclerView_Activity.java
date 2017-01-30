@@ -66,7 +66,7 @@ public class BlurRecyclerView_Activity extends AppCompatActivity {
         int groupIndex = getIntent().getIntExtra("groupIndex", 0);
 
         if (groupIndex == 5) {
-            List<Sign> ss = This.groups.get(groupIndex).signs;
+            List<Sign> ss = This.shared.groups.get(groupIndex).signs;
             int scrollPostion = getIntent().getIntExtra("scrollPosition", 0);
 
             adapter = new BlurRecyclerView_Adapter(ss, getApplicationContext(), this);
@@ -74,7 +74,7 @@ public class BlurRecyclerView_Activity extends AppCompatActivity {
             recyclerView.scrollToPosition(scrollPostion);
         }
         else {
-            Subgroup s = This.groups.get(2).subgroups().get(index);
+            Subgroup s = This.shared.groups.get(2).subgroups().get(index);
             int scrollPostion = getIntent().getIntExtra("scrollPosition", 0);
 
             adapter = new BlurRecyclerView_Adapter(s.signs, getApplicationContext(), this);

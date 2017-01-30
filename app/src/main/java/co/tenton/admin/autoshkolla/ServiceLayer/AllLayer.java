@@ -17,13 +17,11 @@ import cz.msebera.android.httpclient.Header;
 public class AllLayer {
     public static void getAll(final ResponseData r) {
 
-        String currentVersion = String.valueOf(This.version);
+        String currentVersion = String.valueOf(This.shared.version);
 
         ServerLayer.get("all?v=" + currentVersion, null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Log.e("Res", String.valueOf(statusCode));
-
                 r.onSuccess(response);
             }
 
@@ -35,7 +33,6 @@ public class AllLayer {
                 }
 
                 String message = throwable.getMessage();
-
                 ErrorResponse e = ErrorResponse.create(message);
                 r.onFailure(e);
             }

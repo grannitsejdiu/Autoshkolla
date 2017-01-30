@@ -54,7 +54,7 @@ public class Ilustrimet_Activity extends AppCompatActivity {
         recyclerView= (RecyclerView) findViewById(co.tenton.admin.autoshkolla.R.id.recyclerView_Ilustrimet);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new Ilustrimet_RecyclerAdapter(This.illustraions, getApplicationContext());
+        adapter = new Ilustrimet_RecyclerAdapter(This.shared.illustraions, getApplicationContext());
         recyclerView.setAdapter(adapter);
 
         backbutton = (Button) findViewById(co.tenton.admin.autoshkolla.R.id.ilustrimet_FormBackButton);

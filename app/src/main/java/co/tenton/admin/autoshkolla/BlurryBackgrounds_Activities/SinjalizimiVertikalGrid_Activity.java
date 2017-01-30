@@ -70,14 +70,14 @@ public class SinjalizimiVertikalGrid_Activity extends AppCompatActivity {
         final int groupIndex = getIntent().getIntExtra("groupIndex",0);
 
         if (groupIndex == 5) {
-            Group g = This.groups.get(5);
+            Group g = This.shared.groups.get(5);
             List<Sign> ss = g.signs;
             adapter = new SinjalizimiVertikalGrid_Adapter(ss, getApplicationContext(), index, 2);
             recyclerView.setAdapter(adapter);
             title.setText(g.name);
         }
         else {
-            Subgroup s = This.groups.get(2).subgroups().get(index);
+            Subgroup s = This.shared.groups.get(2).subgroups().get(index);
             adapter = new SinjalizimiVertikalGrid_Adapter(s.signs, getApplicationContext(), index, 2);
             recyclerView.setAdapter(adapter);
             title.setText(s.name);
@@ -100,12 +100,12 @@ public class SinjalizimiVertikalGrid_Activity extends AppCompatActivity {
                 intent.putExtra("index",index);
 
                 if (groupIndex == 5) {
-                    Group g = This.groups.get(5);
+                    Group g = This.shared.groups.get(5);
                     intent.putExtra("name", g.name);
                     intent.putExtra("description", g.description);
                 }
                 else {
-                    Subgroup s = This.groups.get(2).subgroups().get(index);
+                    Subgroup s = This.shared.groups.get(2).subgroups().get(index);
                     intent.putExtra("name", s.name);
                     intent.putExtra("description", s.description);
                 }

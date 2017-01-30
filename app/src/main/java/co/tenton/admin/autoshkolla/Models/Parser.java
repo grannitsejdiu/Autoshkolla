@@ -24,7 +24,7 @@ public class Parser {
     public static void createFromJSONObject(JSONObject data){
 
         if (!data.isNull("version")){
-            This.version = data.optInt("version",0);
+            This.shared.version = data.optInt("version",0);
         }
 
         if (!data.isNull("exams")){
@@ -37,7 +37,7 @@ public class Parser {
                     examList.add(ex);
                 }
 
-                This.exams = examList;
+                This.shared.exams = examList;
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -54,7 +54,7 @@ public class Parser {
                     subgroupList.add(sg);
                 }
 
-                This.subgroups = subgroupList;
+                This.shared.subgroups = subgroupList;
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -70,7 +70,7 @@ public class Parser {
                     Group g = Group.createFromJSON(jsonGroups.getJSONObject(i));
                     groupList.add(g);
                 }
-                This.groups = groupList;
+                This.shared.groups = groupList;
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -86,7 +86,7 @@ public class Parser {
                     Sign s = Sign.createFromJSON(jsonSigns.getJSONObject(i));
                     signList.add(s);
                 }
-                This.illustraions = signList;
+                This.shared.illustraions = signList;
 
             } catch (JSONException e) {
                 e.printStackTrace();

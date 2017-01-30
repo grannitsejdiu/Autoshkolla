@@ -52,7 +52,7 @@ public class SiguriaDheMjetet_Activity extends AppCompatActivity {
             }
         });
 
-        final Group g = This.groups.get(4);
+        final Group g = This.shared.groups.get(4);
 
         recyclerView= (RecyclerView) findViewById(co.tenton.admin.autoshkolla.R.id.siguriadhemjetet_recyclerView);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);

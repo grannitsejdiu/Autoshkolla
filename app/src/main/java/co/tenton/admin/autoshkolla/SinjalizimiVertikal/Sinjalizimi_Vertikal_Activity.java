@@ -48,16 +48,31 @@ public class Sinjalizimi_Vertikal_Activity extends AppCompatActivity {
             }
         });
 
-        final int index = getIntent().getIntExtra("index",0);
-        final Group group = This.groups.get(index);
+
 
 
         RecyclerView my_recycler_view = (RecyclerView) findViewById(R.id.my_recycler_view);
         my_recycler_view.setHasFixedSize(true);
-        Sinjalizimi_Vertikal_RecyclerAdapter adapter = new Sinjalizimi_Vertikal_RecyclerAdapter(group.subgroups(), this);
-        my_recycler_view.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        my_recycler_view.setAdapter(adapter);
+        final int index = getIntent().getIntExtra("index",0);
 
+        if (This.shared.groups.size() > index) {
+            final Group group = This.shared.groups.get(index);
+            Sinjalizimi_Vertikal_RecyclerAdapter adapter = new Sinjalizimi_Vertikal_RecyclerAdapter(group.subgroups(), this);
+            my_recycler_view.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+            my_recycler_view.setAdapter(adapter);
+
+            btnOpenInfoForm = (Button) findViewById(R.id.sinjalizimiVertikalFormInfo);
+            btnOpenInfoForm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(Sinjalizimi_Vertikal_Activity.this, Info_Activity.class);
+                    intent.putExtra("index",index);
+                    intent.putExtra("name", group.name);
+                    intent.putExtra("description", group.description);
+                    startActivity(intent);
+                }
+            });
+        }
 
         sinjalizimiVertikalBackButton = (Button) findViewById(R.id.sinjalizimitVertikalFormBackButton);
         sinjalizimiVertikalBackButton.setOnClickListener(new View.OnClickListener() {
@@ -66,19 +81,6 @@ public class Sinjalizimi_Vertikal_Activity extends AppCompatActivity {
                 Sinjalizimi_Vertikal_Activity.super.onBackPressed();
             }
         });
-
-        btnOpenInfoForm = (Button) findViewById(R.id.sinjalizimiVertikalFormInfo);
-        btnOpenInfoForm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Sinjalizimi_Vertikal_Activity.this, Info_Activity.class);
-                intent.putExtra("index",index);
-                intent.putExtra("name", group.name);
-                intent.putExtra("description", group.description);
-                startActivity(intent);
-            }
-        });
-
     }
 
     @Override

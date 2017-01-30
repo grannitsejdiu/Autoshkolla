@@ -34,7 +34,7 @@ public class Ilustrimet_Webview extends YouTubeBaseActivity {
         }
 
         int index = getIntent().getIntExtra("index", 0);
-        final Sign s = This.illustraions.get(index);
+        final Sign s = This.shared.illustraions.get(index);
 
         youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube_view);
         onInitializedListener = new YouTubePlayer.OnInitializedListener() {

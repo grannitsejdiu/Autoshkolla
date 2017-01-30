@@ -130,14 +130,11 @@ public class Autoshkolla_MainActivity extends AppCompatActivity {
 
             @Override
             public void onNotModified() {
-                Log.e("Not modified","Your updated");
-
+                //no user interaction
             }
-
             @Override
             public void onFailure(ErrorResponse error) {
-
-                Log.e("Failed", error.message);
+                //no user interaction
             }
         });
 

@@ -23,7 +23,7 @@ public class Sign {
         if (!r.isNull("sgid")){
             Integer sgid = r.optInt("sgid");
 
-            for (Subgroup sg : This.subgroups){
+            for (Subgroup sg : This.shared.subgroups){
                 if (sg.id == sgid){
                     s.subgroup = sg;
                     break;

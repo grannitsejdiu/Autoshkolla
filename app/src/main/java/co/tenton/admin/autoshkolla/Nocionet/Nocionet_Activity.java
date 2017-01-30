@@ -60,7 +60,7 @@ public class Nocionet_Activity extends AppCompatActivity {
 
 
         final int index = getIntent().getIntExtra("index", 0);
-        final Group selectedGroup = This.groups.get(index);
+        final Group selectedGroup = This.shared.groups.get(index);
 
         adapter = new Nocionet_RecyclerAdapter(selectedGroup.signs, getApplicationContext());
         recyclerView.setAdapter(adapter);

@@ -8,10 +8,11 @@ import java.util.List;
  */
 
 public class This {
-    public static List<Exam> exams = new ArrayList<Exam>();
-    public static List<Group> groups = new ArrayList<Group>();
-    public static List<Subgroup> subgroups = new ArrayList<>();
-    public static List<Sign> illustraions = new ArrayList<>();
+    public static This shared = new This();
+    public List<Exam> exams = new ArrayList<Exam>();
+    public List<Group> groups = new ArrayList<Group>();
+    public List<Subgroup> subgroups = new ArrayList<>();
+    public List<Sign> illustraions = new ArrayList<>();
 
-    public static Integer version = 0;
+    public Integer version = 0;
 }

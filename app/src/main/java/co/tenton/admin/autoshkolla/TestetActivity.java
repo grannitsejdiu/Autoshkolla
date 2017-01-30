@@ -27,7 +27,7 @@ public class TestetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__teste);
         
-        List<Exam> es = This.exams;
+        List<Exam> es = This.shared.exams;
 
         recyclerView= (RecyclerView) findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
@@ -46,7 +46,7 @@ public class TestetActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        List<Exam> es = This.exams;
+        List<Exam> es = This.shared.exams;
         adapter = new ExamsRecyclerAdapter(es, getApplicationContext());
 
         recyclerView.setAdapter(adapter);

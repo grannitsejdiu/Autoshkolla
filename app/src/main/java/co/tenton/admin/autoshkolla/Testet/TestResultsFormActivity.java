@@ -99,7 +99,7 @@ public class TestResultsFormActivity extends AppCompatActivity {
 
 
         int examId = getIntent().getIntExtra("index",0);
-        selectedExam = This.exams.get(examId);
+        selectedExam = This.shared.exams.get(examId);
 
         selectedExam.saveResults(getApplicationContext()); //save exam results
 
@@ -126,9 +126,16 @@ public class TestResultsFormActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                closeButtonTestResultsForm.setVisibility(View.GONE);
+                shareTestResults.setVisibility(View.GONE);
+                mAdView.setVisibility(View.GONE);
                 Bitmap bm = screenShot(view.getRootView());
+
+                closeButtonTestResultsForm.setVisibility(View.VISIBLE);
+                shareTestResults.setVisibility(View.VISIBLE);
+                mAdView.setVisibility(View.VISIBLE);
+
                 File file = saveBitmap(bm, "rezultatet.png");
-                Log.i("chase", "filepath: "+file.getAbsolutePath());
                 Uri uri = Uri.fromFile(new File(file.getAbsolutePath()));
                 Intent shareIntent = new Intent();
                 shareIntent.setAction(Intent.ACTION_SEND);
@@ -148,11 +155,8 @@ public class TestResultsFormActivity extends AppCompatActivity {
 
         testResultFormTitle = (TextView) findViewById(R.id.testFormResultTitle);
         int testTitle = examId + 1;
-        testResultFormTitle.setText(String.valueOf("Rezultati për Testin " + testTitle));
+        testResultFormTitle.setText(String.valueOf("Rezultati për " + selectedExam.name));
         testResultStatus = (TextView) findViewById(R.id.testResultStatus);
-
-
-
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 

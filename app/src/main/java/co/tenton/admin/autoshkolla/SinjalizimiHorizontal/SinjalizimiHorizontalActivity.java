@@ -61,8 +61,22 @@ public class SinjalizimiHorizontalActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(layoutManager);
 
+        sinjalizimiHorizontalBackButton = (Button) findViewById(co.tenton.admin.autoshkolla.R.id.sinjalizimitHorizontaFormBackButton);
+        sinjalizimiHorizontalBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SinjalizimiHorizontalActivity.super.onBackPressed();
+            }
+        });
+
+
         final int index = getIntent().getIntExtra("index",0);
-        final Group g = This.groups.get(index);
+
+        if (This.shared.groups.size() <= index) {
+            finish(); return;
+        }
+
+        final Group g = This.shared.groups.get(index);
 
         adapter = new SinjalizimiHorizontalRecyclerAdapter(g.signs, getApplicationContext());
         recyclerView.setAdapter(adapter);
@@ -106,13 +120,6 @@ public class SinjalizimiHorizontalActivity extends AppCompatActivity {
         };
         helper.attachToRecyclerView(recyclerView);
 
-        sinjalizimiHorizontalBackButton = (Button) findViewById(co.tenton.admin.autoshkolla.R.id.sinjalizimitHorizontaFormBackButton);
-        sinjalizimiHorizontalBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SinjalizimiHorizontalActivity.super.onBackPressed();
-            }
-        });
 
 
         sinjalizimiInfo = (Button) findViewById(co.tenton.admin.autoshkolla.R.id.sinjalizimitHorizontaFormInfo);

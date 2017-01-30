@@ -64,7 +64,11 @@ public class TestQuestionResultActivity extends AppCompatActivity {
         int examIndex = getIntent().getIntExtra("examIndex",0);
         int questionIndex = getIntent().getIntExtra("questionIndex",0);
 
-        Question q = This.exams.get(examIndex).questions.get(questionIndex);
+        if (This.shared.exams.size() <= examIndex) {
+            finish();return;
+        }
+
+        Question q = This.shared.exams.get(examIndex).questions.get(questionIndex);
 
         titulli.setText("Pyetja " + String.valueOf(questionIndex + 1) + "/30");
         pyetjaText.setText(q.name);
@@ -91,7 +95,6 @@ public class TestQuestionResultActivity extends AppCompatActivity {
             pyetjaSecondAlternative.setChecked(false);
         }
 
-
         if (q.alternatives.size() == 3) {
             pyetjaThirdAlternative.setText(q.alternatives.get(2).name);
             if (q.alternatives.get(2).userAnswer == true){
@@ -106,7 +109,6 @@ public class TestQuestionResultActivity extends AppCompatActivity {
         }
 
         //validate alternative
-
         Alternative firstAlternative = q.alternatives.get(0);
         if (firstAlternative.correctAnswer) {
             pyetjaFirstAlternative.setTextColor(Constants.successColor);
@@ -129,7 +131,6 @@ public class TestQuestionResultActivity extends AppCompatActivity {
                 pyetjaThirdAlternative.setTextColor(Constants.failedColor);
             }
         }
-
 
         pyetjaBackButton = (Button) findViewById(co.tenton.admin.autoshkolla.R.id.pyetja_Backbutton);
         pyetjaBackButton.setOnClickListener(new View.OnClickListener() {

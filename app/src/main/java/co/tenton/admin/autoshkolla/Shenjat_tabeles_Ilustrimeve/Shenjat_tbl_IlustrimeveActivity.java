@@ -66,7 +66,7 @@ public class Shenjat_tbl_IlustrimeveActivity extends AppCompatActivity {
 
 
         int index = getIntent().getIntExtra("index", 0);
-        final Group g = This.groups.get(index);
+        final Group g = This.shared.groups.get(index);
         List<Sign> s = g.signs;
 
         adapter = new SinjalizimiVertikalGrid_Adapter(s, getApplicationContext(), index, 5);

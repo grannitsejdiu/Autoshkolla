@@ -17,7 +17,7 @@ public class SiguriaDheMjetet_RecyclerAdapter extends RecyclerView.Adapter<Sigur
     List<Sign> signList = new ArrayList<>();
 
     public SiguriaDheMjetet_RecyclerAdapter(){
-        signList = This.groups.get(4).signs;
+        signList = This.shared.groups.get(4).signs;
     }
 
     @Override

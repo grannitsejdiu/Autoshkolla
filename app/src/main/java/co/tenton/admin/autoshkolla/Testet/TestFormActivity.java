@@ -81,12 +81,25 @@ public class TestFormActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(layoutManager);
 
+        backButtonTestForm = (Button) findViewById(co.tenton.admin.autoshkolla.R.id.backbuttonTestForm);
+        backButtonTestForm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AlertWindow_Activity.class);
+                startActivity(intent);
+            }
+        });
+
 
         //get select index
 
         final int selectedIndex = getIntent().getIntExtra("selectExamIndex",0);
 
-        selectedExam = This.exams.get(selectedIndex);
+        if (This.shared.exams.size() <= selectedIndex){
+            finish();return;
+        }
+
+        selectedExam = This.shared.exams.get(selectedIndex);
         selectedExam.startNewExam();
 
         adapter = new TestFormRecyclerAdapter(selectedExam.questions, getApplicationContext());
@@ -97,11 +110,9 @@ public class TestFormActivity extends AppCompatActivity {
 
         GA.TrackAction("Questions VC","Exam Open",selectedExam.name);
 
-
         int testNumber = selectedIndex +1;
         testNr.setText(String.valueOf("Testi " + testNumber));
         questionPoints.setText(String.valueOf(selectedExam.questions.get(0).points));
-
 
         final LinearSnapHelper helper = new LinearSnapHelper(){
             @Override
@@ -322,15 +333,7 @@ public class TestFormActivity extends AppCompatActivity {
         //endregion
 
 
-        backButtonTestForm = (Button) findViewById(co.tenton.admin.autoshkolla.R.id.backbuttonTestForm);
-        backButtonTestForm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AlertWindow_Activity.class);
-                startActivity(intent);
-            }
-        });
-        
+
 
         testFormExamTime = (TextView) findViewById(co.tenton.admin.autoshkolla.R.id.testFormExamTime);
         new CountDownTimer(2700000, 1000) { // adjust the milli seconds here

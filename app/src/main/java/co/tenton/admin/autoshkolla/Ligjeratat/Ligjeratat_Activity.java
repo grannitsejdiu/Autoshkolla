@@ -58,7 +58,7 @@ public class Ligjeratat_Activity extends AppCompatActivity {
             }
         });
 
-        List<Group> groups = This.groups;
+        List<Group> groups = This.shared.groups;
 
         recyclerView= (RecyclerView) findViewById(co.tenton.admin.autoshkolla.R.id.recyclerViewLigjeratat);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);

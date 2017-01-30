@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "306477154559-jg5b8re1re8v35do0f881rq6sfhp4af2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.tenton.admin.autoshkolla",
+            "certificate_hash": "A521AE6BA612B894847AA1D9A7B1276948818040"
+          }
+        },
+        {
           "client_id": "306477154559-dv5qhq827hcvo9l5r2dn03rtnlqno72m.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,21 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "306477154559-dv5qhq827hcvo9l5r2dn03rtnlqno72m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "306477154559-fdnci0sa8hjcka6b2mu40m54hrrhfn4f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.tenton.autoshkolla",
+                "app_store_id": "1193245391"
+              }
+            }
+          ]
         },
         "ads_service": {
           "status": 2

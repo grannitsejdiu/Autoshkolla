@@ -62,8 +62,8 @@
         android:layout_below="@id/ilustrimet_FormToolbar"
         android:id="@+id/recyclerView_Ilustrimet"
         android:layout_above="@+id/adView"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">

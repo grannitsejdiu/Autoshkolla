@@ -208,7 +208,7 @@ public class TestResultsFormActivity extends AppCompatActivity {
         ObjectAnimator progressAnimator = ObjectAnimator.ofInt(mProgressBar, "progress", 0, progressBarValue);
         progressAnimator.setDuration(1000);
 
-        if (progressBarValue >= 90){
+        if (progressBarValue < 100 && progressBarValue >= 90){
             mProgressBar.setProgressDrawable(getResources().getDrawable(R.drawable.circular_green_progressbar));
             progressBarPercentage.setTextColor(Constants.successColor);
             progressBarPercentage.setText(progressBarValue + "%");
@@ -217,6 +217,9 @@ public class TestResultsFormActivity extends AppCompatActivity {
 
         }
         else if (progressBarValue == 100){
+            mProgressBar.setProgressDrawable(getResources().getDrawable(R.drawable.circular_green_progressbar));
+            progressBarPercentage.setTextColor(Constants.successColor);
+            progressBarPercentage.setText(progressBarValue + "%");
             testResultStatus.setTextColor(Constants.successColor);
             testResultStatus.setText("SHKËLSHQYESHËM!!");
         }

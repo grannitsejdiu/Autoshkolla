@@ -43,10 +43,10 @@ public class AlarmReceiver extends BroadcastReceiver {
                  .setStyle(new NotificationCompat.BigTextStyle().bigText("Hej! Ka kohë që s'je dok'!"));
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            builder.setSmallIcon(R.mipmap.testicon);
+            builder.setSmallIcon(R.mipmap.logo_notification);
             builder.setColor(Color.parseColor("#21252C"));
         } else {
-            builder.setSmallIcon(R.mipmap.ic_launcher);
+            builder.setSmallIcon(R.mipmap.logo_notification);
         }
 
         Notification notification = builder.build();

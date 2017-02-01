@@ -76,12 +76,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/pyetja_Image"
+                <RelativeLayout
                     android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_above="@+id/checkboxRelative"/>
+                    android:layout_above="@+id/checkboxRelative">
+
+                    <ImageView
+                        android:id="@+id/pyetja_Image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                     />
+
+                    <ProgressBar
+                        android:id="@+id/tqrProgressBar"
+                        android:visibility="gone"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                </RelativeLayout>
+
 
                 <LinearLayout
                     android:id="@+id/checkboxRelative"

@@ -6,11 +6,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import co.tenton.admin.autoshkolla.Models.Alternative;
@@ -24,6 +26,7 @@ public class TestQuestionResultActivity extends AppCompatActivity {
     Button pyetjaBackButton;
     ImageView pyetjaImage;
     TextView titulli, pyetjaText;
+    ProgressBar tqrProgressBar;
     public CheckBox pyetjaFirstAlternative,pyetjaSecondAlternative, pyetjaThirdAlternative;
     private AdView mAdView;
 
@@ -55,6 +58,7 @@ public class TestQuestionResultActivity extends AppCompatActivity {
         pyetjaImage = (ImageView) findViewById(R.id.pyetja_Image);
         titulli = (TextView) findViewById(R.id.pyetja_title);
         pyetjaText = (TextView) findViewById(R.id.pyetja_Text);
+        tqrProgressBar = (ProgressBar) findViewById(R.id.tqrProgressBar);
 
         pyetjaFirstAlternative = (CheckBox) findViewById(R.id.pyetja_FirstAlternative);
         pyetjaSecondAlternative = (CheckBox) findViewById(R.id.pyetja_SecondAlternative);
@@ -73,7 +77,19 @@ public class TestQuestionResultActivity extends AppCompatActivity {
         titulli.setText("Pyetja " + String.valueOf(questionIndex + 1) + "/30");
         pyetjaText.setText(q.name);
         if (q.image != null && !q.image.link.equals("")) {
-            Picasso.with(getApplicationContext()).load(q.image.getUrl()).into(pyetjaImage);
+            tqrProgressBar.setVisibility(View.VISIBLE);
+            Picasso.with(getApplicationContext()).load(q.image.getUrl()).into(pyetjaImage, new Callback() {
+                @Override
+                public void onSuccess() {
+                    tqrProgressBar.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onError() {
+                    tqrProgressBar.setVisibility(View.GONE);
+                    pyetjaImage.setImageResource(R.drawable.error_image);
+                }
+            });
         }
         else{
             pyetjaImage.setImageResource(R.drawable.imageplaceholder);

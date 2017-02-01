@@ -6,10 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import co.tenton.admin.autoshkolla.Models.Sign;
+import co.tenton.admin.autoshkolla.R;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -35,7 +38,7 @@ public class SinjalizimiHorizontalRecyclerAdapter extends RecyclerView.Adapter<S
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
 
         Sign s = signs.get(position);
 
@@ -44,7 +47,19 @@ public class SinjalizimiHorizontalRecyclerAdapter extends RecyclerView.Adapter<S
         holder.sinjalizimiHorizontalImage.setImageResource(co.tenton.admin.autoshkolla.R.drawable.imageplaceholder);
         if ((s.imager != null) && (!s.imager.link.equals("")))
         {
-            Picasso.with(context).load(s.imager.getUrl()).into(holder.sinjalizimiHorizontalImage);
+            holder.shProgressBar.setVisibility(View.VISIBLE);
+            Picasso.with(context).load(s.imager.getUrl()).into(holder.sinjalizimiHorizontalImage, new Callback() {
+                @Override
+                public void onSuccess() {
+                    holder.shProgressBar.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onError() {
+                    holder.shProgressBar.setVisibility(View.GONE);
+                    holder.sinjalizimiHorizontalImage.setImageResource(R.drawable.error_image);
+                }
+            });
         }
 
     }
@@ -58,12 +73,14 @@ public class SinjalizimiHorizontalRecyclerAdapter extends RecyclerView.Adapter<S
 
         public ImageView sinjalizimiHorizontalImage;
         public TextView sinjalizimiHorizontalDescription;
+        ProgressBar shProgressBar;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             sinjalizimiHorizontalImage = (ImageView) itemView.findViewById(co.tenton.admin.autoshkolla.R.id.sinjalizimitHorizontalImage);
             sinjalizimiHorizontalDescription = (TextView) itemView.findViewById(co.tenton.admin.autoshkolla.R.id.sinjalizimitHorizontalDescription);
+            shProgressBar = (ProgressBar) itemView.findViewById(R.id.shProgressBar);
         }
     }
 }

@@ -7,10 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import co.tenton.admin.autoshkolla.Models.Sign;
+import co.tenton.admin.autoshkolla.R;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -40,14 +43,26 @@ public class SinjalizimiVertikalGrid_Adapter extends RecyclerView.Adapter<Sinjal
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
 
         Sign s = signs.get(position);
 
         holder.tvTitle.setText(s.name);
         holder.itemImage.setImageResource(co.tenton.admin.autoshkolla.R.drawable.imageplaceholder);
         if (s.imager != null) {
-            Picasso.with(context).load(s.imager.getUrl()).into(holder.itemImage);
+            holder.svGridProgressBar.setVisibility(View.VISIBLE);
+            Picasso.with(context).load(s.imager.getUrl()).into(holder.itemImage, new Callback() {
+                @Override
+                public void onSuccess() {
+                    holder.svGridProgressBar.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onError() {
+                    holder.svGridProgressBar.setVisibility(View.GONE);
+                    holder.itemImage.setImageResource(R.drawable.error_image);
+                }
+            });
         }
     }
 
@@ -59,10 +74,12 @@ public class SinjalizimiVertikalGrid_Adapter extends RecyclerView.Adapter<Sinjal
     public class ViewHolder extends RecyclerView.ViewHolder {
          TextView tvTitle;
          ImageView itemImage;
+        ProgressBar svGridProgressBar;
         public ViewHolder(final View itemView) {
             super(itemView);
             tvTitle = (TextView) itemView.findViewById(co.tenton.admin.autoshkolla.R.id.tvTitle);
             itemImage = (ImageView) itemView.findViewById(co.tenton.admin.autoshkolla.R.id.itemImage);
+            svGridProgressBar = (ProgressBar) itemView.findViewById(R.id.svProgressBar);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

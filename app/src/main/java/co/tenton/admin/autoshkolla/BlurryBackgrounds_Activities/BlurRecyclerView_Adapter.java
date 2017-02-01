@@ -7,10 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import co.tenton.admin.autoshkolla.Models.Sign;
+import co.tenton.admin.autoshkolla.R;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -36,7 +39,7 @@ public class BlurRecyclerView_Adapter extends RecyclerView.Adapter<BlurRecyclerV
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         Sign s = signs.get(position);
         if(holder.title == null){
             holder.title.setVisibility(View.GONE);
@@ -52,7 +55,19 @@ public class BlurRecyclerView_Adapter extends RecyclerView.Adapter<BlurRecyclerV
         }
 
         if (s.imager != null){
-            Picasso.with(context).load(s.imager.getUrl()).into(holder.imageView);
+            holder.blurryProgressBar.setVisibility(View.VISIBLE);
+            Picasso.with(context).load(s.imager.getUrl()).into(holder.imageView, new Callback() {
+                @Override
+                public void onSuccess() {
+                    holder.blurryProgressBar.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onError() {
+                    holder.blurryProgressBar.setVisibility(View.GONE);
+                    holder.imageView.setImageResource(R.drawable.error_image);
+                }
+            });
         }
 
         holder.parent.setOnClickListener(new View.OnClickListener() {
@@ -73,12 +88,14 @@ public class BlurRecyclerView_Adapter extends RecyclerView.Adapter<BlurRecyclerV
         public ImageView imageView;
         public TextView title;
         public TextView description;
+        ProgressBar blurryProgressBar;
         public ViewHolder(View itemView) {
             super(itemView);
             imageView = (ImageView) itemView.findViewById(co.tenton.admin.autoshkolla.R.id.shenjat_Policit_Image);
             title = (TextView) itemView.findViewById(co.tenton.admin.autoshkolla.R.id.shenjat_Policit_Title);
             description = (TextView) itemView.findViewById(co.tenton.admin.autoshkolla.R.id.shenjat_Policit_Description);
             parent = (LinearLayout) itemView.findViewById(co.tenton.admin.autoshkolla.R.id.card_view_parent);
+            blurryProgressBar = (ProgressBar) itemView.findViewById(R.id.blurryProgressBar);
         }
     }
 }

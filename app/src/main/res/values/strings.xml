@@ -21,7 +21,7 @@
 
     <string name="action_settings">Settings</string>
 
-    <string name="njoftimet">Ju pranoni njoftime nëse gjatë një periudhe të caktuar nuk e përdorni aplikacionin.</string>
+    <string name="njoftimet">Ju pranoni njoftime nëse gjatë një periudhe të caktuar që nuk e përdorni aplikacionin.</string>
     <string name="lirimiHapesires">Nëse dëshironi të lironi hapësiren e cila është zënë nga shkarkimi i imazheve në telefonin tuaj në mënyrë të përhershme.</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
         AIzaSyDwlNWiFvE4xplI8Y8Nc8X6CcNU64DDyXU

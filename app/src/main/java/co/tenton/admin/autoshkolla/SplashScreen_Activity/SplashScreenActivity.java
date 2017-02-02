@@ -1,6 +1,6 @@
 package co.tenton.admin.autoshkolla.SplashScreen_Activity;
 
-import android.annotation.TargetApi;
+
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -35,7 +35,21 @@ public class SplashScreenActivity extends AppCompatActivity {
 
 //        notificationManager.cancelAll();
 
-        setupNotification();
+        final String AlarmID = "AlarmID001";
+
+        if (Build.VERSION.SDK_INT >= 19) {
+            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            Intent notificationIntent = new Intent("android.media.action.DISPLAY_NOTIFICATION");
+            notificationIntent.addCategory("android.intent.category.DEFAULT");
+
+            PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            alarmManager.cancel(broadcast);
+
+            Calendar cal = Calendar.getInstance();
+            cal.add(Calendar.HOUR, 120);
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);
+        }
 
         String sharedData = Parser.getFromShared(getApplicationContext());
 
@@ -53,23 +67,5 @@ public class SplashScreenActivity extends AppCompatActivity {
         }
 
     }
-
-    final static String AlarmID = "AlarmID001";
-    @TargetApi(Build.VERSION_CODES.KITKAT)
-    public void setupNotification() {
-
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent notificationIntent = new Intent("android.media.action.DISPLAY_NOTIFICATION");
-        notificationIntent.addCategory("android.intent.category.DEFAULT");
-
-        PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        alarmManager.cancel(broadcast);
-
-        Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.HOUR, 120);
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);
-    }
-
 
 }
